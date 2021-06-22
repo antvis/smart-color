@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": "lib",
+    "module": "commonjs",
+    "target": "ES2019",
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "declaration": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "pretty": true,
+    "lib": ["dom", "ES2019"],
+    "skipLibCheck": true,
+    "sourceRoot": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*", "__tests__"],
+  "exclude": ["node_modules"]
+}
