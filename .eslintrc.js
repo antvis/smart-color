@@ -5,7 +5,14 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: ['eslint:recommended', 'airbnb-base', 'plugin:import/recommended', 'plugin:import/typescript', 'prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'airbnb-base',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
+    'prettier',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 12,
@@ -14,7 +21,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['@typescript-eslint', 'import'],
+  plugins: ['@typescript-eslint', 'import', 'react'],
   rules: {
     semi: 'error',
     'no-unused-vars': 'off',
