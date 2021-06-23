@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "ES5",
+    "module": "commonjs",
+    "lib": ["dom", "es2017"],
+    "declaration": true,
+    "outDir": "./lib",
+    "strict": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "typeRoots": ["./node_modules/@types"],
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["../src/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

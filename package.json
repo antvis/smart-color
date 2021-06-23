@@ -26,7 +26,9 @@
     "build": "run-p build:*",
     "ci": "run-s lint test build",
     "prepublishOnly": "npm run ci",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "cd demo && npm install",
+    "start:demo": "cd demo && npm start"
   },
   "keywords": [
     "antv",
@@ -60,6 +62,7 @@
     "eslint-import-resolver-typescript": "^2.4.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
     "husky": "^6.0.0",
     "jest": "^27.0.5",
     "limit-size": "^0.1.4",
