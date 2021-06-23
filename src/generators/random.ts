@@ -1,4 +1,4 @@
-import { randomBetween } from "../utils";
+import { randomBetween } from '../utils';
 
 export function randomColor() {
   const r = randomBetween(0, 255);

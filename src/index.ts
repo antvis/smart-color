@@ -1,1 +1,1 @@
-export { randomColor } from "./generators/random";
+export { randomColor } from './generators/random';
