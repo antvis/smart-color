@@ -1,1 +1,1 @@
-export { randomBetween } from './random';
+export { loadImage } from './image';
