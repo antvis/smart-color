@@ -1,0 +1,1 @@
+export { colorDistance } from './distance';

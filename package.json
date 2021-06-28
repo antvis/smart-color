@@ -49,6 +49,7 @@
   },
   "homepage": "https://github.com/antvis/smart-color#readme",
   "devDependencies": {
+    "@babel/runtime": "^7.14.6",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
     "@rollup/plugin-node-resolve": "^13.0.0",
@@ -93,5 +94,13 @@
       "path": "dist/smart-color.min.js",
       "limit": "24 Kb"
     }
-  ]
+  ],
+  "dependencies": {
+    "chroma-js": "^2.1.2",
+    "color-blind": "^0.1.1",
+    "color-schema-test": "^0.1.6",
+    "colorthief": "^2.3.2",
+    "lodash": "^4.17.21",
+    "uuid": "^8.3.2"
+  }
 }
