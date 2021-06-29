@@ -20,7 +20,7 @@ export const colorToChromaColor = (color: Color): ChromaColor => {
 // Convert color to an array in a specific color space
 export const colorToArray = (
   color: Color,
-  colorSpace: ColorSpace
+  colorSpace: ColorSpace = color.space
 ): [number, number, number] | [number, number, number, number] => {
   const chromaColor = colorToChromaColor(color);
   if (chromaColor) {
@@ -60,6 +60,16 @@ export function colorToGray(color: Color): number {
 }
 // Convert gray value to color
 export function grayToColor(gray: number, alpha: number = 1): Color {
+  if (alpha === 1) {
+    return {
+      space: 'rgb',
+      value: {
+        r: gray,
+        g: gray,
+        b: gray,
+      },
+    };
+  }
   return {
     space: 'rgba',
     value: {

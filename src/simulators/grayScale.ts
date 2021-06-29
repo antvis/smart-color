@@ -10,6 +10,7 @@ export const grayScale: ColorSimulation = (color) => {
 };
 
 // invert color from the gray scale value
+// grayScaleValue: [0, 1]
 export function invertGrayScale(grayScaleValue: number, color: Color): Color {
   const [, a, b] = colorToArray(color, 'lab');
   const [, , , alpha = 1] = colorToArray(color, 'rgba');

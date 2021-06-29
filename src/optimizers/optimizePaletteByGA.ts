@@ -113,7 +113,7 @@ const calFitnessInColorBlindnessSimulation = (
   return minDistance;
 };
 // fitness function
-const calFitness = (
+export const calFitness = (
   colors: Colors,
   locked: boolean[],
   simulationType: SimulationType,
