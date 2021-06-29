@@ -48,4 +48,4 @@ export type PaletteGeneration = (
 ) => GenerationResult;
 
 // Professional test
-export type ColorDistance = (color1: Color, color2: Color) => number;
+export type ColorDistance = (color1: Color, color2: Color, simulationType?: SimulationType) => number;

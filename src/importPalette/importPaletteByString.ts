@@ -12,6 +12,7 @@ export function importPaletteByString(code: string): Palette {
     colors: code
       .replace(/[^#,0-9a-fA-F]/g, '')
       .split(',')
+      .filter((color) => color.length > 0)
       .map((color) => {
         return hexToColor(color);
       }),
