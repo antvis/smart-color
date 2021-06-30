@@ -27,7 +27,7 @@
     "ci": "run-s lint test build",
     "prepublishOnly": "npm run ci",
     "prepare": "husky install",
-    "start:demo": "cd demo && npm start"
+    "start:demo": "cd demo && npm install && npm start"
   },
   "keywords": [
     "antv",
