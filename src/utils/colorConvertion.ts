@@ -1,4 +1,4 @@
-import { Color, ColorSpace } from 'color-schema-test';
+import { Color, ColorModel } from 'color-schema-test';
 import chroma, { Color as ChromaColor } from 'chroma-js';
 
 const isChromaColor = (color: any): color is ChromaColor => {
@@ -17,35 +17,35 @@ export const colorToChromaColor = (color: Color): ChromaColor => {
   return chroma('#000');
 };
 
-// Convert color to an array in a specific color space
+// Convert color to an array in a specific color model
 export const colorToArray = (
   color: Color,
-  colorSpace: ColorSpace = color.space
+  colorModel: ColorModel = color.model
 ): [number, number, number] | [number, number, number, number] => {
   const chromaColor = colorToChromaColor(color);
   if (chromaColor) {
-    return chromaColor[colorSpace]();
+    return chromaColor[colorModel]();
   }
   return [0, 0, 0];
 };
-// Convert an array in a specific color space to color
+// Convert an array in a specific color model to color
 export const arrayToColor = (
   array: [number] | [number, number, number] | [number, number, number, number],
-  colorSpace: ColorSpace
+  colorModel: ColorModel
 ): Color => {
   const value = {};
   if (array.length === 1) {
     const [v] = array;
-    for (let i = 0; i < colorSpace.length; i += 1) {
-      value[colorSpace[i]] = v;
+    for (let i = 0; i < colorModel.length; i += 1) {
+      value[colorModel[i]] = v;
     }
   } else {
-    for (let i = 0; i < colorSpace.length; i += 1) {
-      value[colorSpace[i]] = array[i];
+    for (let i = 0; i < colorModel.length; i += 1) {
+      value[colorModel[i]] = array[i];
     }
   }
   return {
-    space: colorSpace,
+    model: colorModel,
     value,
   } as Color;
 };
@@ -62,7 +62,7 @@ export function colorToGray(color: Color): number {
 export function grayToColor(gray: number, alpha: number = 1): Color {
   if (alpha === 1) {
     return {
-      space: 'rgb',
+      model: 'rgb',
       value: {
         r: gray,
         g: gray,
@@ -71,7 +71,7 @@ export function grayToColor(gray: number, alpha: number = 1): Color {
     };
   }
   return {
-    space: 'rgba',
+    model: 'rgba',
     value: {
       r: gray,
       g: gray,
@@ -92,7 +92,7 @@ export function hexToColor(hexValue: string): Color {
     return arrayToColor(rgba, 'rgba');
   }
   return {
-    space: 'rgb',
+    model: 'rgb',
     value: { r: 0, g: 0, b: 0 },
   };
 }

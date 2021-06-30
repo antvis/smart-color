@@ -1,4 +1,4 @@
-import { Color, Palette, ColorSpace, ColorSchemeType } from 'color-schema-test';
+import { Color, Palette, ColorModel, ColorSchemeType } from 'color-schema-test';
 import { COLOR_BLINDNESS_SIMULATION_TYPES, TENDENCIES } from './constant';
 
 // color simulation
@@ -20,7 +20,7 @@ export type PaletteOptimization = (
   simulationType?: SimulationType,
   threshold?: number,
   // default value: 'hsv'
-  colorSpace?: ColorSpace
+  colorModel?: ColorModel
 ) => Palette;
 
 // palette generation

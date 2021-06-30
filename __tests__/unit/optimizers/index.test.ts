@@ -18,7 +18,7 @@ const palette: CategoricalPalette = {
   type: 'categorical',
   colors: [
     {
-      space: 'rgb',
+      model: 'rgb',
       value: {
         r: 91,
         g: 143,
@@ -26,7 +26,7 @@ const palette: CategoricalPalette = {
       },
     },
     {
-      space: 'rgba',
+      model: 'rgba',
       value: {
         r: 45,
         g: 148,
@@ -35,7 +35,7 @@ const palette: CategoricalPalette = {
       },
     },
     {
-      space: 'rgb',
+      model: 'rgb',
       value: {
         r: 101,
         g: 120,
@@ -43,7 +43,7 @@ const palette: CategoricalPalette = {
       },
     },
     {
-      space: 'rgba',
+      model: 'rgba',
       value: {
         r: 22,
         g: 90,
@@ -52,7 +52,7 @@ const palette: CategoricalPalette = {
       },
     },
     {
-      space: 'rgb',
+      model: 'rgb',
       value: {
         r: 114,
         g: 98,
@@ -60,7 +60,7 @@ const palette: CategoricalPalette = {
       },
     },
     {
-      space: 'rgb',
+      model: 'rgb',
       value: {
         r: 120,
         g: 211,
@@ -68,7 +68,7 @@ const palette: CategoricalPalette = {
       },
     },
     {
-      space: 'rgb',
+      model: 'rgb',
       value: {
         r: 150,
         g: 97,
@@ -76,7 +76,7 @@ const palette: CategoricalPalette = {
       },
     },
     {
-      space: 'rgba',
+      model: 'rgba',
       value: {
         r: 20,
         g: 208,
@@ -85,7 +85,7 @@ const palette: CategoricalPalette = {
       },
     },
     {
-      space: 'rgb',
+      model: 'rgb',
       value: {
         r: 0,
         g: 134,
@@ -93,7 +93,7 @@ const palette: CategoricalPalette = {
       },
     },
     {
-      space: 'rgba',
+      model: 'rgba',
       value: {
         r: 122,
         g: 24,

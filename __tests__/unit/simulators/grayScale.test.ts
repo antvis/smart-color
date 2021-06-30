@@ -3,7 +3,7 @@ import { colorToGray, invertGrayScale, colorSimulation } from '@src/index';
 
 describe('grayscale', () => {
   const rgb: Color = {
-    space: 'rgb',
+    model: 'rgb',
     value: {
       r: 122,
       g: 12,
@@ -12,7 +12,7 @@ describe('grayscale', () => {
   };
 
   const rgba: Color = {
-    space: 'rgba',
+    model: 'rgba',
     value: {
       r: 122,
       g: 12,

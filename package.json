@@ -101,7 +101,7 @@
   "dependencies": {
     "chroma-js": "^2.1.2",
     "color-blind": "^0.1.1",
-    "color-schema-test": "^0.1.6",
+    "color-schema-test": "^0.1.8",
     "colorthief": "^2.3.2",
     "lodash": "^4.17.21",
     "uuid": "^8.3.2"

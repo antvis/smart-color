@@ -1,8 +1,8 @@
-import { ColorSpace, ColorSpaceRange as COLOR_SPACE_RANGE } from 'color-schema-test';
+import { ColorModel, ColorModelRange as COLOR_MODEL_RANGE } from 'color-schema-test';
 import { cloneDeep, sumBy, random } from 'lodash';
 import { SimulationType } from '../types';
-import { arrayToColor } from '../color/convertion';
-import { colorDistance } from '../protest';
+import { arrayToColor } from '../utils';
+import { colorDistance } from '../professionalTest';
 import { colorSimulation } from '../simulators';
 
 type ColorArray = [number] | [number, number, number] | [number, number, number, number];
@@ -61,7 +61,7 @@ const crossover = (father: Colors, mother: Colors) => {
   return [child1, child2];
 };
 
-const mutate = (colors: Colors, unLocledIndexs: number[], simulationType: SimulationType, colorSpace: ColorSpace) => {
+const mutate = (colors: Colors, unLocledIndexs: number[], simulationType: SimulationType, colorModel: ColorModel) => {
   const newColors = cloneDeep(colors);
   // pick one color and change color adaptively
   const mutateIndex = unLocledIndexs[random(unLocledIndexs.length - 1)];
@@ -70,7 +70,7 @@ const mutate = (colors: Colors, unLocledIndexs: number[], simulationType: Simula
   // clip
   let range = [15, 240]; // grayScale
   if (simulationType !== 'grayScale') {
-    range = COLOR_SPACE_RANGE[colorSpace][colorSpace.split('')[dimensionIndex]];
+    range = COLOR_MODEL_RANGE[colorModel][colorModel.split('')[dimensionIndex]];
   }
 
   const [min, max] = range;
@@ -99,10 +99,10 @@ const calFitnessInColorBlindnessSimulation = (
   colors: Colors,
   locked: boolean[],
   simulationType: SimulationType,
-  colorSpace: ColorSpace
+  colorModel: ColorModel
 ): number => {
   let minDistance = Infinity;
-  const newColors = colors.map((color) => colorSimulation(arrayToColor(color, colorSpace), simulationType));
+  const newColors = colors.map((color) => colorSimulation(arrayToColor(color, colorModel), simulationType));
   for (let i = 0; i < newColors.length; i += 1) {
     for (let j = i + 1; j < newColors.length; j += 1) {
       if (!(locked[i] && locked[j])) {
@@ -117,12 +117,12 @@ export const calFitness = (
   colors: Colors,
   locked: boolean[],
   simulationType: SimulationType,
-  colorSpace: ColorSpace
+  colorModel: ColorModel
 ): number => {
   if (simulationType === 'grayScale') {
     return calFitnessInGrayScale(colors, locked);
   }
-  return calFitnessInColorBlindnessSimulation(colors, locked, simulationType, colorSpace);
+  return calFitnessInColorBlindnessSimulation(colors, locked, simulationType, colorModel);
 };
 
 export const optimizePaletteByGA = (
@@ -130,9 +130,9 @@ export const optimizePaletteByGA = (
   locked: boolean[],
   simulationType: SimulationType,
   threshold: number,
-  colorSpace: ColorSpace
+  colorModel: ColorModel
 ) => {
-  if (Math.round(calFitness(colors, locked, simulationType, colorSpace)) > threshold) {
+  if (Math.round(calFitness(colors, locked, simulationType, colorModel)) > threshold) {
     return colors;
   }
   const unLocledIndexs = new Array(colors.length)
@@ -143,9 +143,9 @@ export const optimizePaletteByGA = (
   // Creating a new generation
   let population = new Array(POPULATION_NUMBER)
     .fill(0)
-    .map(() => mutate(colors, unLocledIndexs, simulationType, colorSpace));
+    .map(() => mutate(colors, unLocledIndexs, simulationType, colorModel));
   // Evaluating individuals
-  let fitnesses = population.map((colors) => calFitness(colors, locked, simulationType, colorSpace));
+  let fitnesses = population.map((colors) => calFitness(colors, locked, simulationType, colorModel));
   let bestFitness = Math.max(...fitnesses);
   let elites = population[fitnesses.findIndex((d) => d === bestFitness)];
   let cnt = 1;
@@ -161,13 +161,13 @@ export const optimizePaletteByGA = (
       let childern = random(1, true) < CROSSOVER_RATE ? crossover(father, mother) : [father, mother];
       // Mutation
       childern = childern.map((child) =>
-        random(1, true) < MUTATION_RATE ? mutate(child, unLocledIndexs, simulationType, colorSpace) : child
+        random(1, true) < MUTATION_RATE ? mutate(child, unLocledIndexs, simulationType, colorModel) : child
       );
       newPopulation.push(...childern);
     }
 
     population = newPopulation;
-    fitnesses = population.map((colors) => calFitness(colors, locked, simulationType, colorSpace));
+    fitnesses = population.map((colors) => calFitness(colors, locked, simulationType, colorModel));
     const newBestFitness = Math.max(...fitnesses);
     bestFitness = newBestFitness;
     elites = population[fitnesses.findIndex((d) => d === newBestFitness)];

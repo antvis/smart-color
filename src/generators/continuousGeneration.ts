@@ -1,6 +1,6 @@
 import { random } from 'lodash';
 import { Color } from 'color-schema-test';
-import { colorToArray, arrayToColor } from '../color/convertion';
+import { colorToArray, arrayToColor } from '../utils';
 
 // Fix a, b, vary L
 export const continuousGenerationInLab = (
