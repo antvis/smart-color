@@ -27,7 +27,6 @@
     "ci": "run-s lint test build",
     "prepublishOnly": "npm run ci",
     "prepare": "husky install",
-    "postinstall": "cd demo && npm install",
     "start:demo": "cd demo && npm start"
   },
   "keywords": [
