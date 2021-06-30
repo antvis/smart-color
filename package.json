@@ -28,7 +28,7 @@
     "prepublishOnly": "npm run ci",
     "prepare": "husky install",
     "postinstall": "cd demo && npm install",
-    "start:demo": "cd demo && npm start"
+    "start:demo": "cd demo && npm install && npm start"
   },
   "keywords": [
     "antv",
