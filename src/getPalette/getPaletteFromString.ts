@@ -1,9 +1,9 @@
 import { Palette } from 'color-schema-test';
 import { v4 as uuidv4 } from 'uuid';
-import { hexToColor } from '../color/convertion';
+import { hexToColor } from '../utils';
 
-// Get a palette of string
-export function importPaletteByString(code: string): Palette {
+// Get a list of colors from string
+export function getPaletteFromString(code: string): Palette {
   return {
     id: uuidv4(),
     name: 'code',

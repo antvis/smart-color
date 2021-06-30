@@ -2,7 +2,7 @@ import { isContinuousPalette, isMatrixPalette } from 'color-schema-test';
 import { cloneDeep } from 'lodash';
 import { invertGrayScale } from '../simulators';
 import { PaletteOptimization } from '../types';
-import { colorToGray, colorToArray, arrayToColor } from '../color/convertion';
+import { colorToGray, colorToArray, arrayToColor } from '../utils';
 import { optimizePaletteByGA } from './optimizePaletteByGA';
 
 export const paletteOptimization: PaletteOptimization = (
@@ -10,7 +10,7 @@ export const paletteOptimization: PaletteOptimization = (
   locked = [],
   simulationType = 'normal',
   threshold,
-  colorSpace = 'hsv'
+  colorModel = 'hsv'
 ) => {
   let newThreshold = threshold;
   // set default value
@@ -29,15 +29,15 @@ export const paletteOptimization: PaletteOptimization = (
   if (!isMatrixPalette(newPalette) && !isContinuousPalette(newPalette)) {
     if (simulationType === 'grayScale') {
       const colors = newPalette.colors.map((color): [number] => [colorToGray(color)]);
-      const newColors = optimizePaletteByGA(colors, locked, simulationType, newThreshold, colorSpace);
+      const newColors = optimizePaletteByGA(colors, locked, simulationType, newThreshold, colorModel);
       newPalette.colors.forEach((color, index) =>
         Object.assign(color, invertGrayScale(newColors[index][0] / 255, color))
       );
     } else {
-      const colors = newPalette.colors.map((color) => colorToArray(color, colorSpace));
-      const newColors = optimizePaletteByGA(colors, locked, simulationType, newThreshold, colorSpace);
+      const colors = newPalette.colors.map((color) => colorToArray(color, colorModel));
+      const newColors = optimizePaletteByGA(colors, locked, simulationType, newThreshold, colorModel);
       newPalette.colors.forEach((color, index) => {
-        Object.assign(color, arrayToColor(newColors[index], colorSpace));
+        Object.assign(color, arrayToColor(newColors[index], colorModel));
       });
     }
   }

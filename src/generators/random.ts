@@ -1,5 +1,5 @@
 import { random } from 'lodash';
-import { arrayToColor } from '../color/convertion';
+import { arrayToColor } from '../utils';
 
 export function randomColor() {
   const r = random(0, 255);

@@ -2,7 +2,7 @@ import { Color } from 'color-schema-test';
 import { paletteGeneration, colorToArray, colorToHex } from '@src/index';
 
 describe('Palette Generator', () => {
-  const color: Color = { space: 'rgb', value: { r: 123, g: 123, b: 0 } };
+  const color: Color = { model: 'rgb', value: { r: 123, g: 123, b: 0 } };
   test('should generate monochromatic palette', () => {
     const result = paletteGeneration('monochromatic');
     const { status } = result;

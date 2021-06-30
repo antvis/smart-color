@@ -1,4 +1,4 @@
-import { hueOffset } from '@src/color/computation';
+import { hueOffset } from '@src/utils/colorComputation';
 
 describe('Color computation', () => {
   test('hue offest', () => {

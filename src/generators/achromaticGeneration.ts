@@ -3,11 +3,11 @@ import { monochromaticGeneration } from './monochromaticGeneration';
 import { Generation } from './types';
 
 const BLACK: Color = {
-  space: 'rgb',
+  model: 'rgb',
   value: { r: 0, g: 0, b: 0 },
 };
 const WHITE: Color = {
-  space: 'rgb',
+  model: 'rgb',
   value: { r: 255, g: 255, b: 255 },
 };
 

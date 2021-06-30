@@ -1,11 +1,10 @@
 import ColorThief from 'colorthief';
 import { v4 as uuidv4 } from 'uuid';
 import { Palette } from 'color-schema-test';
-import { loadImage } from '../utils';
-import { arrayToColor } from '../color/convertion';
+import { loadImage, arrayToColor } from '../utils';
 
 // Get a list of colors from img url
-export async function importPaletteByImage(
+export async function getPaletteFromImage(
   imgUrl: string,
   colorCount: number = 2,
   quality: number = 10

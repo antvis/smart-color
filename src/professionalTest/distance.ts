@@ -1,5 +1,5 @@
 import chroma from 'chroma-js';
-import { colorToChromaColor, colorToGray } from '../color/convertion';
+import { colorToChromaColor, colorToGray } from '../utils';
 import { ColorDistance } from '../types';
 import { isColorBlindnessSimulation, colorSimulation } from '../simulators';
 

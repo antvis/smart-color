@@ -1,7 +1,6 @@
 import { random, findIndex } from 'lodash';
 import { Color } from 'color-schema-test';
-import { colorToArray, arrayToColor } from '../color/convertion';
-import { hueOffset } from '../color/computation';
+import { colorToArray, arrayToColor, hueOffset } from '../utils';
 
 const saturationRange: [number, number] = [0.3, 0.9];
 const valueRange: [number, number] = [0.5, 1];
@@ -13,7 +12,7 @@ export const categoricalGenerationInHsv = (
 ) => {
   const [h] = colorToArray(color, 'hsv');
   const locked = new Array(count).fill(false);
-  let placeBasicColor = findIndex(colors, { space: color.space, value: color.value }) === -1;
+  let placeBasicColor = findIndex(colors, { model: color.model, value: color.value }) === -1;
   const newColors = new Array(count).fill(0).map((d, i): Color => {
     const lockedColor = colors[i];
     if (lockedColor) {

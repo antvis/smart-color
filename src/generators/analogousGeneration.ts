@@ -1,7 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { DiscreteScalePalette } from 'color-schema-test';
-import { colorToArray, arrayToColor } from '../color/convertion';
-import { hueOffset } from '../color/computation';
+import { colorToArray, arrayToColor, hueOffset } from '../utils';
 import { Generation } from './types';
 import { verifyContinuousPaletteGeneration } from './verification';
 

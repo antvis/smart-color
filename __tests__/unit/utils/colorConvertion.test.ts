@@ -2,7 +2,7 @@ import { Color } from 'color-schema-test';
 import { arrayToColor, colorToArray, colorToGray, grayToColor, hexToColor, colorToHex } from '@src/index';
 
 const black: Color = {
-  space: 'rgb',
+  model: 'rgb',
   value: {
     r: 0,
     g: 0,
@@ -11,7 +11,7 @@ const black: Color = {
 };
 
 const white: Color = {
-  space: 'rgb',
+  model: 'rgb',
   value: {
     r: 255,
     g: 255,
@@ -29,7 +29,7 @@ describe('Color convertion', () => {
 
     // color out of range
     const color: Color = {
-      space: 'rgb',
+      model: 'rgb',
       value: {
         r: 258,
         g: 0,
@@ -85,7 +85,7 @@ describe('Color convertion', () => {
 
     const color3 = grayToColor(123, 0.1);
     expect(color3).toStrictEqual({
-      space: 'rgba',
+      model: 'rgba',
       value: { r: 123, g: 123, b: 123, a: 0.1 },
     });
   });

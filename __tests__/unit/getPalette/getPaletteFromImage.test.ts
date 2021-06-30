@@ -1,5 +1,5 @@
 import EventEmitter from 'wolfy87-eventemitter';
-import { importPaletteByImage } from '@src/index';
+import { getPaletteFromImage } from '@src/index';
 
 describe('import palette by image', () => {
   beforeAll(() => {
@@ -34,7 +34,7 @@ describe('import palette by image', () => {
   });
 
   it('should handle onerror event', async () => {
-    const palette = await importPaletteByImage('error.png', 8);
+    const palette = await getPaletteFromImage('error.png', 8);
     expect(palette).toBeUndefined();
   });
 });

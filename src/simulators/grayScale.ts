@@ -1,5 +1,5 @@
 import { Color } from 'color-schema-test';
-import { arrayToColor, colorToArray, colorToGray, grayToColor } from '../color/convertion';
+import { arrayToColor, colorToArray, colorToGray, grayToColor } from '../utils';
 import { ColorSimulation } from '../types';
 
 // get color in grayScale

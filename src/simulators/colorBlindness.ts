@@ -1,7 +1,7 @@
 import blinder from 'color-blind';
 import { COLOR_BLINDNESS_SIMULATION_TYPES } from '../constant';
 import { ColorBlindnessSimulationType, ColorSimulation } from '../types';
-import { hexToColor, colorToHex } from '../color/convertion';
+import { hexToColor, colorToHex } from '../utils';
 
 export function isColorBlindnessSimulation(type: any): type is ColorBlindnessSimulationType {
   return type !== 'normal' && COLOR_BLINDNESS_SIMULATION_TYPES.indexOf(type) > -1;
