@@ -1,6 +1,6 @@
 {
   "name": "@antv/smart-color",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A JavaScript library for color computation.",
   "main": "lib/index.js",
   "module": "esm/index.js",
