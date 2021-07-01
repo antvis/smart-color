@@ -13,7 +13,7 @@ describe('Palette Generator', () => {
     for (let i = 1; i < colors.length; i += 1) {
       const [hue1] = colorToArray(colors[i - 1], 'hsv');
       const [hue2] = colorToArray(colors[i], 'hsv');
-      expect(Math.min(Math.abs(hue1 - hue2), 360 - Math.abs(hue1 - hue2))).toBeLessThan(30);
+      expect(Math.min(Math.abs(hue1 - hue2), 360 - Math.abs(hue1 - hue2))).toBeLessThan(45);
     }
   });
   test('should generate analogous palette', () => {
