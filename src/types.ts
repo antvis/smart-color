@@ -12,22 +12,25 @@ export type ColorSimulation = (
 ) => Color;
 
 // palette optimization
-export type PaletteOptimization = (
-  palette: Palette,
+export type OptimizerConfiguration = {
   // default value: []
-  locked?: boolean[],
+  locked?: boolean[];
   // default value: 'normal'
-  simulationType?: SimulationType,
-  threshold?: number,
+  simulationType?: SimulationType;
+  threshold?: number;
   // default value: 'hsv'
-  colorModel?: ColorModel
-) => Palette;
+  colorModel?: ColorModel;
+};
+export type PaletteOptimization = (palette: Palette, configuration?: OptimizerConfiguration) => Palette;
 
 // palette generation
 type Tendency = typeof TENDENCIES[number];
-export type GeneratorConfig = {
+export type GeneratorConfiguration = {
   count?: number;
+  // basic color
   color?: Color;
+  // locked colors
+  colors?: (Color | undefined)[];
   tendency?: Tendency;
 };
 interface SuccessResult {
@@ -42,9 +45,7 @@ export type GenerationResult = SuccessResult | ErrorResult;
 export type PaletteGeneration = (
   // defalut value: monochromatic
   type?: ColorSchemeType,
-  // locked colors
-  colors?: (Color | undefined)[],
-  config?: GeneratorConfig
+  configuration?: GeneratorConfiguration
 ) => GenerationResult;
 
 // Professional test

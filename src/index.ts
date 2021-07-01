@@ -5,10 +5,10 @@ export { colorSimulation, invertGrayScale } from './simulators';
 export { paletteGeneration } from './generators';
 // palette optimization
 export { paletteOptimization } from './optimizers';
-// import palette
+// get palette
 export { getPaletteFromImage } from './getPalette/getPaletteFromImage';
 export { getPaletteFromString } from './getPalette/getPaletteFromString';
 // Professional test
 export { colorDistance } from './professionalTest';
 export { ColorBlindnessSimulationType, SimulationType } from './types';
-export { TENDENCIES } from './constant';
+export { COLOR_BLINDNESS_SIMULATION_TYPES, TENDENCIES } from './constant';

@@ -92,16 +92,20 @@ describe('Palette Generator', () => {
     expect(status).toBe('success');
   });
   test('should generete palette with locked color', () => {
-    const result1 = paletteGeneration('monochromatic', [color]);
+    const result1 = paletteGeneration('monochromatic', {
+      colors: [color],
+    });
     expect(result1.status).toBe('error');
 
-    const result2 = paletteGeneration('polychromatic', [color]);
+    const result2 = paletteGeneration('polychromatic', {
+      colors: [color],
+    });
     expect(result2.status).toBe('success');
     // @ts-ignore
     expect(colorToHex(result2.palette.colors[0])).toBe(colorToHex(color));
   });
-  test('should generete palette with config', () => {
-    const result = paletteGeneration('monochromatic', [], {
+  test('should generete palette with configuration', () => {
+    const result = paletteGeneration('monochromatic', {
       count: 9,
       color,
       tendency: 'shade',

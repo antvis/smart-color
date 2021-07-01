@@ -5,8 +5,8 @@ import { categoricalGenerationInHsv } from './categoricalGeneration';
 import { Generation } from './types';
 
 // generate categorical palette by polychromatic scheme
-export const polychromaticGeneration: Generation = (colors, config) => {
-  const { count, color } = config;
+export const polychromaticGeneration: Generation = (configuration) => {
+  const { count, color, colors } = configuration;
   const dHue = 360 / count;
   const { newColors, locked } = categoricalGenerationInHsv(color, dHue, count, colors);
   const palette: CategoricalPalette = {
@@ -19,6 +19,6 @@ export const polychromaticGeneration: Generation = (colors, config) => {
 
   return {
     status: 'success',
-    palette: paletteOptimization(palette, locked) as CategoricalPalette,
+    palette: paletteOptimization(palette, { locked }) as CategoricalPalette,
   };
 };

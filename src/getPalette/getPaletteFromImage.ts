@@ -6,14 +6,14 @@ import { loadImage, arrayToColor } from '../utils';
 // Get a list of colors from img url
 export async function getPaletteFromImage(
   imgUrl: string,
-  colorCount: number = 2,
+  count: number = 6,
   quality: number = 10
 ): Promise<Palette | undefined> {
   return new Promise((resolve) => {
     loadImage(imgUrl)
       .then((img) => {
         const cf = new ColorThief();
-        const arrayRGB = cf.getPalette(img, colorCount, quality);
+        const arrayRGB = cf.getPalette(img, count, quality);
         resolve({
           id: uuidv4(),
           name: 'image',

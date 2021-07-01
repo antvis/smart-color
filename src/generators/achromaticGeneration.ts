@@ -12,13 +12,13 @@ const WHITE: Color = {
 };
 
 // generate sequential palette by achromatic scheme
-export const achromaticGeneration: Generation = (colors, config) => {
-  const { tendency } = config;
-  const newConfig = {
-    ...config,
+export const achromaticGeneration: Generation = (configuration) => {
+  const { tendency } = configuration;
+  const newConfiguration = {
+    ...configuration,
     color: tendency === 'tint' ? BLACK : WHITE,
   };
-  const result = monochromaticGeneration(colors, newConfig);
+  const result = monochromaticGeneration(newConfiguration);
   if (result.status === 'success') {
     return {
       status: 'success',

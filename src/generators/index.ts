@@ -25,20 +25,21 @@ const generator = {
  *
  * @param type
  * @param colors locked colors
- * @param config
+ * @param configuration
  * @returns
  */
-export const paletteGeneration: PaletteGeneration = (type = 'monochromatic', colors = [], config = {}) => {
+export const paletteGeneration: PaletteGeneration = (type = 'monochromatic', configuration = {}) => {
   // set default value
-  const { color = randomColor(), count = 8, tendency = 'tint' } = config;
-  const newConfig = {
+  const { color = randomColor(), colors = [], count = 8, tendency = 'tint' } = configuration;
+  const newConfiguration = {
     color,
+    colors,
     count,
     tendency,
   };
   try {
-    return generator[type](colors, newConfig);
+    return generator[type](newConfiguration);
   } catch (e) {
-    return randomGeneration(colors, newConfig);
+    return randomGeneration(newConfiguration);
   }
 };

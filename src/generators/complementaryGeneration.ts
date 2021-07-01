@@ -7,11 +7,11 @@ import { continuousGenerationInLab } from './continuousGeneration';
 import { verifyContinuousPaletteGeneration } from './verification';
 
 // generate diverging palette by complementary scheme
-export const complementaryGeneration: Generation = (colors, config) => {
+export const complementaryGeneration: Generation = (configuration) => {
+  const { count, color, colors } = configuration;
   const verifyResult = verifyContinuousPaletteGeneration(colors);
   if (verifyResult) return verifyResult;
 
-  const { count, color } = config;
   const [hue, saturation, value] = colorToArray(color, 'hsv');
   const complementaryColor = arrayToColor([hueOffset(hue, 180), saturation, value], 'hsv');
 
