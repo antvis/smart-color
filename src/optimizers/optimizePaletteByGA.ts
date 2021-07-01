@@ -8,7 +8,7 @@ import { colorSimulation } from '../simulators';
 type ColorArray = [number] | [number, number, number] | [number, number, number, number];
 type Colors = ColorArray[];
 
-// Genetic algorithm config
+// Genetic algorithm configuration
 const POPULATION_NUMBER = 50;
 const CROSSOVER_RATE = 0.9;
 const MUTATION_RATE = 0.1;

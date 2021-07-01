@@ -9,5 +9,5 @@ export const COLOR_BLINDNESS_SIMULATION_TYPES = [
   'achromatomaly',
   'achromatopsia',
 ];
-// color optimization config
+// color optimization configuration
 export const TENDENCIES = ['tint', 'shade'];

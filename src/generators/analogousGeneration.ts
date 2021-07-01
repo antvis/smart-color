@@ -5,11 +5,11 @@ import { Generation } from './types';
 import { verifyContinuousPaletteGeneration } from './verification';
 
 // generate sequential palette by analogous scheme
-export const analogousGeneration: Generation = (colors, config) => {
+export const analogousGeneration: Generation = (configuration) => {
+  const { count, color, tendency, colors } = configuration;
   const verifyResult = verifyContinuousPaletteGeneration(colors);
   if (verifyResult) return verifyResult;
 
-  const { count, color, tendency } = config;
   const isTint = tendency === 'tint';
   const [hue, saturation, value] = colorToArray(color, 'hsv');
   const index = Math.floor(count / 2);

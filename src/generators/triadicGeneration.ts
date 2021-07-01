@@ -5,8 +5,8 @@ import { categoricalGenerationInHsv } from './categoricalGeneration';
 import { Generation } from './types';
 
 // generate categorical palette by triadic scheme
-export const triadicGeneration: Generation = (colors, config) => {
-  const { count, color } = config;
+export const triadicGeneration: Generation = (configuration) => {
+  const { count, color, colors } = configuration;
   const dHue = 120;
   const { newColors, locked } = categoricalGenerationInHsv(color, dHue, count, colors);
   const palette: CategoricalPalette = {
@@ -18,6 +18,6 @@ export const triadicGeneration: Generation = (colors, config) => {
   };
   return {
     status: 'success',
-    palette: paletteOptimization(palette, locked) as CategoricalPalette,
+    palette: paletteOptimization(palette, { locked }) as CategoricalPalette,
   };
 };

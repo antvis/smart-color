@@ -5,13 +5,8 @@ import { PaletteOptimization } from '../types';
 import { colorToGray, colorToArray, arrayToColor } from '../utils';
 import { optimizePaletteByGA } from './optimizePaletteByGA';
 
-export const paletteOptimization: PaletteOptimization = (
-  palette,
-  locked = [],
-  simulationType = 'normal',
-  threshold,
-  colorModel = 'hsv'
-) => {
+export const paletteOptimization: PaletteOptimization = (palette, configuration = {}) => {
+  const { locked = [], simulationType = 'normal', threshold, colorModel = 'hsv' } = configuration;
   let newThreshold = threshold;
   // set default value
   if (!newThreshold) {

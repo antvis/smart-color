@@ -5,8 +5,8 @@ import { Generation } from './types';
 import { randomColor } from './random';
 
 // generate categorical palette randomly
-export const randomGeneration: Generation = (colors, config) => {
-  const { count } = config;
+export const randomGeneration: Generation = (configuration) => {
+  const { count, colors } = configuration;
   const locked: boolean[] = [];
   const palette: CategoricalPalette = {
     id: uuidv4(),
@@ -24,6 +24,6 @@ export const randomGeneration: Generation = (colors, config) => {
   };
   return {
     status: 'success',
-    palette: paletteOptimization(palette, locked) as CategoricalPalette,
+    palette: paletteOptimization(palette, { locked }) as CategoricalPalette,
   };
 };

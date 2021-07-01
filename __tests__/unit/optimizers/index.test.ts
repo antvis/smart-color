@@ -2,14 +2,14 @@ import { CategoricalPalette } from 'color-schema-test';
 import { paletteOptimization, colorDistance, SimulationType } from '@src/index';
 
 const getMinDistance = (palette: CategoricalPalette, simulationType: SimulationType = 'normal') => {
-  let mindistance = Infinity;
+  let minDistance = Infinity;
   const { colors } = palette;
   for (let i = 0; i < colors.length; i += 1) {
     for (let j = i + 1; j < colors.length; j += 1) {
-      mindistance = Math.min(colorDistance(colors[i], colors[j], simulationType), mindistance);
+      minDistance = Math.min(colorDistance(colors[i], colors[j], simulationType), minDistance);
     }
   }
-  return mindistance;
+  return minDistance;
 };
 
 const palette: CategoricalPalette = {
@@ -105,18 +105,22 @@ const palette: CategoricalPalette = {
 };
 describe('Palette optimization', () => {
   test('palette optimization in normal case', () => {
-    const mindistance = getMinDistance(palette);
+    const minDistance = getMinDistance(palette);
     const newPalette = paletteOptimization(palette) as CategoricalPalette;
-    expect(getMinDistance(newPalette)).toBeGreaterThanOrEqual(mindistance);
+    expect(getMinDistance(newPalette)).toBeGreaterThanOrEqual(minDistance);
   });
   test('palette optimization in grayScale', () => {
-    const mindistance = getMinDistance(palette, 'grayScale');
-    const newPalette = paletteOptimization(palette, [], 'grayScale') as CategoricalPalette;
-    expect(getMinDistance(newPalette, 'grayScale')).toBeGreaterThanOrEqual(mindistance);
+    const minDistance = getMinDistance(palette, 'grayScale');
+    const newPalette = paletteOptimization(palette, {
+      simulationType: 'grayScale',
+    }) as CategoricalPalette;
+    expect(getMinDistance(newPalette, 'grayScale')).toBeGreaterThanOrEqual(minDistance);
   });
   test('palette optimization in color blind simulation', () => {
-    const mindistance = getMinDistance(palette, 'protanomaly');
-    const newPalette = paletteOptimization(palette, [], 'protanomaly') as CategoricalPalette;
-    expect(getMinDistance(newPalette, 'protanomaly')).toBeGreaterThanOrEqual(mindistance);
+    const minDistance = getMinDistance(palette, 'protanomaly');
+    const newPalette = paletteOptimization(palette, {
+      simulationType: 'protanomaly',
+    }) as CategoricalPalette;
+    expect(getMinDistance(newPalette, 'protanomaly')).toBeGreaterThanOrEqual(minDistance);
   });
 });

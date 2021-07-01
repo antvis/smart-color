@@ -31,7 +31,7 @@ export const colorToArray = (
 // Convert an array in a specific color model to color
 export const arrayToColor = (
   array: [number] | [number, number, number] | [number, number, number, number],
-  colorModel: ColorModel
+  colorModel: ColorModel = array.length === 4 ? 'rgba' : 'rgb'
 ): Color => {
   const value = {};
   if (array.length === 1) {
