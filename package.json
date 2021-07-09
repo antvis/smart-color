@@ -27,7 +27,8 @@
     "ci": "run-s lint test build",
     "prepublishOnly": "npm run ci",
     "prepare": "husky install",
-    "start:demo": "cd demo && npm install && npm start"
+    "start:demo": "cd demo && npm install && npm start",
+    "deploy:site": "cd demo && npm run deploy:site"
   },
   "keywords": [
     "antv",
@@ -49,7 +50,7 @@
   "bugs": {
     "url": "https://github.com/antvis/smart-color/issues"
   },
-  "homepage": "https://github.com/antvis/smart-color#readme",
+  "homepage": "https://antvis.github.io/smart-color",
   "devDependencies": {
     "@babel/runtime": "^7.14.6",
     "@commitlint/cli": "^12.1.4",
