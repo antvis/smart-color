@@ -72,9 +72,6 @@ hexToColor("#5b8ff9");
 // }; 
 ```
 
-* [colorToGray](./utils/colorConvertion.md#colorToGray) - Convet [Color](https://github.com/neoddish/color-palette-json-schema#color) into gray number.
-* [grayToColor](./utils/colorConvertion.md#grayToColor) - Convet gray number into [Color](https://github.com/neoddish/color-palette-json-schema#color).
-
 <a name="colorToGray" href="#colorToGray">#</a> **colorToGray**<i>(color: Color) => number</i>
 
 Convet [Color](https://github.com/neoddish/color-palette-json-schema#color) into gray number.
