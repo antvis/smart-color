@@ -83,11 +83,11 @@ export function grayToColor(gray: number, alpha: number = 1): Color {
 
 export { colorToHex } from 'color-schema-test';
 export function hexToColor(hexValue: string): Color {
-  if (/^(#|0x)?[0-9a-fA-F]{3}/.test(hexValue) || /^(#|0x)?[0-9a-fA-F]{6}/.test(hexValue)) {
+  if (/^(#|0x)?[0-9a-fA-F]{3}$/.test(hexValue) || /^(#|0x)?[0-9a-fA-F]{6}$/.test(hexValue)) {
     const rgb = chroma(hexValue).rgb();
     return arrayToColor(rgb, 'rgb');
   }
-  if (/^(#|0x)?[0-9a-fA-F]{4}/.test(hexValue) || /^(#|0x)?[0-9a-fA-F]{8}/.test(hexValue)) {
+  if (/^(#|0x)?[0-9a-fA-F]{4}$/.test(hexValue) || /^(#|0x)?[0-9a-fA-F]{8}$/.test(hexValue)) {
     const rgba = chroma(hexValue).rgba();
     return arrayToColor(rgba, 'rgba');
   }
