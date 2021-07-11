@@ -93,7 +93,7 @@ function ShowRandomColor() {
 }
 
 function App() {
-  return /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, /*#__PURE__*/_react["default"].createElement("h1", null, "smart-color Demo"), /*#__PURE__*/_react["default"].createElement(ShowRandomColor, null));
+  return /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, /*#__PURE__*/_react["default"].createElement("h1", null, "smart-color Demo"), /*#__PURE__*/_react["default"].createElement("h2", null, "random color case"), /*#__PURE__*/_react["default"].createElement(ShowRandomColor, null));
 }
 
 /***/ }),

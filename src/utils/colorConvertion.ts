@@ -33,7 +33,7 @@ export const arrayToColor = (
   array: [number] | [number, number, number] | [number, number, number, number],
   colorModel: ColorModel = array.length === 4 ? 'rgba' : 'rgb'
 ): Color => {
-  const value = {};
+  const value: any = {};
   if (array.length === 1) {
     const [v] = array;
     for (let i = 0; i < colorModel.length; i += 1) {

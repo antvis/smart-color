@@ -15,7 +15,7 @@ export default function App() {
   return (
     <>
       <h1>smart-color Demo</h1>
-      <h2>random color</h2>
+      <h2>random color case</h2>
       <ShowRandomColor />
     </>
   );
