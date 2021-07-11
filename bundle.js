@@ -71,7 +71,7 @@ var _random = __webpack_require__(/*! ../../src/generators/random */ "../src/gen
 
 __webpack_require__(/*! ./index.less */ "./src/index.less");
 
-function App() {
+function ShowRandomColor() {
   var _randomColor = (0, _random.randomColor)(),
       model = _randomColor.model,
       value = _randomColor.value;
@@ -90,6 +90,10 @@ function App() {
   }
 
   return null;
+}
+
+function App() {
+  return /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, /*#__PURE__*/_react["default"].createElement("h1", null, "smart-color Demo"), /*#__PURE__*/_react["default"].createElement(ShowRandomColor, null));
 }
 
 /***/ }),
