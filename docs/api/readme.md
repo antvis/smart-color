@@ -53,3 +53,4 @@ Convet color into different formats.
 * [hexToColor](./colorConvertion.md#hexToColor) - Convet hexadecimal string into [Color](https://github.com/neoddish/color-palette-json-schema#color).
 * [colorToGray](./colorConvertion.md#colorToGray) - Convet [Color](https://github.com/neoddish/color-palette-json-schema#color) into gray number.
 * [grayToColor](./colorConvertion.md#grayToColor) - Convet gray number into [Color](https://github.com/neoddish/color-palette-json-schema#color).
+* [nameToColor](./colorConvertion.md#nameToColor) - Convet valid css color name into [Color](https://github.com/neoddish/color-palette-json-schema#color).
