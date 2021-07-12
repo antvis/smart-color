@@ -8,4 +8,5 @@ export {
   colorToHex,
   hexToColor,
   colorToChromaColor,
+  nameToColor,
 } from './colorConvertion';

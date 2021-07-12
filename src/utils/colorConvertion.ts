@@ -1,5 +1,6 @@
 import { Color, ColorModel } from 'color-schema-test';
 import chroma, { Color as ChromaColor } from 'chroma-js';
+import { getHexByName } from './getHexByName';
 
 const isChromaColor = (color: any): color is ChromaColor => {
   if (chroma.valid(color)) {
@@ -95,4 +96,9 @@ export function hexToColor(hexValue: string): Color {
     model: 'rgb',
     value: { r: 0, g: 0, b: 0 },
   };
+}
+
+export function nameToColor(name: string): Color {
+  const hex = getHexByName(name);
+  return hexToColor(hex);
 }
