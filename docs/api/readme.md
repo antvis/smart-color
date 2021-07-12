@@ -43,13 +43,13 @@ Get palettes from strings and images.
 * [getPaletteFromImage](./getPalette.md#getPaletteFromImage) Get palettes from images.
 * [getPaletteFromString](./getPalette.md#getPaletteFromString) Get palettes from strings.
 
-## Color Convertion
+## Color Conversion
 
-Convet color into different formats.
+Convert color into different formats.
 
-* [colorToArray](./colorConvertion.md#colorToArray) - Convet [Color](https://github.com/neoddish/color-palette-json-schema#color) into array.
-* [arrayToColor](./colorConvertion.md#arrayToColor) - Convet array into [Color](https://github.com/neoddish/color-palette-json-schema#color).
-* [colorToHex](./colorConvertion.md#colorToHex) - Convet [Color](https://github.com/neoddish/color-palette-json-schema#color) into hexadecimal string.
-* [hexToColor](./colorConvertion.md#hexToColor) - Convet hexadecimal string into [Color](https://github.com/neoddish/color-palette-json-schema#color).
-* [colorToGray](./colorConvertion.md#colorToGray) - Convet [Color](https://github.com/neoddish/color-palette-json-schema#color) into gray number.
-* [grayToColor](./colorConvertion.md#grayToColor) - Convet gray number into [Color](https://github.com/neoddish/color-palette-json-schema#color).
+* [colorToArray](./colorConversion.md#colorToArray) - Convert [Color](https://github.com/neoddish/color-palette-json-schema#color) into array.
+* [arrayToColor](./colorConversion.md#arrayToColor) - Convert array into [Color](https://github.com/neoddish/color-palette-json-schema#color).
+* [colorToHex](./colorConversion.md#colorToHex) - Convert [Color](https://github.com/neoddish/color-palette-json-schema#color) into hexadecimal string.
+* [hexToColor](./colorConversion.md#hexToColor) - Convert hexadecimal string into [Color](https://github.com/neoddish/color-palette-json-schema#color).
+* [colorToGray](./colorConversion.md#colorToGray) - Convert [Color](https://github.com/neoddish/color-palette-json-schema#color) into gray number.
+* [grayToColor](./colorConversion.md#grayToColor) - Convert gray number into [Color](https://github.com/neoddish/color-palette-json-schema#color).
