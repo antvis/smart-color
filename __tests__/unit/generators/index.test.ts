@@ -91,7 +91,7 @@ describe('Palette Generator', () => {
     const { status } = result;
     expect(status).toBe('success');
   });
-  test('should generete palette with locked color', () => {
+  test('should generate palette with locked color', () => {
     const result1 = paletteGeneration('monochromatic', {
       colors: [color],
     });
@@ -104,7 +104,7 @@ describe('Palette Generator', () => {
     // @ts-ignore
     expect(colorToHex(result2.palette.colors[0])).toBe(colorToHex(color));
   });
-  test('should generete palette with configuration', () => {
+  test('should generate palette with configuration', () => {
     const result = paletteGeneration('monochromatic', {
       count: 9,
       color,
