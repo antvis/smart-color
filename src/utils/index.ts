@@ -9,4 +9,4 @@ export {
   hexToColor,
   colorToChromaColor,
   nameToColor,
-} from './colorConvertion';
+} from './colorConversion';

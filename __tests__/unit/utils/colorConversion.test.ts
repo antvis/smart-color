@@ -19,7 +19,7 @@ const white: Color = {
   },
 };
 
-describe('Color convertion', () => {
+describe('Color conversion', () => {
   test('convert color to array', () => {
     const blackArray = colorToArray(black);
     expect(blackArray).toStrictEqual([0, 0, 0]);

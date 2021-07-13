@@ -1,12 +1,12 @@
-# Color Convertion
+# Color Conversion
 
-You can convet color into different formats.
+You can convert color into different formats.
 
 ## Usage
 
 <a name="colorToArray" href="#colorToArray">#</a> **colorToArray**<i>(color: Color, colorModel?: ColorModel) => number[]</i>
 
-Convet [Color](https://github.com/neoddish/color-palette-json-schema#color) into array.
+Convert [Color](https://github.com/neoddish/color-palette-json-schema#color) into array. 
 The default value of colorModel is the color model used in color.
 
 ```ts
@@ -23,7 +23,7 @@ colorToArray(color, 'hsv'); //[ 220.25316455696202, 0.6345381526104418, 0.976470
 
 <a name="arrayToColor" href="#arrayToColor">#</a> **arrayToColor**<i>(array: number[], colorModel?: ColorModel) => Color</i>
 
-Convet array into [Color](https://github.com/neoddish/color-palette-json-schema#color).
+Convert array into [Color](https://github.com/neoddish/color-palette-json-schema#color). 
 The default value of colorModel is "rgba" if the length of the array is 4, otherwise the default value of colorModel is "rgb".
 
 ```ts
@@ -44,7 +44,7 @@ arrayToColor([220.25, 0.63, 0.98], 'hsv');
 
 <a name="colorToHex" href="#colorToHex">#</a> **colorToHex**<i>(color: Color) => string</i>
 
-Convet [Color](https://github.com/neoddish/color-palette-json-schema#color) into hexadecimal string.
+Convert [Color](https://github.com/neoddish/color-palette-json-schema#color) into hexadecimal string.
 
 ```ts
 import { colorToHex } from '@antv/smart-color';
@@ -59,7 +59,7 @@ colorToHex(color); // #5b8ff9
 
 <a name="hexToColor" href="#hexToColor">#</a> **hexToColor**<i>(hex: string) => Color</i>
 
-Convet hexadecimal string into [Color](https://github.com/neoddish/color-palette-json-schema#color).
+Convert hexadecimal string into [Color](https://github.com/neoddish/color-palette-json-schema#color).
 
 ```ts
 import { hexToColor } from '@antv/smart-color';
@@ -73,7 +73,7 @@ hexToColor('#5b8ff9');
 
 <a name="colorToGray" href="#colorToGray">#</a> **colorToGray**<i>(color: Color) => number</i>
 
-Convet [Color](https://github.com/neoddish/color-palette-json-schema#color) into gray number.
+Convert [Color](https://github.com/neoddish/color-palette-json-schema#color) into gray number.
 
 ```ts
 import { colorToGray } from '@antv/smart-color';
@@ -88,7 +88,7 @@ colorToGray(color); // 140
 
 <a name="grayToColor" href="#grayToColor">#</a> **grayToColor**<i>(grayValue: number, alpha: number=1) => Color</i>
 
-Convet gray number into [Color](https://github.com/neoddish/color-palette-json-schema#color).
+Convert gray number into [Color](https://github.com/neoddish/color-palette-json-schema#color).
 
 ```ts
 import { grayToColor } from '@antv/smart-color';

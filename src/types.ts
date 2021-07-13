@@ -43,7 +43,7 @@ interface ErrorResult {
 }
 export type GenerationResult = SuccessResult | ErrorResult;
 export type PaletteGeneration = (
-  // defalut value: monochromatic
+  // default value: monochromatic
   type?: ColorSchemeType,
   configuration?: GeneratorConfiguration
 ) => GenerationResult;
