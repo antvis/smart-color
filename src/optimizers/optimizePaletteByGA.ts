@@ -158,12 +158,12 @@ export const optimizePaletteByGA = (
       const father = population[selection(fitnesses)];
       const mother = population[selection(fitnesses)];
       // Reproduction
-      let childern = random(1, true) < CROSSOVER_RATE ? crossover(father, mother) : [father, mother];
+      let children = random(1, true) < CROSSOVER_RATE ? crossover(father, mother) : [father, mother];
       // Mutation
-      childern = childern.map((child) =>
+      children = children.map((child) =>
         random(1, true) < MUTATION_RATE ? mutate(child, unLocledIndexs, simulationType, colorModel) : child
       );
-      newPopulation.push(...childern);
+      newPopulation.push(...children);
     }
 
     population = newPopulation;

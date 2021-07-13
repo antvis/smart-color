@@ -1,7 +1,7 @@
 import { hueOffset } from '@src/utils/colorComputation';
 
 describe('Color computation', () => {
-  test('hue offest', () => {
+  test('hue offset', () => {
     const hue1 = hueOffset(100, 10);
     expect(hue1).toBe(110);
     const hue2 = hueOffset(100, 1000);
