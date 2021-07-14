@@ -1,5 +1,5 @@
 import { Color } from 'color-schema-test';
-import { arrayToColor, colorToArray, colorToGray, grayToColor, hexToColor, colorToHex } from '@src/index';
+import { arrayToColor, colorToArray, colorToGray, grayToColor, hexToColor, colorToHex, nameToColor } from '@src/index';
 
 const black: Color = {
   model: 'rgb',
@@ -87,6 +87,33 @@ describe('Color conversion', () => {
     expect(color3).toStrictEqual({
       model: 'rgba',
       value: { r: 123, g: 123, b: 123, a: 0.1 },
+    });
+  });
+
+  test('nameToColor(name) convert valid css color name to color', () => {
+    expect(nameToColor('moccasin')).toStrictEqual({
+      model: 'rgb',
+      value: { r: 255, g: 228, b: 181 },
+    });
+
+    expect(nameToColor('aliceblue')).toStrictEqual({
+      model: 'rgb',
+      value: { r: 240, g: 248, b: 255 },
+    });
+
+    expect(nameToColor('yellow')).toStrictEqual({
+      model: 'rgb',
+      value: { r: 255, g: 255, b: 0 },
+    });
+
+    expect(nameToColor('rebeccapurple')).toStrictEqual({
+      model: 'rgb',
+      value: { r: 102, g: 51, b: 153 },
+    });
+
+    expect(nameToColor('transparent')).toStrictEqual({
+      model: 'rgb',
+      value: { r: 0, g: 0, b: 0 },
     });
   });
 });
