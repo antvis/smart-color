@@ -22,7 +22,9 @@
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.14.5",
+    "@types/lodash": "^4.14.171",
     "@types/react": "^17.0.11",
+    "@types/react-color": "^3.0.5",
     "@types/react-dom": "^17.0.8",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
@@ -39,7 +41,10 @@
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "antd": "^4.16.3",
+    "color-schema-test": "^0.1.8",
+    "lodash": "^4.17.21",
     "react": "^17.0.2",
+    "react-color": "^2.19.3",
     "react-dom": "^17.0.2"
   }
 }
