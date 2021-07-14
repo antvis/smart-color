@@ -16,7 +16,7 @@
     "clean": "rimraf lib esm dist",
     "lint-staged": "lint-staged",
     "size": "limit-size",
-    "format": "prettier --write \"src/**/*.ts\" \"__tests__/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.ts\" \"__tests__/**/*.ts\" \"demo/**/*.tsx\"",
     "lint": "eslint ./src/**/*.ts ./__tests__/**/*.ts && prettier ./src ./__tests__ --check",
     "fix": "eslint ./src/**/*.ts ./__tests__/**/*.ts --fix && npm run format",
     "test": "jest",
