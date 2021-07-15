@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { DiscreteScalePalette } from 'color-schema-test';
+import { DiscreteScalePalette } from '@antv/color-schema';
 import { Generation } from './types';
 import { continuousGenerationInLab } from './continuousGeneration';
 import { verifyContinuousPaletteGeneration } from './verification';

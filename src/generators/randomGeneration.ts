@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { CategoricalPalette } from 'color-schema-test';
+import { CategoricalPalette } from '@antv/color-schema';
 import { paletteOptimization } from '../optimizers';
 import { Generation } from './types';
 import { randomColor } from './random';

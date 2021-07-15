@@ -1,4 +1,4 @@
-import { Color, ColorModel } from 'color-schema-test';
+import { Color, ColorModel } from '@antv/color-schema';
 import chroma, { Color as ChromaColor } from 'chroma-js';
 import { getHexByName } from './getHexByName';
 
@@ -82,7 +82,7 @@ export function grayToColor(gray: number, alpha: number = 1): Color {
   };
 }
 
-export { colorToHex } from 'color-schema-test';
+export { colorToHex } from '@antv/color-schema';
 export function hexToColor(hexValue: string): Color {
   if (/^(#|0x)?[0-9a-fA-F]{3}$/.test(hexValue) || /^(#|0x)?[0-9a-fA-F]{6}$/.test(hexValue)) {
     const rgb = chroma(hexValue).rgb();

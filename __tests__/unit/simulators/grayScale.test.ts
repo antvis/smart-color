@@ -1,4 +1,4 @@
-import { Color, RGBAColor } from 'color-schema-test';
+import { Color, RGBAColor } from '@antv/color-schema';
 import { colorToGray, invertGrayScale, colorSimulation } from '@src/index';
 
 describe('grayscale', () => {

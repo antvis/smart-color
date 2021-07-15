@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Color } from 'color-schema-test';
+import { Color } from '@antv/color-schema';
 import Block from '../Block';
 import { colorDistance } from '../../../../src';
 import './index.less';

@@ -1,4 +1,4 @@
-import { Color } from 'color-schema-test';
+import { Color } from '@antv/color-schema';
 import { monochromaticGeneration } from './monochromaticGeneration';
 import { Generation } from './types';
 

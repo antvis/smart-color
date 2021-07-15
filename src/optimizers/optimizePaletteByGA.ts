@@ -1,4 +1,4 @@
-import { ColorModel, ColorModelRange as COLOR_MODEL_RANGE } from 'color-schema-test';
+import { ColorModel, ColorModelRange as COLOR_MODEL_RANGE } from '@antv/color-schema';
 import { cloneDeep, sumBy, random } from 'lodash';
 import { SimulationType } from '../types';
 import { arrayToColor } from '../utils';

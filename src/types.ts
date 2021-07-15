@@ -1,4 +1,4 @@
-import { Color, Palette, ColorModel, ColorSchemeType } from 'color-schema-test';
+import { Color, Palette, ColorModel, ColorSchemeType } from '@antv/color-schema';
 import { COLOR_BLINDNESS_SIMULATION_TYPES, TENDENCIES } from './constant';
 
 // color simulation

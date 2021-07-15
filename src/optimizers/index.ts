@@ -1,4 +1,4 @@
-import { isContinuousPalette, isMatrixPalette } from 'color-schema-test';
+import { isContinuousPalette, isMatrixPalette } from '@antv/color-schema';
 import { cloneDeep } from 'lodash';
 import { invertGrayScale } from '../simulators';
 import { PaletteOptimization } from '../types';

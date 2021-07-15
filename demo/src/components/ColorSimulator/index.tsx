@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Color, Palette, isContinuousPalette, isMatrixPalette } from 'color-schema-test';
+import { Color, Palette, isContinuousPalette, isMatrixPalette } from '@antv/color-schema';
 import { Select } from 'antd';
 import { cloneDeep } from 'lodash';
 import { SimulationType, colorSimulation } from '../../../../src';

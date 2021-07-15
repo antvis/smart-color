@@ -1,4 +1,4 @@
-import { Palette } from 'color-schema-test';
+import { Palette } from '@antv/color-schema';
 import { v4 as uuidv4 } from 'uuid';
 import { hexToColor } from '../utils';
 

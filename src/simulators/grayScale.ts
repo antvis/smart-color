@@ -1,4 +1,4 @@
-import { Color } from 'color-schema-test';
+import { Color } from '@antv/color-schema';
 import { arrayToColor, colorToArray, colorToGray, grayToColor } from '../utils';
 import { ColorSimulation } from '../types';
 

@@ -1,5 +1,5 @@
 import { random } from 'lodash';
-import { Color } from 'color-schema-test';
+import { Color } from '@antv/color-schema';
 import { colorToArray, arrayToColor } from '../utils';
 
 // Fix a, b, vary L
