@@ -1,4 +1,4 @@
-import { CategoricalPalette } from 'color-schema-test';
+import { CategoricalPalette } from '@antv/color-schema';
 import { paletteOptimization, colorDistance, SimulationType } from '@src/index';
 
 const getMinDistance = (palette: CategoricalPalette, simulationType: SimulationType = 'normal') => {

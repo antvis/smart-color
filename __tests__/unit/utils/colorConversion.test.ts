@@ -1,4 +1,4 @@
-import { Color } from 'color-schema-test';
+import { Color } from '@antv/color-schema';
 import { arrayToColor, colorToArray, colorToGray, grayToColor, hexToColor, colorToHex, nameToColor } from '@src/index';
 
 const black: Color = {

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Palette } from 'color-schema-test';
+import { Palette } from '@antv/color-schema';
 import { Slider, InputNumber } from 'antd';
 import { getPaletteFromImage } from '../../../../src';
 import Swatch from '../Swatch';

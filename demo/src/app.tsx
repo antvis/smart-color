@@ -1,6 +1,6 @@
 import React from 'react';
 import { Divider } from 'antd';
-import { CategoricalPalette } from 'color-schema-test';
+import { CategoricalPalette } from '@antv/color-schema';
 import ColorSimulator from './components/ColorSimulator';
 import ColorDistance from './components/ColorDistance';
 import PaletteGenerator from './components/PaletteGenerator';

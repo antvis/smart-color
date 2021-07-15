@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Button } from 'antd';
-import { Palette } from 'color-schema-test';
+import { Palette } from '@antv/color-schema';
 import { paletteOptimization } from '../../../../src';
 import Swatch from '../Swatch';
 import './index.less';

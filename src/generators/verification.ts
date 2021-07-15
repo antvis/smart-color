@@ -1,4 +1,4 @@
-import { Color } from 'color-schema-test';
+import { Color } from '@antv/color-schema';
 import { GenerationResult } from '../types';
 
 export const verifyContinuousPaletteGeneration = (colors: (Color | undefined)[] = []) => {

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Color, colorToHex } from 'color-schema-test';
+import { Color, colorToHex } from '@antv/color-schema';
 import { ChromePicker } from 'react-color';
 import { hexToColor } from '../../../../src';
 import './index.less';

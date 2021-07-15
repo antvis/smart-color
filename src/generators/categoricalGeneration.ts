@@ -1,5 +1,5 @@
 import { random, findIndex } from 'lodash';
-import { Color } from 'color-schema-test';
+import { Color } from '@antv/color-schema';
 import { colorToArray, arrayToColor, hueOffset } from '../utils';
 
 const saturationRange: [number, number] = [0.3, 0.9];

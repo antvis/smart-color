@@ -1,4 +1,4 @@
-import { RGBColor } from 'color-schema-test';
+import { RGBColor } from '@antv/color-schema';
 import { randomColor } from '@src/generators/random';
 
 describe('Random Generator', () => {
