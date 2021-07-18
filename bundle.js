@@ -1162,6 +1162,8 @@ var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "react"));
 
 var _antd = __webpack_require__(/*! antd */ "antd");
 
+var _lodash = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+
 var _src = __webpack_require__(/*! ../../../../src */ "../src/index.ts");
 
 var _Swatch = _interopRequireDefault(__webpack_require__(/*! ../Swatch */ "./src/components/Swatch/index.tsx"));
@@ -1220,7 +1222,9 @@ var PaletteByImage = /*#__PURE__*/function (_Component) {
   (0, _createClass2["default"])(PaletteByImage, [{
     key: "shouldComponentUpdate",
     value: function shouldComponentUpdate(nextProps, nextState) {
-      if (this.state.colorCount !== nextState.colorCount || this.props.image !== nextProps.image) {
+      var _this$state$palette, _nextState$palette;
+
+      if (this.state.colorCount !== nextState.colorCount || this.props.image !== nextProps.image || !(0, _lodash.isEqual)((_this$state$palette = this.state.palette) === null || _this$state$palette === void 0 ? void 0 : _this$state$palette.colors, (_nextState$palette = nextState.palette) === null || _nextState$palette === void 0 ? void 0 : _nextState$palette.colors)) {
         return true;
       }
 
@@ -3932,7 +3936,7 @@ var nameHex = {
   whitesmoke: '#f5f5f5',
   yellow: '#ffff00',
   yellowgreen: '#9acd32'
-}; //@ts-ignore
+}; // @ts-ignore
 
 var getHexByName = function getHexByName(name) {
   return nameHex[name] || '#000000';
