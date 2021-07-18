@@ -1,6 +1,6 @@
 import React from 'react';
 import { message } from 'antd';
-import { Color, Palette, colorToHex, isContinuousPalette, isMatrixPalette } from 'color-schema-test';
+import { Color, Palette, colorToHex, isContinuousPalette, isMatrixPalette } from '@antv/color-schema';
 import './index.less';
 
 const copyToClipboard = (hexColor: string) => {

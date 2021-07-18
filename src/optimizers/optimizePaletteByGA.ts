@@ -47,7 +47,7 @@ const selectionFunction: Record<SelectionFunctionType, (fitnesses: number[]) => 
   rouletteWheel: rouletteWheelSelection,
   tournament: tournamentSelection,
 };
-const selection = (fitnesses: number[], type = 'tournament') => {
+const selection = (fitnesses: number[], type: SelectionFunctionType = 'tournament') => {
   return selectionFunction[type](fitnesses);
 };
 

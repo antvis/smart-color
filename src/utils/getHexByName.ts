@@ -148,5 +148,5 @@ const nameHex = {
   yellow: '#ffff00',
   yellowgreen: '#9acd32',
 };
-
+// @ts-ignore
 export const getHexByName = (name: string) => nameHex[name] || '#000000';
