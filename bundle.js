@@ -1,6 +1,193 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./node_modules/@antv/color-schema/lib/package.json":
+/*!**********************************************************!*\
+  !*** ./node_modules/@antv/color-schema/lib/package.json ***!
+  \**********************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"name":"@antv/color-schema","version":"0.2.2","description":"JSON Schema for Color Palette","main":"lib/src/index.js","types":"lib/src/index.d.ts","browser":"dist/index.js","module":"es/src/index.js","files":["src","esm","lib","build"],"scripts":{"clean":"rimraf lib esm dist","lint-staged":"lint-staged","size":"limit-size","format":"prettier --write \\"src/**/*.ts\\" \\"__tests__/**/*.ts\\" \\"demo/**/*.{ts,tsx}\\"","format-check":" prettier ./src/**/*.ts ./__tests__/**/*.ts ./demo/**/*.{ts,tsx} --check","lint":"eslint ./src/**/*.ts ./__tests__/**/*.ts ./demo/**/*.{ts,tsx} && npm run format-check","fix":"eslint ./src/**/*.ts ./__tests__/**/*.ts ./demo/**/*.{ts,tsx} --fix && npm run format","test":"jest","build:umd":"rimraf ./dist && rollup -c && npm run size","build:cjs":"rimraf ./lib && tsc --module commonjs --outDir lib","build:esm":"rimraf ./esm && tsc --module ESNext --outDir esm","build":"run-p build:*","schema":"mkdir -p build && ts-json-schema-generator -f tsconfig.json -p src/index.ts -t ColorSchema --no-type-check --no-ref-encode > build/color-schema.json","ci":"run-s lint test build schema","prepublishOnly":"npm run ci","prepare":"husky install","prepare:demo":"cd demo && npm install","start:demo":"npm run prepare:demo && npm start","deploy:site":"cd demo && npm run deploy:site","preversion":"npm run lint","version":"npm run format && git add -A src","postversion":"git push && git push --tags"},"repository":{"type":"git","url":"git+https://github.com/antvis/color-schema.git"},"author":{"name":"AntV","url":"https://antv.vision/"},"license":"MIT","homepage":"https://antvis.github.io/color-schema","publishConfig":{"access":"public"},"bugs":{"url":"https://github.com/antvis/color-schema/issues"},"dependencies":{"@types/chroma-js":"^2.1.3"},"devDependencies":{"@babel/runtime":"^7.13.10","@commitlint/cli":"^12.1.4","@commitlint/config-conventional":"^12.1.4","@rollup/plugin-node-resolve":"^13.0.0","@rollup/plugin-typescript":"^8.2.1","@types/jest":"^26.0.22","@types/jest-json-schema":"^2.1.3","@typescript-eslint/eslint-plugin":"^4.28.3","@typescript-eslint/parser":"^4.28.3","ajv":"^8.0.4","chroma-js":"^2.1.1","eslint":"^7.29.0","eslint-config-airbnb":"^18.2.1","eslint-config-prettier":"^8.3.0","eslint-import-resolver-typescript":"^2.4.0","eslint-plugin-import":"^2.23.4","eslint-plugin-prettier":"^3.4.0","eslint-plugin-react":"^7.24.0","husky":"^7.0.1","jest":"^26.6.3","jest-json-schema":"^5.0.0","limit-size":"^0.1.4","lint-staged":"^11.0.1","npm-run-all":"^4.1.5","prettier":"^2.3.0","rimraf":"^3.0.2","rollup":"^2.53.1","rollup-plugin-uglify":"^6.0.4","ts-jest":"^26.5.4","ts-json-schema-generator":"^0.89.2","typescript":"^4.2.4"},"lint-staged":{"*.{ts,tsx}":["eslint --fix","prettier --write","git add"]},"limit-size":[{"path":"dist/color-schema.min.js","limit":"8 Kb","gzip":true},{"path":"dist/color-schema.min.js","limit":"24 Kb"}]}');
+
+/***/ }),
+
+/***/ "./node_modules/@antv/color-schema/lib/src/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@antv/color-schema/lib/src/index.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.version = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const package_json_1 = tslib_1.__importDefault(__webpack_require__(/*! ../package.json */ "./node_modules/@antv/color-schema/lib/package.json"));
+exports.version = package_json_1.default.version;
+tslib_1.__exportStar(__webpack_require__(/*! ./schema */ "./node_modules/@antv/color-schema/lib/src/schema/index.js"), exports);
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@antv/color-schema/lib/src/schema/color.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@antv/color-schema/lib/src/schema/color.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.colorToHex = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const chroma_js_1 = tslib_1.__importDefault(__webpack_require__(/*! chroma-js */ "../node_modules/_chroma-js@2.1.2@chroma-js/chroma.js"));
+const isChromaColor = (color) => {
+    if (chroma_js_1.default.valid(color)) {
+        return true;
+    }
+    return false;
+};
+function colorToHex(color) {
+    const { value } = color;
+    if (isChromaColor(value)) {
+        return chroma_js_1.default(value).hex();
+    }
+    return '';
+}
+exports.colorToHex = colorToHex;
+//# sourceMappingURL=color.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@antv/color-schema/lib/src/schema/colorValue.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@antv/color-schema/lib/src/schema/colorValue.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.isColorValue = exports.ColorModelRange = exports.CMYKRange = exports.LCHRange = exports.LABRange = exports.RGBAValueRange = exports.RGBValueRange = exports.HSIValueRange = exports.HSVValueRange = exports.HSLValueRange = void 0;
+exports.HSLValueRange = {
+    h: [0, 360],
+    s: [0, 1],
+    l: [0, 1],
+};
+exports.HSVValueRange = {
+    h: [0, 360],
+    s: [0, 1],
+    v: [0, 1],
+};
+exports.HSIValueRange = {
+    h: [0, 360],
+    s: [0, 1],
+    i: [0, 1],
+};
+exports.RGBValueRange = {
+    r: [0, 255],
+    g: [0, 255],
+    b: [0, 255],
+};
+exports.RGBAValueRange = {
+    r: [0, 255],
+    g: [0, 255],
+    b: [0, 255],
+    a: [0, 1],
+};
+exports.LABRange = {
+    l: [0, 100],
+    a: [-86.185, 98.254],
+    b: [-107.863, 94.482],
+};
+exports.LCHRange = {
+    l: [0, 100],
+    c: [0, 100],
+    h: [0, 360],
+};
+exports.CMYKRange = {
+    c: [0, 1],
+    m: [0, 1],
+    y: [0, 1],
+    k: [0, 1],
+};
+exports.ColorModelRange = {
+    lab: exports.LABRange,
+    lch: exports.LCHRange,
+    rgb: exports.RGBValueRange,
+    rgba: exports.RGBAValueRange,
+    hsl: exports.HSLValueRange,
+    hsv: exports.HSVValueRange,
+    hsi: exports.HSIValueRange,
+    cmyk: exports.CMYKRange,
+};
+function isColorValue(colorValue) {
+    const { model, value } = colorValue;
+    const colorModelRange = exports.ColorModelRange[model];
+    return (Object.keys(value).sort().join(',') === Object.keys(colorModelRange).sort().join(',') &&
+        Object.entries(value).every(([key, v]) => v >= colorModelRange[key][0] && v <= colorModelRange[key][1]));
+}
+exports.isColorValue = isColorValue;
+//# sourceMappingURL=colorValue.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@antv/color-schema/lib/src/schema/index.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@antv/color-schema/lib/src/schema/index.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+tslib_1.__exportStar(__webpack_require__(/*! ./palette */ "./node_modules/@antv/color-schema/lib/src/schema/palette.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./color */ "./node_modules/@antv/color-schema/lib/src/schema/color.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./colorValue */ "./node_modules/@antv/color-schema/lib/src/schema/colorValue.js"), exports);
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@antv/color-schema/lib/src/schema/palette.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@antv/color-schema/lib/src/schema/palette.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.isMatrixPalette = exports.isContinuousPalette = exports.isDiscreteScalePalette = exports.isCategoricalPalette = void 0;
+function isCategoricalPalette(palette) {
+    if (palette.type === 'categorical')
+        return true;
+    return false;
+}
+exports.isCategoricalPalette = isCategoricalPalette;
+function isDiscreteScalePalette(palette) {
+    if (palette.type === 'discrete-scale')
+        return true;
+    return false;
+}
+exports.isDiscreteScalePalette = isDiscreteScalePalette;
+function isContinuousPalette(palette) {
+    if (palette.type === 'continuous-scale')
+        return true;
+    return false;
+}
+exports.isContinuousPalette = isContinuousPalette;
+function isMatrixPalette(palette) {
+    if (palette.type === 'matrix')
+        return true;
+    return false;
+}
+exports.isMatrixPalette = isMatrixPalette;
+//# sourceMappingURL=palette.js.map
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/arrayLikeToArray.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/arrayLikeToArray.js ***!
@@ -622,7 +809,7 @@ var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/run
 
 var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "react"));
 
-var _colorSchema = __webpack_require__(/*! @antv/color-schema */ "../node_modules/_@antv_color-schema@0.2.2@@antv/color-schema/lib/src/index.js");
+var _colorSchema = __webpack_require__(/*! @antv/color-schema */ "./node_modules/@antv/color-schema/lib/src/index.js");
 
 var _reactColor = __webpack_require__(/*! react-color */ "./node_modules/react-color/es/index.js");
 
@@ -842,7 +1029,7 @@ var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/run
 
 var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "react"));
 
-var _colorSchema = __webpack_require__(/*! @antv/color-schema */ "../node_modules/_@antv_color-schema@0.2.2@@antv/color-schema/lib/src/index.js");
+var _colorSchema = __webpack_require__(/*! @antv/color-schema */ "./node_modules/@antv/color-schema/lib/src/index.js");
 
 var _antd = __webpack_require__(/*! antd */ "antd");
 
@@ -989,8 +1176,8 @@ function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflec
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
-var PaletteByImage = /*#__PURE__*/function (_PureComponent) {
-  (0, _inherits2["default"])(PaletteByImage, _PureComponent);
+var PaletteByImage = /*#__PURE__*/function (_Component) {
+  (0, _inherits2["default"])(PaletteByImage, _Component);
 
   var _super = _createSuper(PaletteByImage);
 
@@ -1076,7 +1263,7 @@ var PaletteByImage = /*#__PURE__*/function (_PureComponent) {
     }
   }]);
   return PaletteByImage;
-}(_react.PureComponent);
+}(_react.Component);
 
 var _default = PaletteByImage;
 exports.default = _default;
@@ -1472,7 +1659,7 @@ var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
 
 var _antd = __webpack_require__(/*! antd */ "antd");
 
-var _colorSchemaTest = __webpack_require__(/*! color-schema-test */ "./node_modules/color-schema-test/es/src/index.js");
+var _colorSchema = __webpack_require__(/*! @antv/color-schema */ "./node_modules/@antv/color-schema/lib/src/index.js");
 
 __webpack_require__(/*! ./index.less */ "./src/components/Swatch/index.less");
 
@@ -1508,7 +1695,7 @@ var Colors = function Colors(_ref) {
   return /*#__PURE__*/_react["default"].createElement("div", {
     className: "colors"
   }, colors.map(function (color) {
-    var hexValue = (0, _colorSchemaTest.colorToHex)(color);
+    var hexValue = (0, _colorSchema.colorToHex)(color);
     return /*#__PURE__*/_react["default"].createElement("div", {
       className: "color",
       style: _objectSpread(_objectSpread({}, colorStyle), {}, {
@@ -1529,7 +1716,7 @@ var Swatch = function Swatch(_ref2) {
     className: "swatch"
   }, /*#__PURE__*/_react["default"].createElement("div", {
     className: "panel"
-  }, !(0, _colorSchemaTest.isContinuousPalette)(palette) && !(0, _colorSchemaTest.isMatrixPalette)(palette) && /*#__PURE__*/_react["default"].createElement(Colors, {
+  }, !(0, _colorSchema.isContinuousPalette)(palette) && !(0, _colorSchema.isMatrixPalette)(palette) && /*#__PURE__*/_react["default"].createElement(Colors, {
     colorStyle: {
       width: "calc(".concat(100 / palette.colors.length, "%)")
     },
@@ -2153,7 +2340,8 @@ var generator = {
   'split-complementary': _splitComplementaryGeneration.splitComplementaryGeneration,
   triadic: _triadicGeneration.triadicGeneration,
   tetradic: _tetradicGeneration.tetradicGeneration,
-  polychromatic: _polychromaticGeneration.polychromaticGeneration
+  polychromatic: _polychromaticGeneration.polychromaticGeneration,
+  customized: _randomGeneration.randomGeneration
 };
 /**
  *
@@ -2583,6 +2771,7 @@ var _uuid = __webpack_require__(/*! uuid */ "../node_modules/_uuid@8.3.2@uuid/di
 
 var _utils = __webpack_require__(/*! ../utils */ "../src/utils/index.ts");
 
+// @ts-ignore
 // Get a list of colors from img url
 function getPaletteFromImage(_x) {
   return _getPaletteFromImage.apply(this, arguments);
@@ -3743,7 +3932,7 @@ var nameHex = {
   whitesmoke: '#f5f5f5',
   yellow: '#ffff00',
   yellowgreen: '#9acd32'
-};
+}; //@ts-ignore
 
 var getHexByName = function getHexByName(name) {
   return nameHex[name] || '#000000';
@@ -3862,241 +4051,6 @@ var _image = __webpack_require__(/*! ./image */ "../src/utils/image.ts");
 var _colorComputation = __webpack_require__(/*! ./colorComputation */ "../src/utils/colorComputation.ts");
 
 var _colorConversion = __webpack_require__(/*! ./colorConversion */ "../src/utils/colorConversion.ts");
-
-/***/ }),
-
-/***/ "./node_modules/color-schema-test/es/package.json":
-/*!********************************************************!*\
-  !*** ./node_modules/color-schema-test/es/package.json ***!
-  \********************************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = JSON.parse('{"name":"color-schema-test","version":"0.1.8","description":"JSON Schema for Color Palette","main":"lib/src/index.js","types":"lib/src/index.d.ts","browser":"dist/index.js","module":"es/src/index.js","files":["src","es","dist","lib"],"scripts":{"test":"jest","build":"rm -rf lib && tsc --pretty","schema":"mkdir -p build && ts-json-schema-generator -f tsconfig.json -p src/index.ts -t ColorSchema --no-type-check --no-ref-encode > build/color-schema.json","start":"webpack serve --port 8897","module":"rm -rf es && tsc -t ES5 -m ESNext --outDir es","pack":"webpack --config=webpack.config.js","format":"prettier --write \\"src/**/*.ts\\" \\"demo/**/*.ts\\" \\"demo/**/*.ts\\"","lint":"tslint -p tsconfig.json","prepare":"npm run build","prepublish":"npm run module && npm run pack","prepublishOnly":"npm run prepublish && npm test && npm run lint && webpack --mode=production","preversion":"npm run lint","version":"npm run format && git add -A src","postversion":"git push && git push --tags"},"repository":{"type":"git","url":"git+https://github.com/neoddish/color-palette-json-schema.git"},"author":"neoddish","license":"MIT","publishConfig":{"access":"public"},"bugs":{"url":"https://github.com/neoddish/color-palette-json-schema/issues"},"homepage":"https://github.com/neoddish/color-palette-json-schema#readme","dependencies":{},"devDependencies":{"@ant-design/icons":"^4.6.2","@babel/core":"^7.13.14","@babel/plugin-proposal-class-properties":"^7.13.0","@babel/plugin-proposal-export-default-from":"^7.12.13","@babel/plugin-proposal-object-rest-spread":"^7.13.8","@babel/plugin-transform-runtime":"^7.13.10","@babel/preset-env":"^7.13.12","@babel/preset-react":"^7.13.13","@babel/preset-typescript":"^7.13.0","@babel/runtime":"^7.13.10","@types/chroma-js":"^2.1.3","@types/jest":"^26.0.22","@types/jest-json-schema":"^2.1.3","@types/react":"^17.0.3","@types/react-dom":"^17.0.3","ajv":"^8.0.4","antd":"^4.15.4","babel-jest":"^26.6.3","babel-loader":"^8.2.2","babel-plugin-import":"^1.13.3","browser-resolve":"^2.0.0","chroma-js":"^2.1.1","css-loader":"^5.2.0","file-loader":"^6.2.0","jest":"^26.6.3","jest-json-schema":"^5.0.0","less":"^4.1.1","less-loader":"^8.0.0","prettier":"^2.3.0","react":"^17.0.2","react-dom":"^17.0.2","style-loader":"^2.0.0","ts-jest":"^26.5.4","ts-json-schema-generator":"^0.89.2","tslint":"^6.1.3","tslint-config-prettier":"^1.18.0","typescript":"^4.2.4","webpack":"^5.31.0","webpack-cli":"^4.6.0","webpack-dev-server":"^3.11.2"}}');
-
-/***/ }),
-
-/***/ "./node_modules/color-schema-test/es/src/index.js":
-/*!********************************************************!*\
-  !*** ./node_modules/color-schema-test/es/src/index.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "version": () => (/* binding */ version),
-/* harmony export */   "CMYKRange": () => (/* reexport safe */ _schema__WEBPACK_IMPORTED_MODULE_1__.CMYKRange),
-/* harmony export */   "ColorModelRange": () => (/* reexport safe */ _schema__WEBPACK_IMPORTED_MODULE_1__.ColorModelRange),
-/* harmony export */   "HSIValueRange": () => (/* reexport safe */ _schema__WEBPACK_IMPORTED_MODULE_1__.HSIValueRange),
-/* harmony export */   "HSLValueRange": () => (/* reexport safe */ _schema__WEBPACK_IMPORTED_MODULE_1__.HSLValueRange),
-/* harmony export */   "HSVValueRange": () => (/* reexport safe */ _schema__WEBPACK_IMPORTED_MODULE_1__.HSVValueRange),
-/* harmony export */   "LABRange": () => (/* reexport safe */ _schema__WEBPACK_IMPORTED_MODULE_1__.LABRange),
-/* harmony export */   "LCHRange": () => (/* reexport safe */ _schema__WEBPACK_IMPORTED_MODULE_1__.LCHRange),
-/* harmony export */   "RGBAValueRange": () => (/* reexport safe */ _schema__WEBPACK_IMPORTED_MODULE_1__.RGBAValueRange),
-/* harmony export */   "RGBValueRange": () => (/* reexport safe */ _schema__WEBPACK_IMPORTED_MODULE_1__.RGBValueRange),
-/* harmony export */   "colorToHex": () => (/* reexport safe */ _schema__WEBPACK_IMPORTED_MODULE_1__.colorToHex),
-/* harmony export */   "isCategoricalPalette": () => (/* reexport safe */ _schema__WEBPACK_IMPORTED_MODULE_1__.isCategoricalPalette),
-/* harmony export */   "isColorValue": () => (/* reexport safe */ _schema__WEBPACK_IMPORTED_MODULE_1__.isColorValue),
-/* harmony export */   "isContinuousPalette": () => (/* reexport safe */ _schema__WEBPACK_IMPORTED_MODULE_1__.isContinuousPalette),
-/* harmony export */   "isDiscreteScalePalette": () => (/* reexport safe */ _schema__WEBPACK_IMPORTED_MODULE_1__.isDiscreteScalePalette),
-/* harmony export */   "isMatrixPalette": () => (/* reexport safe */ _schema__WEBPACK_IMPORTED_MODULE_1__.isMatrixPalette)
-/* harmony export */ });
-/* harmony import */ var _package_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../package.json */ "./node_modules/color-schema-test/es/package.json");
-/* harmony import */ var _schema__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./schema */ "./node_modules/color-schema-test/es/src/schema/index.js");
-
-var version = _package_json__WEBPACK_IMPORTED_MODULE_0__.version;
-
-
-
-/***/ }),
-
-/***/ "./node_modules/color-schema-test/es/src/schema/color.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/color-schema-test/es/src/schema/color.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "colorToHex": () => (/* binding */ colorToHex)
-/* harmony export */ });
-/* harmony import */ var chroma_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! chroma-js */ "../node_modules/_chroma-js@2.1.2@chroma-js/chroma.js");
-/* harmony import */ var chroma_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(chroma_js__WEBPACK_IMPORTED_MODULE_0__);
-
-var isChromaColor = function (color) {
-    if (chroma_js__WEBPACK_IMPORTED_MODULE_0___default().valid(color)) {
-        return true;
-    }
-    return false;
-};
-function colorToHex(color) {
-    var value = color.value;
-    if (isChromaColor(value)) {
-        return chroma_js__WEBPACK_IMPORTED_MODULE_0___default()(value).hex();
-    }
-    return "";
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/color-schema-test/es/src/schema/colorValue.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/color-schema-test/es/src/schema/colorValue.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "HSLValueRange": () => (/* binding */ HSLValueRange),
-/* harmony export */   "HSVValueRange": () => (/* binding */ HSVValueRange),
-/* harmony export */   "HSIValueRange": () => (/* binding */ HSIValueRange),
-/* harmony export */   "RGBValueRange": () => (/* binding */ RGBValueRange),
-/* harmony export */   "RGBAValueRange": () => (/* binding */ RGBAValueRange),
-/* harmony export */   "LABRange": () => (/* binding */ LABRange),
-/* harmony export */   "LCHRange": () => (/* binding */ LCHRange),
-/* harmony export */   "CMYKRange": () => (/* binding */ CMYKRange),
-/* harmony export */   "ColorModelRange": () => (/* binding */ ColorModelRange),
-/* harmony export */   "isColorValue": () => (/* binding */ isColorValue)
-/* harmony export */ });
-var HSLValueRange = {
-    h: [0, 360],
-    s: [0, 1],
-    l: [0, 1],
-};
-var HSVValueRange = {
-    h: [0, 360],
-    s: [0, 1],
-    v: [0, 1],
-};
-var HSIValueRange = {
-    h: [0, 360],
-    s: [0, 1],
-    i: [0, 1],
-};
-var RGBValueRange = {
-    r: [0, 255],
-    g: [0, 255],
-    b: [0, 255],
-};
-var RGBAValueRange = {
-    r: [0, 255],
-    g: [0, 255],
-    b: [0, 255],
-    a: [0, 1],
-};
-var LABRange = {
-    l: [0, 100],
-    a: [-86.185, 98.254],
-    b: [-107.863, 94.482],
-};
-var LCHRange = {
-    l: [0, 100],
-    c: [0, 100],
-    h: [0, 360],
-};
-var CMYKRange = {
-    c: [0, 1],
-    m: [0, 1],
-    y: [0, 1],
-    k: [0, 1],
-};
-var ColorModelRange = {
-    lab: LABRange,
-    lch: LCHRange,
-    rgb: RGBValueRange,
-    rgba: RGBAValueRange,
-    hsl: HSLValueRange,
-    hsv: HSVValueRange,
-    hsi: HSIValueRange,
-    cmyk: CMYKRange,
-};
-function isColorValue(colorValue) {
-    var model = colorValue.model, value = colorValue.value;
-    var colorModelRange = ColorModelRange[model];
-    return (Object.keys(value).sort().join(",") === Object.keys(colorModelRange).sort().join(",") &&
-        Object.entries(value).every(function (_a) {
-            var key = _a[0], v = _a[1];
-            return v >= colorModelRange[key][0] && v <= colorModelRange[key][1];
-        }));
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/color-schema-test/es/src/schema/index.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/color-schema-test/es/src/schema/index.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "isCategoricalPalette": () => (/* reexport safe */ _palette__WEBPACK_IMPORTED_MODULE_0__.isCategoricalPalette),
-/* harmony export */   "isContinuousPalette": () => (/* reexport safe */ _palette__WEBPACK_IMPORTED_MODULE_0__.isContinuousPalette),
-/* harmony export */   "isDiscreteScalePalette": () => (/* reexport safe */ _palette__WEBPACK_IMPORTED_MODULE_0__.isDiscreteScalePalette),
-/* harmony export */   "isMatrixPalette": () => (/* reexport safe */ _palette__WEBPACK_IMPORTED_MODULE_0__.isMatrixPalette),
-/* harmony export */   "colorToHex": () => (/* reexport safe */ _color__WEBPACK_IMPORTED_MODULE_1__.colorToHex),
-/* harmony export */   "CMYKRange": () => (/* reexport safe */ _colorValue__WEBPACK_IMPORTED_MODULE_2__.CMYKRange),
-/* harmony export */   "ColorModelRange": () => (/* reexport safe */ _colorValue__WEBPACK_IMPORTED_MODULE_2__.ColorModelRange),
-/* harmony export */   "HSIValueRange": () => (/* reexport safe */ _colorValue__WEBPACK_IMPORTED_MODULE_2__.HSIValueRange),
-/* harmony export */   "HSLValueRange": () => (/* reexport safe */ _colorValue__WEBPACK_IMPORTED_MODULE_2__.HSLValueRange),
-/* harmony export */   "HSVValueRange": () => (/* reexport safe */ _colorValue__WEBPACK_IMPORTED_MODULE_2__.HSVValueRange),
-/* harmony export */   "LABRange": () => (/* reexport safe */ _colorValue__WEBPACK_IMPORTED_MODULE_2__.LABRange),
-/* harmony export */   "LCHRange": () => (/* reexport safe */ _colorValue__WEBPACK_IMPORTED_MODULE_2__.LCHRange),
-/* harmony export */   "RGBAValueRange": () => (/* reexport safe */ _colorValue__WEBPACK_IMPORTED_MODULE_2__.RGBAValueRange),
-/* harmony export */   "RGBValueRange": () => (/* reexport safe */ _colorValue__WEBPACK_IMPORTED_MODULE_2__.RGBValueRange),
-/* harmony export */   "isColorValue": () => (/* reexport safe */ _colorValue__WEBPACK_IMPORTED_MODULE_2__.isColorValue)
-/* harmony export */ });
-/* harmony import */ var _palette__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./palette */ "./node_modules/color-schema-test/es/src/schema/palette.js");
-/* harmony import */ var _color__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./color */ "./node_modules/color-schema-test/es/src/schema/color.js");
-/* harmony import */ var _colorValue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./colorValue */ "./node_modules/color-schema-test/es/src/schema/colorValue.js");
-
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/color-schema-test/es/src/schema/palette.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/color-schema-test/es/src/schema/palette.js ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "isCategoricalPalette": () => (/* binding */ isCategoricalPalette),
-/* harmony export */   "isDiscreteScalePalette": () => (/* binding */ isDiscreteScalePalette),
-/* harmony export */   "isContinuousPalette": () => (/* binding */ isContinuousPalette),
-/* harmony export */   "isMatrixPalette": () => (/* binding */ isMatrixPalette)
-/* harmony export */ });
-function isCategoricalPalette(palette) {
-    if (palette.type === "categorical")
-        return true;
-    return false;
-}
-function isDiscreteScalePalette(palette) {
-    if (palette.type === "discrete-scale")
-        return true;
-    return false;
-}
-function isContinuousPalette(palette) {
-    if (palette.type === "continuous-scale")
-        return true;
-    return false;
-}
-function isMatrixPalette(palette) {
-    if (palette.type === "matrix")
-        return true;
-    return false;
-}
-
 
 /***/ }),
 
@@ -44105,6 +44059,261 @@ else if (true) {
 else {}
 
 })(Math);
+
+
+/***/ }),
+
+/***/ "./node_modules/tslib/tslib.es6.js":
+/*!*****************************************!*\
+  !*** ./node_modules/tslib/tslib.es6.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "__extends": () => (/* binding */ __extends),
+/* harmony export */   "__assign": () => (/* binding */ __assign),
+/* harmony export */   "__rest": () => (/* binding */ __rest),
+/* harmony export */   "__decorate": () => (/* binding */ __decorate),
+/* harmony export */   "__param": () => (/* binding */ __param),
+/* harmony export */   "__metadata": () => (/* binding */ __metadata),
+/* harmony export */   "__awaiter": () => (/* binding */ __awaiter),
+/* harmony export */   "__generator": () => (/* binding */ __generator),
+/* harmony export */   "__createBinding": () => (/* binding */ __createBinding),
+/* harmony export */   "__exportStar": () => (/* binding */ __exportStar),
+/* harmony export */   "__values": () => (/* binding */ __values),
+/* harmony export */   "__read": () => (/* binding */ __read),
+/* harmony export */   "__spread": () => (/* binding */ __spread),
+/* harmony export */   "__spreadArrays": () => (/* binding */ __spreadArrays),
+/* harmony export */   "__await": () => (/* binding */ __await),
+/* harmony export */   "__asyncGenerator": () => (/* binding */ __asyncGenerator),
+/* harmony export */   "__asyncDelegator": () => (/* binding */ __asyncDelegator),
+/* harmony export */   "__asyncValues": () => (/* binding */ __asyncValues),
+/* harmony export */   "__makeTemplateObject": () => (/* binding */ __makeTemplateObject),
+/* harmony export */   "__importStar": () => (/* binding */ __importStar),
+/* harmony export */   "__importDefault": () => (/* binding */ __importDefault),
+/* harmony export */   "__classPrivateFieldGet": () => (/* binding */ __classPrivateFieldGet),
+/* harmony export */   "__classPrivateFieldSet": () => (/* binding */ __classPrivateFieldSet)
+/* harmony export */ });
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return extendStatics(d, b);
+};
+
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    }
+    return __assign.apply(this, arguments);
+}
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+}
+
+function __decorate(decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+}
+
+function __param(paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+}
+
+function __metadata(metadataKey, metadataValue) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+}
+
+function __awaiter(thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+function __generator(thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+}
+
+function __createBinding(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}
+
+function __exportStar(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+
+function __values(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+}
+
+function __read(o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+}
+
+function __spread() {
+    for (var ar = [], i = 0; i < arguments.length; i++)
+        ar = ar.concat(__read(arguments[i]));
+    return ar;
+}
+
+function __spreadArrays() {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+
+function __await(v) {
+    return this instanceof __await ? (this.v = v, this) : new __await(v);
+}
+
+function __asyncGenerator(thisArg, _arguments, generator) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var g = generator.apply(thisArg, _arguments || []), i, q = [];
+    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
+    function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
+    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
+    function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
+    function fulfill(value) { resume("next", value); }
+    function reject(value) { resume("throw", value); }
+    function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
+}
+
+function __asyncDelegator(o) {
+    var i, p;
+    return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
+    function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; } : f; }
+}
+
+function __asyncValues(o) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var m = o[Symbol.asyncIterator], i;
+    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
+    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
+}
+
+function __makeTemplateObject(cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
+
+function __importStar(mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result.default = mod;
+    return result;
+}
+
+function __importDefault(mod) {
+    return (mod && mod.__esModule) ? mod : { default: mod };
+}
+
+function __classPrivateFieldGet(receiver, privateMap) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to get private field on non-instance");
+    }
+    return privateMap.get(receiver);
+}
+
+function __classPrivateFieldSet(receiver, privateMap, value) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to set private field on non-instance");
+    }
+    privateMap.set(receiver, value);
+    return value;
+}
 
 
 /***/ }),
