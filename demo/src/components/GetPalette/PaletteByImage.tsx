@@ -1,6 +1,7 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { Palette } from '@antv/color-schema';
 import { Slider, InputNumber } from 'antd';
+import { isEqual } from 'lodash';
 import { getPaletteFromImage } from '../../../../src';
 import Swatch from '../Swatch';
 import './index.less';
@@ -12,14 +13,18 @@ interface PaletteByImageState {
   colorCount: number;
   palette: Palette | undefined;
 }
-class PaletteByImage extends PureComponent<PaletteByImageProps, PaletteByImageState> {
+class PaletteByImage extends Component<PaletteByImageProps, PaletteByImageState> {
   readonly state: PaletteByImageState = {
     colorCount: 8,
     palette: undefined,
   };
 
   shouldComponentUpdate(nextProps: PaletteByImageProps, nextState: PaletteByImageState) {
-    if (this.state.colorCount !== nextState.colorCount || this.props.image !== nextProps.image) {
+    if (
+      this.state.colorCount !== nextState.colorCount ||
+      this.props.image !== nextProps.image ||
+      !isEqual(this.state.palette?.colors, nextState.palette?.colors)
+    ) {
       return true;
     }
     return false;

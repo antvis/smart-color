@@ -1,3 +1,4 @@
+import { ColorSchemeType } from '@antv/color-schema';
 import { PaletteGeneration } from '../types';
 import { randomColor } from './random';
 import { monochromaticGeneration } from './monochromaticGeneration';
@@ -10,7 +11,7 @@ import { tetradicGeneration } from './tetradicGeneration';
 import { polychromaticGeneration } from './polychromaticGeneration';
 import { randomGeneration } from './randomGeneration';
 
-const generator = {
+const generator: Record<ColorSchemeType, Function> = {
   monochromatic: monochromaticGeneration,
   analogous: analogousGeneration,
   achromatic: achromaticGeneration,
@@ -19,6 +20,7 @@ const generator = {
   triadic: triadicGeneration,
   tetradic: tetradicGeneration,
   polychromatic: polychromaticGeneration,
+  customized: randomGeneration,
 };
 
 /**
@@ -28,7 +30,7 @@ const generator = {
  * @param configuration
  * @returns
  */
-export const paletteGeneration: PaletteGeneration = (type = 'monochromatic', configuration = {}) => {
+export const paletteGeneration: PaletteGeneration = (type: ColorSchemeType = 'monochromatic', configuration = {}) => {
   // set default value
   const { color = randomColor(), colors = [], count = 8, tendency = 'tint' } = configuration;
   const newConfiguration = {

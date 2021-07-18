@@ -1,3 +1,4 @@
+// @ts-ignore
 import ColorThief from 'colorthief';
 import { v4 as uuidv4 } from 'uuid';
 import { Palette } from '@antv/color-schema';

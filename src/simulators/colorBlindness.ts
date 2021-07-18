@@ -1,3 +1,4 @@
+// @ts-ignore
 import blinder from 'color-blind';
 import { COLOR_BLINDNESS_SIMULATION_TYPES } from '../constant';
 import { ColorBlindnessSimulationType, ColorSimulation } from '../types';
