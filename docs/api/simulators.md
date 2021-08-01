@@ -3,7 +3,7 @@
 
 ## Usage
 
-<a name="colorSimulation" href="#colorSimulation">#</a> **colorSimulation**<i>(color: Color, type: SimulationType="normal") => number</i>
+<a name="colorSimulation" href="#colorSimulation">#</a> **colorSimulation**<i>(color: Color, type: SimulationType="normal") => Color</i>
 
 Simulation of color in color blindness and gray scale.
 
