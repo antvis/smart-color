@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Color } from '@antv/color-schema';
 import Block from '../Block';
-import { colorDistance } from '../../../../src';
+import { colorDistance, CIEDE2000 } from '../../../../src';
 import './index.less';
 
 interface ColorDistanceProps {
@@ -25,28 +25,52 @@ class ColorDistance extends PureComponent<ColorDistanceProps, ColorDistanceState
     const color2 = this.state.color2 || this.props.color2;
 
     return (
-      <div>
-        <h3>Color Distance</h3>
-        <div className="content">
-          <span>
-            The <b>distance</b> between
-          </span>
-          <Block
-            color={color1}
-            onChange={(color) => {
-              this.setState({ color1: color });
-            }}
-          ></Block>
-          <span>and</span>
-          <Block
-            color={color2}
-            onChange={(color) => {
-              this.setState({ color2: color });
-            }}
-          ></Block>
-          <div>is {colorDistance(color1, color2).toFixed(2)} .</div>
+      <>
+        <div>
+          <h3>Color Distance</h3>
+          <div className="content">
+            <span>
+              The <b>Euclidean distance</b> between
+            </span>
+            <Block
+              color={color1}
+              onChange={(color) => {
+                this.setState({ color1: color });
+              }}
+            ></Block>
+            <span>and</span>
+            <Block
+              color={color2}
+              onChange={(color) => {
+                this.setState({ color2: color });
+              }}
+            ></Block>
+            <div>in La*b* is {colorDistance(color1, color2).toFixed(2)} .</div>
+          </div>
         </div>
-      </div>
+        <div>
+          <h3>CIEDE2000</h3>
+          <div className="content">
+            <span>
+              The color difference <b>CIEDE2000</b> between
+            </span>
+            <Block
+              color={color1}
+              onChange={(color) => {
+                this.setState({ color1: color });
+              }}
+            ></Block>
+            <span>and</span>
+            <Block
+              color={color2}
+              onChange={(color) => {
+                this.setState({ color2: color });
+              }}
+            ></Block>
+            <div> is {CIEDE2000(color1, color2).toFixed(2)} .</div>
+          </div>
+        </div>
+      </>
     );
   }
 }

@@ -1,7 +1,7 @@
-import { ColorModel, ColorModelRange as COLOR_MODEL_RANGE } from '@antv/color-schema';
+import { Color, ColorModel, ColorModelRange as COLOR_MODEL_RANGE } from '@antv/color-schema';
 import { cloneDeep, sumBy, random } from 'lodash';
 import { SimulationType } from '../types';
-import { arrayToColor } from '../utils';
+import { arrayToColor, grayToColor } from '../utils';
 import { colorDistance } from '../evaluators';
 import { colorSimulation } from '../simulators';
 
@@ -84,25 +84,20 @@ const mutate = (colors: Colors, unLocledIndexs: number[], simulationType: Simula
   return newColors;
 };
 
-const calFitnessInGrayScale = (colors: Colors, locked: boolean[]): number => {
-  let minDistance = Infinity;
-  for (let i = 0; i < colors.length; i += 1) {
-    for (let j = i + 1; j < colors.length; j += 1) {
-      if (!(locked[i] && locked[j])) {
-        minDistance = Math.min(minDistance, Math.abs(colors[i][0] - colors[j][0]));
-      }
-    }
-  }
-  return minDistance;
-};
-const calFitnessInColorBlindnessSimulation = (
+// fitness function
+export const calFitness = (
   colors: Colors,
   locked: boolean[],
   simulationType: SimulationType,
   colorModel: ColorModel
 ): number => {
+  let newColors: Color[];
+  if (simulationType === 'grayScale') {
+    newColors = colors.map(([gray]) => grayToColor(gray));
+  } else {
+    newColors = colors.map((color) => colorSimulation(arrayToColor(color, colorModel), simulationType));
+  }
   let minDistance = Infinity;
-  const newColors = colors.map((color) => colorSimulation(arrayToColor(color, colorModel), simulationType));
   for (let i = 0; i < newColors.length; i += 1) {
     for (let j = i + 1; j < newColors.length; j += 1) {
       if (!(locked[i] && locked[j])) {
@@ -111,18 +106,6 @@ const calFitnessInColorBlindnessSimulation = (
     }
   }
   return minDistance;
-};
-// fitness function
-export const calFitness = (
-  colors: Colors,
-  locked: boolean[],
-  simulationType: SimulationType,
-  colorModel: ColorModel
-): number => {
-  if (simulationType === 'grayScale') {
-    return calFitnessInGrayScale(colors, locked);
-  }
-  return calFitnessInColorBlindnessSimulation(colors, locked, simulationType, colorModel);
 };
 
 export const optimizePaletteByGA = (
