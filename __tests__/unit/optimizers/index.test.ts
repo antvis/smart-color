@@ -1,12 +1,15 @@
 import { CategoricalPalette } from '@antv/color-schema';
-import { paletteOptimization, colorDistance, SimulationType } from '@src/index';
+import { paletteOptimization, colorDistance, SimulationType, colorSimulation } from '@src/index';
 
 const getMinDistance = (palette: CategoricalPalette, simulationType: SimulationType = 'normal') => {
   let minDistance = Infinity;
   const { colors } = palette;
   for (let i = 0; i < colors.length; i += 1) {
     for (let j = i + 1; j < colors.length; j += 1) {
-      minDistance = Math.min(colorDistance(colors[i], colors[j], simulationType), minDistance);
+      minDistance = Math.min(
+        colorDistance(colorSimulation(colors[i], simulationType), colorSimulation(colors[j], simulationType)),
+        minDistance
+      );
     }
   }
   return minDistance;

@@ -34,7 +34,8 @@ In smart-color, we use the data structure [Color](https://github.com/neoddish/co
 
 Provide professional methods to color testing.
 
-* [colorDistance](./evaluators.md#colorDistance) Computes the Euclidean distance between two colors in La\*b\* color model.
+* [colorDistance](./evaluators.md#colorDistance) Computes the Euclidean distance between two colors in a given color model (default is Lab).
+* [CIEDE2000](./evaluators.md#CIEDE2000) Computes the difference between two colors in [CIEDE2000 color difference algorithm](https://en.wikipedia.org/wiki/Color_difference#CIEDE2000).
 
 ## Get Palette
 
