@@ -34,14 +34,14 @@ In smart-color, we use the data structure [Color](https://github.com/neoddish/co
 
 Provide professional methods to color testing.
 
-* [colorDistance](./professionalTest.md#colorDistance) Computes the Euclidean distance between two colors in La\*b\* color model.
+* [colorDistance](./evaluators.md#colorDistance) Computes the Euclidean distance between two colors in La\*b\* color model.
 
 ## Get Palette
 
 Get palettes from strings and images.
 
-* [getPaletteFromImage](./getPalette.md#getPaletteFromImage) Get palettes from images.
-* [getPaletteFromString](./getPalette.md#getPaletteFromString) Get palettes from strings.
+* [getPaletteFromImage](./extractors.md#getPaletteFromImage) Get palettes from images.
+* [getPaletteFromString](./extractors.md#getPaletteFromString) Get palettes from strings.
 
 ## Color Conversion
 
