@@ -13,7 +13,8 @@ Automatic palette optimization enables colors in the palette to be distinguished
 | ----| ---- | ---- | -----|
 | simulationType | `SimulationType` |The types of simulations, the normal case, the eight different modes of color blindness, and the colors in grayscale mode. | `"normal"` |
 | locked |  `boolean[]` | Each item in the array indicates whether the color of the same index in the color palette should be kept constant during optimization. | `[]` |
-| threshold | `number` | The minimum distance expected to be achieved between the colors in the optimized palette. However, this threshold is not always reached in each optimization, and it depends mainly on the number of colors in this palette and the distance at the beginning. | `30` |
+| colorDifference | `ColorDifferenceMethod` | Method used to assess colour differences when optimizing. You can find more details in [Professional Test](./professionalTest.md).  | `colorDistance` |
+| threshold | `number` | The minimum distance expected to be achieved between the colors in the optimized palette. Since different color difference methods have different ranges of values, they have different default thresholds. However, this threshold is not always reached in each optimization, and it depends mainly on the number of colors in this palette and the distance at the beginning. | `30`(colorDistance)<br>`20`(CIEDE2000) |
 | colorModel | `ColorModel` | The color model used in the optimization. Not effective in grayscale mode. | `hsv` |
 
 ```ts

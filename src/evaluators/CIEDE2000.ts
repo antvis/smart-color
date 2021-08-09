@@ -15,6 +15,7 @@ const hp = (x: number, y: number) => {
 };
 
 // ref: https://en.wikipedia.org/wiki/Color_difference#CIEDE2000
+// output range: [0, 100]
 export const CIEDE2000: ColorDiffenece = (color1, color2) => {
   // weight, usually unity
   const kL = 1;
