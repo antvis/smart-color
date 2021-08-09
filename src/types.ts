@@ -1,5 +1,5 @@
 import { Color, Palette, ColorModel, ColorSchemeType } from '@antv/color-schema';
-import { COLOR_BLINDNESS_SIMULATION_TYPES, TENDENCIES } from './constant';
+import { COLOR_BLINDNESS_SIMULATION_TYPES, TENDENCIES, COLOR_DIFFERENCE_METHODS } from './constant';
 
 // color simulation
 export type ColorBlindnessSimulationType = typeof COLOR_BLINDNESS_SIMULATION_TYPES[number];
@@ -11,6 +11,7 @@ export type ColorSimulation = (
   type?: SimulationType
 ) => Color;
 
+export type ColorDifferenceMethod = typeof COLOR_DIFFERENCE_METHODS[number];
 // palette optimization
 export type OptimizerConfiguration = {
   // default value: []
@@ -20,6 +21,8 @@ export type OptimizerConfiguration = {
   threshold?: number;
   // default value: 'hsv'
   colorModel?: ColorModel;
+  // default value: 'colorDistance'
+  colorDiffernce?: ColorDifferenceMethod;
 };
 export type PaletteOptimization = (palette: Palette, configuration?: OptimizerConfiguration) => Palette;
 

@@ -6,8 +6,8 @@ Provide professional methods to color testing.
 
 <a name="colorDistance" href="#colorDistance">#</a> **colorDistance**<i>(color1: Color, color2: Color, colorModel: ColorModel="lab") => number</i>
 
-Computes the Euclidean distance between two colors in a given color model (default is Lab).
-
+Computes the Euclidean distance between two colors in a given color model (default is Lab). 
+The range of color distances is depend on color model.
 ```ts
 import { colorDistance } from '@antv/smart-color';
 
@@ -27,6 +27,7 @@ colorDistance(color1, color2, "rgb"); //97.29
 <a name="CIEDE2000" href="#CIEDE2000">#</a> **CIEDE2000**<i>(color1: Color, color2: Color) => number</i>
 
 Computes the difference between two colors in [CIEDE2000 color difference algorithm](https://en.wikipedia.org/wiki/Color_difference#CIEDE2000).
+The range of CIEDE2000 is [0, 100].
 
 ```ts
 import { CIEDE2000 } from '@antv/smart-color';
