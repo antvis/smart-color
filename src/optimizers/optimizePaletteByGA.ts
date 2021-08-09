@@ -2,7 +2,7 @@ import { ColorModel, ColorModelRange as COLOR_MODEL_RANGE } from '@antv/color-sc
 import { cloneDeep, sumBy, random } from 'lodash';
 import { SimulationType } from '../types';
 import { arrayToColor } from '../utils';
-import { colorDistance } from '../professionalTest';
+import { colorDistance } from '../evaluators';
 import { colorSimulation } from '../simulators';
 
 type ColorArray = [number] | [number, number, number] | [number, number, number, number];
