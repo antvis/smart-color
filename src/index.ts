@@ -1,4 +1,13 @@
-export { colorToArray, arrayToColor, colorToGray, grayToColor, colorToHex, hexToColor, nameToColor } from './utils';
+export {
+  colorToArray,
+  arrayToColor,
+  colorToGray,
+  grayToColor,
+  colorToHex,
+  hexToColor,
+  nameToColor,
+  colorOverlap,
+} from './utils';
 // color simulation
 export { colorSimulation, invertGrayScale } from './simulators';
 // palette generation

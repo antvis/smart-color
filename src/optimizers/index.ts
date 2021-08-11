@@ -1,5 +1,6 @@
 import { isContinuousPalette, isMatrixPalette } from '@antv/color-schema';
 import { cloneDeep } from 'lodash';
+import { WHITE } from '../constant';
 import { invertGrayScale } from '../simulators';
 import { PaletteOptimization, ColorDistanceMeasure } from '../types';
 import { colorToGray, colorToArray, arrayToColor } from '../utils';
@@ -7,12 +8,17 @@ import { optimizePaletteByGA } from './optimizePaletteByGA';
 
 const COLOR_DIFFERENCE_DEFAULT_VALUE: Record<ColorDistanceMeasure, number> = {
   euclidean: 30,
+  // ref: Categorical Colormap Optimization with Visualization Case Studies
+  // suggests that [20, 25] might be the borderline zone
   CIEDE2000: 20,
+  // WCAG, 1.4.3 Contrast (Minimum)
+  contrastRatio: 4.5,
 };
 
 const COLOR_DIFFERENCE_MAX_VALUE: Record<ColorDistanceMeasure, number> = {
   euclidean: 291.48,
   CIEDE2000: 100,
+  contrastRatio: 21,
 };
 
 export const paletteOptimization: PaletteOptimization = (palette, configuration = {}) => {
@@ -22,6 +28,7 @@ export const paletteOptimization: PaletteOptimization = (palette, configuration 
     threshold,
     colorModel = 'hsv',
     colorDistanceMeasure = 'euclidean',
+    backgroundColor = WHITE,
   } = configuration;
   let newThreshold = threshold;
   // set default value
@@ -45,7 +52,8 @@ export const paletteOptimization: PaletteOptimization = (palette, configuration 
         simulationType,
         newThreshold,
         colorModel,
-        colorDistanceMeasure
+        colorDistanceMeasure,
+        backgroundColor
       );
       newPalette.colors.forEach((color, index) =>
         Object.assign(color, invertGrayScale(newColors[index][0] / 255, color))
@@ -58,7 +66,8 @@ export const paletteOptimization: PaletteOptimization = (palette, configuration 
         simulationType,
         newThreshold,
         colorModel,
-        colorDistanceMeasure
+        colorDistanceMeasure,
+        backgroundColor
       );
       newPalette.colors.forEach((color, index) => {
         Object.assign(color, arrayToColor(newColors[index], colorModel));

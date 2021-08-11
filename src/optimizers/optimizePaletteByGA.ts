@@ -90,7 +90,8 @@ export const calFitness = (
   locked: boolean[],
   simulationType: SimulationType,
   colorModel: ColorModel,
-  colorDistanceMeasure: ColorDistanceMeasure
+  colorDistanceMeasure: ColorDistanceMeasure,
+  backgroundColor: Color
 ): number => {
   let newColors: Color[];
   if (simulationType === 'grayScale') {
@@ -104,7 +105,7 @@ export const calFitness = (
       if (!(locked[i] && locked[j])) {
         minDistance = Math.min(
           minDistance,
-          colorDistance(newColors[i], newColors[j], { measure: colorDistanceMeasure })
+          colorDistance(newColors[i], newColors[j], { measure: colorDistanceMeasure, backgroundColor })
         );
       }
     }
@@ -118,9 +119,10 @@ export const optimizePaletteByGA = (
   simulationType: SimulationType,
   threshold: number,
   colorModel: ColorModel,
-  colorDistance: ColorDistanceMeasure
+  colorDistance: ColorDistanceMeasure,
+  backgroundColor: Color
 ) => {
-  if (Math.round(calFitness(colors, locked, simulationType, colorModel, colorDistance)) > threshold) {
+  if (Math.round(calFitness(colors, locked, simulationType, colorModel, colorDistance, backgroundColor)) > threshold) {
     return colors;
   }
   const unLocledIndexs = new Array(colors.length)
@@ -133,7 +135,9 @@ export const optimizePaletteByGA = (
     .fill(0)
     .map(() => mutate(colors, unLocledIndexs, simulationType, colorModel));
   // Evaluating individuals
-  let fitnesses = population.map((colors) => calFitness(colors, locked, simulationType, colorModel, colorDistance));
+  let fitnesses = population.map((colors) =>
+    calFitness(colors, locked, simulationType, colorModel, colorDistance, backgroundColor)
+  );
   let bestFitness = Math.max(...fitnesses);
   let elites = population[fitnesses.findIndex((d) => d === bestFitness)];
   let cnt = 1;
@@ -155,7 +159,9 @@ export const optimizePaletteByGA = (
     }
 
     population = newPopulation;
-    fitnesses = population.map((colors) => calFitness(colors, locked, simulationType, colorModel, colorDistance));
+    fitnesses = population.map((colors) =>
+      calFitness(colors, locked, simulationType, colorModel, colorDistance, backgroundColor)
+    );
     const newBestFitness = Math.max(...fitnesses);
     bestFitness = newBestFitness;
     elites = population[fitnesses.findIndex((d) => d === newBestFitness)];
