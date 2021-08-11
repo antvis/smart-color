@@ -23,6 +23,8 @@ export type OptimizerConfiguration = {
   colorModel?: ColorModel;
   // default value: 'euclidean'
   colorDistanceMeasure?: ColorDistanceMeasure;
+  // for semi-transparent colors
+  backgroundColor?: Color;
 };
 export type PaletteOptimization = (palette: Palette, configuration?: OptimizerConfiguration) => Palette;
 
@@ -52,13 +54,23 @@ export type PaletteGeneration = (
 ) => GenerationResult;
 
 // Professional test
-export type ColorDistanceConfiguration =
-  | {
-      measure: 'euclidean';
-      // default value: 'lab'
-      colorModel?: ColorModel;
-    }
-  | {
-      measure: 'CIEDE2000';
-    };
+type ColorDistanceGeneralConfiguration = {
+  // If the color is semi-transparent, the color will be overlaid on the backgroundColor
+  // default value: white
+  backgroundColor?: Color;
+};
+export type ColorDistanceConfiguration = ColorDistanceGeneralConfiguration &
+  (
+    | {
+        measure: 'euclidean';
+        // default value: 'lab'
+        colorModel?: ColorModel;
+      }
+    | {
+        measure: 'CIEDE2000' | 'contrastRatio';
+      }
+  );
 export type ColorDistance = (color1: Color, color2: Color, configuration?: ColorDistanceConfiguration) => number;
+
+// Color compution
+export type ColorOverlap = (colorTop: Color, colorBottom: Color) => Color;
