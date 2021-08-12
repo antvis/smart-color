@@ -114,7 +114,7 @@ describe('Palette optimization', () => {
   });
   test('palette optimization by CIEDE2000', () => {
     const minDistance = getMinDistance(palette);
-    const newPalette = paletteOptimization(palette, { colorDiffernce: 'CIEDE2000' }) as CategoricalPalette;
+    const newPalette = paletteOptimization(palette, { colorDistanceMeasure: 'CIEDE2000' }) as CategoricalPalette;
     expect(getMinDistance(newPalette)).toBeGreaterThanOrEqual(minDistance);
   });
   test('palette optimization in grayScale', () => {

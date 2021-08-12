@@ -1,8 +1,8 @@
 import { Color, ColorModel, ColorModelRange as COLOR_MODEL_RANGE } from '@antv/color-schema';
 import { cloneDeep, sumBy, random } from 'lodash';
-import { ColorDifferenceMethod, SimulationType } from '../types';
+import { ColorDistanceMeasure, SimulationType } from '../types';
 import { arrayToColor, grayToColor } from '../utils';
-import { colorDistance, CIEDE2000 } from '../evaluators';
+import { colorDistance } from '../evaluators';
 import { colorSimulation } from '../simulators';
 
 type ColorArray = [number] | [number, number, number] | [number, number, number, number];
@@ -85,16 +85,12 @@ const mutate = (colors: Colors, unLocledIndexs: number[], simulationType: Simula
 };
 
 // fitness function
-const colorDiffeneceFunction: Record<ColorDifferenceMethod, (color1: Color, color2: Color) => number> = {
-  colorDistance,
-  CIEDE2000,
-};
 export const calFitness = (
   colors: Colors,
   locked: boolean[],
   simulationType: SimulationType,
   colorModel: ColorModel,
-  colorDiffernce: ColorDifferenceMethod
+  colorDistanceMeasure: ColorDistanceMeasure
 ): number => {
   let newColors: Color[];
   if (simulationType === 'grayScale') {
@@ -106,7 +102,10 @@ export const calFitness = (
   for (let i = 0; i < newColors.length; i += 1) {
     for (let j = i + 1; j < newColors.length; j += 1) {
       if (!(locked[i] && locked[j])) {
-        minDistance = Math.min(minDistance, colorDiffeneceFunction[colorDiffernce](newColors[i], newColors[j]));
+        minDistance = Math.min(
+          minDistance,
+          colorDistance(newColors[i], newColors[j], { measure: colorDistanceMeasure })
+        );
       }
     }
   }
@@ -119,9 +118,9 @@ export const optimizePaletteByGA = (
   simulationType: SimulationType,
   threshold: number,
   colorModel: ColorModel,
-  colorDiffernce: ColorDifferenceMethod
+  colorDistance: ColorDistanceMeasure
 ) => {
-  if (Math.round(calFitness(colors, locked, simulationType, colorModel, colorDiffernce)) > threshold) {
+  if (Math.round(calFitness(colors, locked, simulationType, colorModel, colorDistance)) > threshold) {
     return colors;
   }
   const unLocledIndexs = new Array(colors.length)
@@ -134,7 +133,7 @@ export const optimizePaletteByGA = (
     .fill(0)
     .map(() => mutate(colors, unLocledIndexs, simulationType, colorModel));
   // Evaluating individuals
-  let fitnesses = population.map((colors) => calFitness(colors, locked, simulationType, colorModel, colorDiffernce));
+  let fitnesses = population.map((colors) => calFitness(colors, locked, simulationType, colorModel, colorDistance));
   let bestFitness = Math.max(...fitnesses);
   let elites = population[fitnesses.findIndex((d) => d === bestFitness)];
   let cnt = 1;
@@ -156,7 +155,7 @@ export const optimizePaletteByGA = (
     }
 
     population = newPopulation;
-    fitnesses = population.map((colors) => calFitness(colors, locked, simulationType, colorModel, colorDiffernce));
+    fitnesses = population.map((colors) => calFitness(colors, locked, simulationType, colorModel, colorDistance));
     const newBestFitness = Math.max(...fitnesses);
     bestFitness = newBestFitness;
     elites = population[fitnesses.findIndex((d) => d === newBestFitness)];

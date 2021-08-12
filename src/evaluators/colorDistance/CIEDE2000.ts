@@ -1,5 +1,5 @@
-import { colorToArray } from '../utils';
-import { ColorDiffenece } from '../types';
+import { Color } from '@antv/color-schema';
+import { colorToArray } from '../../utils';
 
 function rad2deg(n) {
   return n * (180 / Math.PI);
@@ -16,7 +16,7 @@ const hp = (x: number, y: number) => {
 
 // ref: https://en.wikipedia.org/wiki/Color_difference#CIEDE2000
 // output range: [0, 100]
-export const CIEDE2000: ColorDiffenece = (color1, color2) => {
+export const CIEDE2000 = (color1: Color, color2: Color): number => {
   // weight, usually unity
   const kL = 1;
   const kC = 1;

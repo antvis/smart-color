@@ -1,5 +1,5 @@
 import { Color } from '@antv/color-schema';
-import { CIEDE2000 } from '@src/index';
+import { colorDistance } from '@src/index';
 
 describe('CIEDE2000', () => {
   const color1: Color = {
@@ -39,17 +39,17 @@ describe('CIEDE2000', () => {
   };
 
   test('same color', () => {
-    const distance = CIEDE2000(color1, color1);
+    const distance = colorDistance(color1, color1, { measure: 'CIEDE2000' });
     expect(distance).toBe(0);
   });
 
   test('different color', () => {
-    const distance = CIEDE2000(color1, color2).toFixed(1);
+    const distance = colorDistance(color1, color2, { measure: 'CIEDE2000' }).toFixed(1);
     expect(distance).toBe('14.1');
   });
 
   test('white color and black color', () => {
-    const distance = CIEDE2000(color3, color4).toFixed(1);
+    const distance = colorDistance(color3, color4, { measure: 'CIEDE2000' }).toFixed(1);
     expect(distance).toBe('100.0');
   });
 });
