@@ -8,7 +8,7 @@ export const COLOR_BLINDNESS_SIMULATION_TYPES = [
   'tritanopia',
   'achromatomaly',
   'achromatopsia',
-];
+] as const;
 // color optimization configuration
-export const TENDENCIES = ['tint', 'shade'];
-export const COLOR_DIFFERENCE_METHODS = ['colorDistance', 'CIEDE2000'];
+export const TENDENCIES = ['tint', 'shade'] as const;
+export const COLOR_DISTANCE_MEASURES = ['euclidean', 'CIEDE2000'] as const;

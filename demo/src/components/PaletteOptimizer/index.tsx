@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import { Button, Select } from 'antd';
 import { Palette } from '@antv/color-schema';
 import { paletteOptimization } from '../../../../src';
-import { COLOR_DIFFERENCE_METHODS } from '../../../../src/constant';
-import { ColorDifferenceMethod } from '../../../../src/types';
+import { COLOR_DISTANCE_MEASURES } from '../../../../src/constant';
+import { ColorDistanceMeasure } from '../../../../src/types';
 import Swatch from '../Swatch';
 import './index.less';
 
@@ -13,13 +13,13 @@ interface PaletteOptimizerProps {
 }
 
 interface PaletteOptimizerState {
-  colorDiffernce: ColorDifferenceMethod;
+  colorDistanceMeasure: ColorDistanceMeasure;
   palette: Palette | undefined;
 }
 
 class PaletteOptimizer extends PureComponent<PaletteOptimizerProps, PaletteOptimizerState> {
   readonly state: PaletteOptimizerState = {
-    colorDiffernce: COLOR_DIFFERENCE_METHODS[0],
+    colorDistanceMeasure: COLOR_DISTANCE_MEASURES[0],
     palette: undefined,
   };
 
@@ -27,30 +27,30 @@ class PaletteOptimizer extends PureComponent<PaletteOptimizerProps, PaletteOptim
     this.reoptimization();
   }
 
-  handleChange = (value: ColorDifferenceMethod) => {
+  handleChange = (value: ColorDistanceMeasure) => {
     this.setState({
-      colorDiffernce: value,
+      colorDistanceMeasure: value,
     });
     this.reoptimization(value);
   };
 
-  reoptimization = (colorDiffernce = this.state.colorDiffernce) => {
+  reoptimization = (colorDistanceMeasure = this.state.colorDistanceMeasure) => {
     const { palette } = this.props;
     this.setState({
-      palette: paletteOptimization(palette, { colorDiffernce }),
+      palette: paletteOptimization(palette, { colorDistanceMeasure }),
     });
   };
 
   render() {
-    const { colorDiffernce } = this.state;
+    const { colorDistanceMeasure } = this.state;
     return (
       <div>
         <div className="optimization-type">
           <div className="optimization-type-text">Color Difference:</div>
-          <Select value={colorDiffernce} style={{ width: 160 }} onChange={this.handleChange}>
-            {COLOR_DIFFERENCE_METHODS.map((method) => (
-              <Option value={method} key={method}>
-                {method}
+          <Select value={colorDistanceMeasure} style={{ width: 160 }} onChange={this.handleChange}>
+            {COLOR_DISTANCE_MEASURES.map((measure) => (
+              <Option value={measure} key={measure}>
+                {measure}
               </Option>
             ))}
           </Select>
