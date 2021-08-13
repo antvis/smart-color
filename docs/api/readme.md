@@ -14,7 +14,9 @@ In smart-color, we use the data structure [Color](https://github.com/neoddish/co
   
 * [Get Palette](#get-palette)
 
-* [Color Convertion](#color-convertion)
+* [Color Convertion](#color-conversion)
+
+* [Color Computation](#color-computation)
 
 ## Palette Generation
 
@@ -54,3 +56,10 @@ Convert color into different formats.
 * [colorToGray](./colorConversion.md#colorToGray) - Convert [Color](https://github.com/neoddish/color-palette-json-schema#color) into gray number.
 * [grayToColor](./colorConversion.md#grayToColor) - Convert gray number into [Color](https://github.com/neoddish/color-palette-json-schema#color).
 * [nameToColor](./colorConversion.md#nameToColor) - Convert valid css color name into [Color](https://github.com/neoddish/color-palette-json-schema#color).
+
+## Color Computation
+
+Computation between colors.
+
+* [colorOverlap](./colorComputation.md#colorOverlap) - Computes the color when two colors are overlaid on top and bottom.
+  
