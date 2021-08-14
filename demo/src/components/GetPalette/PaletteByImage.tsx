@@ -23,7 +23,10 @@ class PaletteByImage extends Component<PaletteByImageProps, PaletteByImageState>
     if (
       this.state.colorCount !== nextState.colorCount ||
       this.props.image !== nextProps.image ||
-      !isEqual(this.state.palette?.colors, nextState.palette?.colors)
+      !isEqual(
+        this.state.palette ? this.state.palette.colors : undefined,
+        nextState.palette ? nextState.palette.colors : undefined
+      )
     ) {
       return true;
     }
