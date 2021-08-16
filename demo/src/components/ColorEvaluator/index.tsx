@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { Color } from '@antv/color-schema';
 import Block from '../Block';
-import { colorDifference } from '../../../../src';
-import { ColorDifferenceMeasure } from '../../../../src/types';
+import { colorDifference, colorAesthetic } from '../../../../src';
+import { ColorDifferenceMeasure, ColorAestheticMeasure } from '../../../../src/types';
 import './index.less';
 
 interface ColorEvaluatorProps {
@@ -33,6 +33,17 @@ const COLOR_DIFFERENCE_INFO: ColorDiffernceInfo[] = [
   },
 ];
 
+interface ColorAestheticInfo {
+  measure: ColorAestheticMeasure;
+  name: string;
+}
+const COLOR_AESTHETIC_INFO: ColorAestheticInfo[] = [
+  {
+    measure: 'pairPreference',
+    name: 'Pair Preference',
+  },
+];
+
 class ColorEvaluator extends PureComponent<ColorEvaluatorProps, ColorEvaluatorState> {
   readonly state: ColorEvaluatorState = {
     color1: undefined,
@@ -42,7 +53,6 @@ class ColorEvaluator extends PureComponent<ColorEvaluatorProps, ColorEvaluatorSt
   render() {
     const color1 = this.state.color1 || this.props.color1;
     const color2 = this.state.color2 || this.props.color2;
-
     return (
       <>
         <h3>Color Difference</h3>
@@ -65,6 +75,28 @@ class ColorEvaluator extends PureComponent<ColorEvaluatorProps, ColorEvaluatorSt
               }}
             ></Block>
             <div>is {colorDifference(color1, color2, { measure }).toFixed(2)} .</div>
+          </div>
+        ))}
+        <h3>Color Aesthetic</h3>
+        {COLOR_AESTHETIC_INFO.map(({ measure, name }) => (
+          <div className="content" key={measure}>
+            <span>
+              The <b>{name}</b> between
+            </span>
+            <Block
+              color={color1}
+              onChange={(color) => {
+                this.setState({ color1: color });
+              }}
+            ></Block>
+            <span>and</span>
+            <Block
+              color={color2}
+              onChange={(color) => {
+                this.setState({ color2: color });
+              }}
+            ></Block>
+            <div>is {colorAesthetic(color1, color2, { measure }).toFixed(2)} .</div>
           </div>
         ))}
       </>
