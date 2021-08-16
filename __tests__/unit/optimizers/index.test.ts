@@ -1,18 +1,18 @@
 import { CategoricalPalette } from '@antv/color-schema';
-import { paletteOptimization, colorDistance, SimulationType, colorSimulation } from '@src/index';
+import { paletteOptimization, colorDifference, SimulationType, colorSimulation } from '@src/index';
 
-const getMinDistance = (palette: CategoricalPalette, simulationType: SimulationType = 'normal') => {
-  let minDistance = Infinity;
+const getMinDifference = (palette: CategoricalPalette, simulationType: SimulationType = 'normal') => {
+  let minDifference = Infinity;
   const { colors } = palette;
   for (let i = 0; i < colors.length; i += 1) {
     for (let j = i + 1; j < colors.length; j += 1) {
-      minDistance = Math.min(
-        colorDistance(colorSimulation(colors[i], simulationType), colorSimulation(colors[j], simulationType)),
-        minDistance
+      minDifference = Math.min(
+        colorDifference(colorSimulation(colors[i], simulationType), colorSimulation(colors[j], simulationType)),
+        minDifference
       );
     }
   }
-  return minDistance;
+  return minDifference;
 };
 
 const palette: CategoricalPalette = {
@@ -108,27 +108,27 @@ const palette: CategoricalPalette = {
 };
 describe('Palette optimization', () => {
   test('palette optimization in normal case', () => {
-    const minDistance = getMinDistance(palette);
+    const minDifference = getMinDifference(palette);
     const newPalette = paletteOptimization(palette) as CategoricalPalette;
-    expect(getMinDistance(newPalette)).toBeGreaterThanOrEqual(minDistance);
+    expect(getMinDifference(newPalette)).toBeGreaterThanOrEqual(minDifference);
   });
   test('palette optimization by CIEDE2000', () => {
-    const minDistance = getMinDistance(palette);
-    const newPalette = paletteOptimization(palette, { colorDistanceMeasure: 'CIEDE2000' }) as CategoricalPalette;
-    expect(getMinDistance(newPalette)).toBeGreaterThanOrEqual(minDistance);
+    const minDifference = getMinDifference(palette);
+    const newPalette = paletteOptimization(palette, { colorDifferenceMeasure: 'CIEDE2000' }) as CategoricalPalette;
+    expect(getMinDifference(newPalette)).toBeGreaterThanOrEqual(minDifference);
   });
   test('palette optimization in grayScale', () => {
-    const minDistance = getMinDistance(palette, 'grayScale');
+    const minDifference = getMinDifference(palette, 'grayScale');
     const newPalette = paletteOptimization(palette, {
       simulationType: 'grayScale',
     }) as CategoricalPalette;
-    expect(getMinDistance(newPalette, 'grayScale')).toBeGreaterThanOrEqual(minDistance);
+    expect(getMinDifference(newPalette, 'grayScale')).toBeGreaterThanOrEqual(minDifference);
   });
   test('palette optimization in color blind simulation', () => {
-    const minDistance = getMinDistance(palette, 'protanomaly');
+    const minDifference = getMinDifference(palette, 'protanomaly');
     const newPalette = paletteOptimization(palette, {
       simulationType: 'protanomaly',
     }) as CategoricalPalette;
-    expect(getMinDistance(newPalette, 'protanomaly')).toBeGreaterThanOrEqual(minDistance);
+    expect(getMinDifference(newPalette, 'protanomaly')).toBeGreaterThanOrEqual(minDifference);
   });
 });

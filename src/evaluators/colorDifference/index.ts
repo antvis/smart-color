@@ -1,11 +1,11 @@
-import { ColorDistance } from '@src/types';
+import { ColorDifference } from '@src/types';
 import { WHITE } from '../../constant';
 import { colorOverlap } from '../../utils';
 import { euclideanDistance } from './euclideanDistance';
 import { CIEDE2000 } from './CIEDE2000';
 import { contrastRatio } from './contrastRatio';
 
-export const colorDistance: ColorDistance = (color1, color2, configuration = { measure: 'euclidean' }) => {
+export const colorDifference: ColorDifference = (color1, color2, configuration = { measure: 'euclidean' }) => {
   const { measure = 'euclidean', backgroundColor = WHITE } = configuration;
   // If the color is semi-transparent, the color will be overlaid on a white background by default for comparison
   const overlappedColor1 = colorOverlap(color1, backgroundColor);

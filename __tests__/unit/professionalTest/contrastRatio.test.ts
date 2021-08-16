@@ -1,5 +1,5 @@
 import { Color } from '@antv/color-schema';
-import { colorDistance } from '@src/index';
+import { colorDifference } from '@src/index';
 
 describe('contrast ratio', () => {
   const color1: Color = {
@@ -39,17 +39,17 @@ describe('contrast ratio', () => {
   };
 
   test('same color', () => {
-    const distance = colorDistance(color1, color1, { measure: 'contrastRatio' });
-    expect(distance).toBe(1);
+    const difference = colorDifference(color1, color1, { measure: 'contrastRatio' });
+    expect(difference).toBe(1);
   });
 
   test('different color', () => {
-    const distance = colorDistance(color1, color2, { measure: 'contrastRatio' }).toFixed(1);
-    expect(distance).toBe('2.5');
+    const difference = colorDifference(color1, color2, { measure: 'contrastRatio' }).toFixed(1);
+    expect(difference).toBe('2.5');
   });
 
   test('white color and black color', () => {
-    const distance = colorDistance(color3, color4, { measure: 'contrastRatio' }).toFixed(1);
-    expect(distance).toBe('21.0');
+    const difference = colorDifference(color3, color4, { measure: 'contrastRatio' }).toFixed(1);
+    expect(difference).toBe('21.0');
   });
 });
