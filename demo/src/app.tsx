@@ -2,7 +2,7 @@ import React from 'react';
 import { Divider } from 'antd';
 import { CategoricalPalette } from '@antv/color-schema';
 import ColorSimulator from './components/ColorSimulator';
-import ColorDistance from './components/ColorDistance';
+import ColorEvaluator from './components/ColorEvaluator';
 import PaletteGenerator from './components/PaletteGenerator';
 import PaletteOptimizer from './components/PaletteOptimizer';
 import GetPalette from './components/GetPalette';
@@ -30,7 +30,7 @@ export default function App() {
       <GetPalette />
       <Divider />
       <h2>Professional Test</h2>
-      <ColorDistance color1={color1} color2={color2} />
+      <ColorEvaluator color1={color1} color2={color2} />
       <Divider />
     </>
   );

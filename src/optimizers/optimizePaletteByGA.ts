@@ -1,8 +1,8 @@
 import { Color, ColorModel, ColorModelRange as COLOR_MODEL_RANGE } from '@antv/color-schema';
 import { cloneDeep, sumBy, random } from 'lodash';
-import { ColorDistanceMeasure, SimulationType } from '../types';
+import { ColorDifferenceMeasure, SimulationType } from '../types';
 import { arrayToColor, grayToColor } from '../utils';
-import { colorDistance } from '../evaluators';
+import { colorDifference } from '../evaluators';
 import { colorSimulation } from '../simulators';
 
 type ColorArray = [number] | [number, number, number] | [number, number, number, number];
@@ -90,7 +90,7 @@ export const calFitness = (
   locked: boolean[],
   simulationType: SimulationType,
   colorModel: ColorModel,
-  colorDistanceMeasure: ColorDistanceMeasure,
+  colorDifferenceMeasure: ColorDifferenceMeasure,
   backgroundColor: Color
 ): number => {
   let newColors: Color[];
@@ -99,18 +99,18 @@ export const calFitness = (
   } else {
     newColors = colors.map((color) => colorSimulation(arrayToColor(color, colorModel), simulationType));
   }
-  let minDistance = Infinity;
+  let minDifference = Infinity;
   for (let i = 0; i < newColors.length; i += 1) {
     for (let j = i + 1; j < newColors.length; j += 1) {
       if (!(locked[i] && locked[j])) {
-        minDistance = Math.min(
-          minDistance,
-          colorDistance(newColors[i], newColors[j], { measure: colorDistanceMeasure, backgroundColor })
+        minDifference = Math.min(
+          minDifference,
+          colorDifference(newColors[i], newColors[j], { measure: colorDifferenceMeasure, backgroundColor })
         );
       }
     }
   }
-  return minDistance;
+  return minDifference;
 };
 
 export const optimizePaletteByGA = (
@@ -119,10 +119,12 @@ export const optimizePaletteByGA = (
   simulationType: SimulationType,
   threshold: number,
   colorModel: ColorModel,
-  colorDistance: ColorDistanceMeasure,
+  colorDifference: ColorDifferenceMeasure,
   backgroundColor: Color
 ) => {
-  if (Math.round(calFitness(colors, locked, simulationType, colorModel, colorDistance, backgroundColor)) > threshold) {
+  if (
+    Math.round(calFitness(colors, locked, simulationType, colorModel, colorDifference, backgroundColor)) > threshold
+  ) {
     return colors;
   }
   const unLocledIndexs = new Array(colors.length)
@@ -136,7 +138,7 @@ export const optimizePaletteByGA = (
     .map(() => mutate(colors, unLocledIndexs, simulationType, colorModel));
   // Evaluating individuals
   let fitnesses = population.map((colors) =>
-    calFitness(colors, locked, simulationType, colorModel, colorDistance, backgroundColor)
+    calFitness(colors, locked, simulationType, colorModel, colorDifference, backgroundColor)
   );
   let bestFitness = Math.max(...fitnesses);
   let elites = population[fitnesses.findIndex((d) => d === bestFitness)];
@@ -160,7 +162,7 @@ export const optimizePaletteByGA = (
 
     population = newPopulation;
     fitnesses = population.map((colors) =>
-      calFitness(colors, locked, simulationType, colorModel, colorDistance, backgroundColor)
+      calFitness(colors, locked, simulationType, colorModel, colorDifference, backgroundColor)
     );
     const newBestFitness = Math.max(...fitnesses);
     bestFitness = newBestFitness;

@@ -2,11 +2,11 @@ import { isContinuousPalette, isMatrixPalette } from '@antv/color-schema';
 import { cloneDeep } from 'lodash';
 import { WHITE } from '../constant';
 import { invertGrayScale } from '../simulators';
-import { PaletteOptimization, ColorDistanceMeasure } from '../types';
+import { PaletteOptimization, ColorDifferenceMeasure } from '../types';
 import { colorToGray, colorToArray, arrayToColor } from '../utils';
 import { optimizePaletteByGA } from './optimizePaletteByGA';
 
-const COLOR_DIFFERENCE_DEFAULT_VALUE: Record<ColorDistanceMeasure, number> = {
+const COLOR_DIFFERENCE_DEFAULT_VALUE: Record<ColorDifferenceMeasure, number> = {
   euclidean: 30,
   // ref: Categorical Colormap Optimization with Visualization Case Studies
   // suggests that [20, 25] might be the borderline zone
@@ -15,7 +15,7 @@ const COLOR_DIFFERENCE_DEFAULT_VALUE: Record<ColorDistanceMeasure, number> = {
   contrastRatio: 4.5,
 };
 
-const COLOR_DIFFERENCE_MAX_VALUE: Record<ColorDistanceMeasure, number> = {
+const COLOR_DIFFERENCE_MAX_VALUE: Record<ColorDifferenceMeasure, number> = {
   euclidean: 291.48,
   CIEDE2000: 100,
   contrastRatio: 21,
@@ -27,18 +27,18 @@ export const paletteOptimization: PaletteOptimization = (palette, configuration 
     simulationType = 'normal',
     threshold,
     colorModel = 'hsv',
-    colorDistanceMeasure = 'euclidean',
+    colorDifferenceMeasure = 'euclidean',
     backgroundColor = WHITE,
   } = configuration;
   let newThreshold = threshold;
   // set default value
   if (!newThreshold) {
-    newThreshold = COLOR_DIFFERENCE_DEFAULT_VALUE[colorDistanceMeasure];
+    newThreshold = COLOR_DIFFERENCE_DEFAULT_VALUE[colorDifferenceMeasure];
   }
   // In case of grayscale mode, the maximum difference between two can be estimated directly
   // If the set threshold is outside of this range, trim directly to save optimization time
   if (simulationType === 'grayScale') {
-    const maxValue = COLOR_DIFFERENCE_MAX_VALUE[colorDistanceMeasure];
+    const maxValue = COLOR_DIFFERENCE_MAX_VALUE[colorDifferenceMeasure];
     newThreshold = Math.min(newThreshold, maxValue / palette.colors.length);
   }
 
@@ -52,7 +52,7 @@ export const paletteOptimization: PaletteOptimization = (palette, configuration 
         simulationType,
         newThreshold,
         colorModel,
-        colorDistanceMeasure,
+        colorDifferenceMeasure,
         backgroundColor
       );
       newPalette.colors.forEach((color, index) =>
@@ -66,7 +66,7 @@ export const paletteOptimization: PaletteOptimization = (palette, configuration 
         simulationType,
         newThreshold,
         colorModel,
-        colorDistanceMeasure,
+        colorDifferenceMeasure,
         backgroundColor
       );
       newPalette.colors.forEach((color, index) => {

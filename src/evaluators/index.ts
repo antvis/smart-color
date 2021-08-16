@@ -1,1 +1,1 @@
-export { colorDistance } from './colorDistance';
+export { colorDifference } from './colorDifference';

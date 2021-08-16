@@ -36,7 +36,7 @@ In smart-color, we use the data structure [Color](https://github.com/neoddish/co
 
 Provide professional methods to color testing.
 
-* [colorDistance](./evaluators.md#colorDistance) Computes the distance or differnce between two colors.
+* [colorDifference](./evaluators.md#colorDifference) Computes the differnce between two colors.
 
 ## Get Palette
 
