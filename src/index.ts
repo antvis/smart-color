@@ -16,7 +16,7 @@ export { paletteGeneration } from './generators';
 export { paletteOptimization } from './optimizers';
 // get palette
 export { getPaletteFromImage, getPaletteFromString } from './extractors';
-// Professional test
+// professional test
 export { colorDifference } from './evaluators';
 export { ColorBlindnessSimulationType, SimulationType } from './types';
 export { COLOR_BLINDNESS_SIMULATION_TYPES, TENDENCIES } from './constant';
