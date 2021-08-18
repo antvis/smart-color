@@ -7,6 +7,8 @@ export {
   hexToColor,
   nameToColor,
   colorOverlap,
+  colorBrighten,
+  colorDarken,
 } from './utils';
 // color simulation
 export { colorSimulation, invertGrayScale } from './simulators';

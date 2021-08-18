@@ -1,7 +1,7 @@
 import { Color } from '@antv/color-schema';
 import { hueOffset } from '@src/utils/colorComputation';
 import { WHITE } from '@src/constant';
-import { colorOverlap } from '@src/index';
+import { colorOverlap, hexToColor, colorToHex, colorDarken, colorBrighten } from '@src/index';
 
 describe('Color computation', () => {
   test('hue offset', () => {
@@ -120,5 +120,22 @@ describe('Color computation', () => {
         a: 0.72,
       },
     });
+  });
+
+  test('color darken', () => {
+    const primaryColor = hexToColor('#1890ff');
+    expect(colorToHex(colorDarken(primaryColor))).toEqual('#096dd9');
+    expect(colorToHex(colorDarken(primaryColor, 2))).toEqual('#0050b3');
+    expect(colorToHex(colorDarken(primaryColor, 3))).toEqual('#003a8c');
+    expect(colorToHex(colorDarken(primaryColor, 4))).toEqual('#002766');
+  });
+
+  test('color brighten', () => {
+    const primaryColor = hexToColor('#1890ff');
+    expect(colorToHex(colorBrighten(primaryColor))).toEqual('#40a9ff');
+    expect(colorToHex(colorBrighten(primaryColor, 2))).toEqual('#69c0ff');
+    expect(colorToHex(colorBrighten(primaryColor, 3))).toEqual('#91d5ff');
+    expect(colorToHex(colorBrighten(primaryColor, 4))).toEqual('#bae7ff');
+    expect(colorToHex(colorBrighten(primaryColor, 5))).toEqual('#e6f7ff');
   });
 });

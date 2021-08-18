@@ -1,5 +1,5 @@
 export { loadImage } from './image';
-export { hueOffset, colorOverlap } from './colorComputation';
+export { hueOffset, colorOverlap, colorBrighten, colorDarken } from './colorComputation';
 export {
   colorToArray,
   arrayToColor,
