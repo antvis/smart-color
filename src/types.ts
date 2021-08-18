@@ -74,3 +74,5 @@ export type ColorDifference = (color1: Color, color2: Color, configuration?: Col
 
 // Color compution
 export type ColorOverlap = (colorTop: Color, colorBottom: Color) => Color;
+export type ColorDarken = (color: Color, value?: number) => Color;
+export type ColorBrighten = (color: Color, value?: number) => Color;
