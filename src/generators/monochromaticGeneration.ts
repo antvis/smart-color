@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 import { DiscreteScalePalette } from '@antv/color-schema';
 import { Generation } from './types';
 import { continuousGenerationInLab } from './continuousGeneration';
@@ -13,7 +12,6 @@ export const monochromaticGeneration: Generation = (configuration) => {
   const isTint = tendency === 'tint';
   const newColors = continuousGenerationInLab(color, count);
   const palette: DiscreteScalePalette = {
-    id: uuidv4(),
     name: 'monochromatic',
     semantic: null,
     type: 'discrete-scale',

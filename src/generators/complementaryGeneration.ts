@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 import { DiscreteScalePalette } from '@antv/color-schema';
 import { random } from 'lodash';
 import { colorToArray, arrayToColor, hueOffset } from '../utils';
@@ -29,7 +28,6 @@ export const complementaryGeneration: Generation = (configuration) => {
     newColors = [...left, ...right];
   }
   const palette: DiscreteScalePalette = {
-    id: uuidv4(),
     name: 'complementary',
     semantic: null,
     type: 'discrete-scale',
