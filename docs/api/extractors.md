@@ -60,6 +60,6 @@ getPaletteFromString("#FB9747,#DE5844,#52BFC1,#22A34C");
 ```
 
 <div align="center">
-  <img src="https://gw.alipayobjects.com/zos/antfincdn/Mun96I6Wlc/jieping2021-07-01%252520xiawu5.57.35.png" alt="palette from image" width=600>
+  <img src="https://gw.alipayobjects.com/zos/antfincdn/Mun96I6Wlc/jieping2021-07-01%252520xiawu5.57.35.png" alt="palette from string" width=600>
 </div>
 
