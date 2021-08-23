@@ -29,7 +29,6 @@ In smart-color, we use the data structure [Color](https://github.com/neoddish/co
 ## Color Simulation
 
 * [colorSimulation](./simulators.md#colorSimulation) Simulation of color in color blind and gray scale.
-
 * [invertGrayScale](./simulators.md#invertGrayScale) Invert the new color from the gray value and the original color.
 
 ## Professional Test
@@ -37,6 +36,7 @@ In smart-color, we use the data structure [Color](https://github.com/neoddish/co
 Provide professional methods to color testing.
 
 * [colorDifference](./evaluators.md#colorDifference) Computes the differnce between two colors.
+* [colorAesthetic](./evaluators.md#colorAesthetic) Computes the aesthetic between two colors.
 
 ## Get Palette
 
@@ -62,4 +62,5 @@ Convert color into different formats.
 Computation between colors.
 
 * [colorOverlap](./colorComputation.md#colorOverlap) - Computes the color when two colors are overlaid on top and bottom.
-  
+* [colorBrighten](./colorComputation.md#colorBrighten) - Get brighter color.
+* [colorDarken](./colorComputation.md#colorDarken) - Get darker color.

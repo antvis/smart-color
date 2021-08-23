@@ -28,5 +28,36 @@ const color2 = colorOverlap(red, blue);
 ```
 
 <div align="center">
-  <img src="https://gw.alipayobjects.com/zos/antfincdn/hQzDd28BSp/colorOverlap.jpg" alt="auto generated palette">
+  <img src="https://gw.alipayobjects.com/zos/antfincdn/rY4eK76oFs/coloroverlap.png" alt="color overlap">
+</div>
+
+<a name="colorBrighten" href="#colorBrighten">#</a> **colorBrighten**<i>(color: Color, value: number=1) => Color</i>
+
+Get brighter color. 
+
+<a name="colorDarken" href="#colorDarken">#</a> **colorDarken**<i>(color: Color, value: number=1) => Color</i>
+
+Get darker color.
+
+```ts
+import { colorBrighten, colorDarken } from '@antv/smart-color';
+
+const color = {
+  model: 'rgb',
+  value: { r: 24, g: 144, b: 255 },
+};
+
+colorBrighten(color);
+// { model: 'rgb', value: { r: 64, g: 169, b: 255 } } 
+colorBrighten(color, 3);
+// { model: 'rgb', value: { r: 145, g: 213, b: 255 } }
+
+colorDarken(color);
+// { model: 'rgb', value: { r: 9, g: 109, b: 217 } } 
+colorDarken(color, 3);
+// { model: 'rgb', value: { r: 0, g: 58, b: 140 } }
+```
+
+<div align="center">
+  <img src="https://gw.alipayobjects.com/zos/antfincdn/jpiAxmGXJZ/brighten-darken.png" alt="color overlap">
 </div>
