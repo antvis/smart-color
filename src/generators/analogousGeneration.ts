@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 import { DiscreteScalePalette } from '@antv/color-schema';
 import { colorToArray, arrayToColor, hueOffset } from '../utils';
 import { Generation } from './types';
@@ -29,7 +28,6 @@ export const analogousGeneration: Generation = (configuration) => {
     return arrayToColor([h, s, v], 'hsv');
   });
   const palette: DiscreteScalePalette = {
-    id: uuidv4(),
     name: 'analogous',
     semantic: null,
     type: 'discrete-scale',

@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 import { CategoricalPalette } from '@antv/color-schema';
 import { paletteOptimization } from '../optimizers';
 import { categoricalGenerationInHsv } from './categoricalGeneration';
@@ -10,7 +9,6 @@ export const splitComplementaryGeneration: Generation = (configuration) => {
   const dHue = 180;
   const { newColors, locked } = categoricalGenerationInHsv(color, dHue, count, colors);
   const palette: CategoricalPalette = {
-    id: uuidv4(),
     name: 'tetradic',
     semantic: null,
     type: 'categorical',

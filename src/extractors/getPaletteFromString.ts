@@ -1,11 +1,9 @@
 import { Palette } from '@antv/color-schema';
-import { v4 as uuidv4 } from 'uuid';
 import { hexToColor } from '../utils';
 
 // Get a list of colors from string
 export function getPaletteFromString(string: string): Palette {
   return {
-    id: uuidv4(),
     name: 'code',
     semantic: null,
     type: 'categorical',

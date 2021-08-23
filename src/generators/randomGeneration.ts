@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 import { CategoricalPalette } from '@antv/color-schema';
 import { paletteOptimization } from '../optimizers';
 import { Generation } from './types';
@@ -9,7 +8,6 @@ export const randomGeneration: Generation = (configuration) => {
   const { count, colors } = configuration;
   const locked: boolean[] = [];
   const palette: CategoricalPalette = {
-    id: uuidv4(),
     name: 'random',
     semantic: null,
     type: 'categorical',

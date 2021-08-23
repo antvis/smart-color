@@ -1,5 +1,3 @@
-// @ts-ignore
-import { v4 as uuidv4 } from 'uuid';
 import { Palette } from '@antv/color-schema';
 import quantize from 'quantize';
 import { loadImage, arrayToColor } from '../utils';
@@ -60,7 +58,6 @@ export async function getPaletteFromImage(
         const arrayRGB = colorMap.palette().slice(0, validCount);
 
         resolve({
-          id: uuidv4(),
           name: 'image',
           semantic: null,
           type: 'categorical',

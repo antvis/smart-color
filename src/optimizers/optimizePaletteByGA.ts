@@ -61,10 +61,10 @@ const crossover = (father: Colors, mother: Colors) => {
   return [child1, child2];
 };
 
-const mutate = (colors: Colors, unLocledIndexs: number[], simulationType: SimulationType, colorModel: ColorModel) => {
+const mutate = (colors: Colors, unlockedIndexs: number[], simulationType: SimulationType, colorModel: ColorModel) => {
   const newColors = cloneDeep(colors);
   // pick one color and change color adaptively
-  const mutateIndex = unLocledIndexs[random(unLocledIndexs.length - 1)];
+  const mutateIndex = unlockedIndexs[random(unlockedIndexs.length - 1)];
   const dimensionIndex = random(colors[0].length - 1);
   let newValue = newColors[mutateIndex][dimensionIndex] * random(...ADAPTIVE_RANGE);
   // clip
@@ -127,7 +127,7 @@ export const optimizePaletteByGA = (
   ) {
     return colors;
   }
-  const unLocledIndexs = new Array(colors.length)
+  const unlockedIndexs = new Array(colors.length)
     .fill(0)
     .map((d, index) => index)
     .filter((d, index) => !locked[index]);
@@ -135,7 +135,7 @@ export const optimizePaletteByGA = (
   // Creating a new generation
   let population = new Array(POPULATION_NUMBER)
     .fill(0)
-    .map(() => mutate(colors, unLocledIndexs, simulationType, colorModel));
+    .map(() => mutate(colors, unlockedIndexs, simulationType, colorModel));
   // Evaluating individuals
   let fitnesses = population.map((colors) =>
     calFitness(colors, locked, simulationType, colorModel, colorDifference, backgroundColor)
@@ -155,7 +155,7 @@ export const optimizePaletteByGA = (
       let children = random(1, true) < CROSSOVER_RATE ? crossover(father, mother) : [father, mother];
       // Mutation
       children = children.map((child) =>
-        random(1, true) < MUTATION_RATE ? mutate(child, unLocledIndexs, simulationType, colorModel) : child
+        random(1, true) < MUTATION_RATE ? mutate(child, unlockedIndexs, simulationType, colorModel) : child
       );
       newPopulation.push(...children);
     }
