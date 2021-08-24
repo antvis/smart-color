@@ -1,6 +1,6 @@
 # Color Conversion
 
-Computation between colors.
+Overlap colors, brighten or darken colors.
 
 ## Usage
 

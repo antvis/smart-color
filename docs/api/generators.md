@@ -4,7 +4,7 @@
 
 <a name="paletteGeneration" href="#paletteGeneration">#</a> **paletteGeneration**<i>(type: ColorSchemeType="monochromatic", configuration: OptimizerConfiguration={}) => GenerationResult</i>
 
-Automatic generation of continuous or categorical palette based on [color scheme](https://github.com/neoddish/color-palette-json-schema#colorschemetype).
+Generate continuous or categorical palette based on [color scheme](https://github.com/neoddish/color-palette-json-schema#colorschemetype).
 
 When a palette is successfully generated, the status is `success` and the generated palette is returned.
 
