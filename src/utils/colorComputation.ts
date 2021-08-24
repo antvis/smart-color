@@ -1,5 +1,5 @@
-import { clamp } from 'lodash';
 import { ColorBrighten, ColorDarken, ColorOverlap } from '@src/types';
+import { clamp } from './helper';
 import { colorToArray } from './colorConversion';
 
 export const hueOffset = (hue: number, dHue: number): number => {

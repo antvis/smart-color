@@ -1,9 +1,8 @@
 import { isContinuousPalette, isMatrixPalette } from '@antv/color-schema';
-import { cloneDeep } from 'lodash';
 import { WHITE } from '../constant';
 import { invertGrayScale } from '../simulators';
 import { PaletteOptimization, ColorDifferenceMeasure } from '../types';
-import { colorToGray, colorToArray, arrayToColor } from '../utils';
+import { colorToGray, colorToArray, arrayToColor, cloneDeep } from '../utils';
 import { optimizePaletteByGA } from './optimizePaletteByGA';
 
 const COLOR_DIFFERENCE_DEFAULT_VALUE: Record<ColorDifferenceMeasure, number> = {
