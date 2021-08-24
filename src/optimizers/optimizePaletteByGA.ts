@@ -1,7 +1,6 @@
 import { Color, ColorModel, ColorModelRange as COLOR_MODEL_RANGE } from '@antv/color-schema';
-import { cloneDeep, sumBy, random } from 'lodash';
 import { ColorDifferenceMeasure, SimulationType } from '../types';
-import { arrayToColor, grayToColor } from '../utils';
+import { arrayToColor, grayToColor, random, randomInt, cloneDeep } from '../utils';
 import { colorDifference } from '../evaluators';
 import { colorSimulation } from '../simulators';
 
@@ -18,9 +17,9 @@ const ADAPTIVE_RANGE: [number, number] = [0.8, 1.2];
 type SelectionFunctionType = 'rouletteWheel' | 'tournament';
 type SelectionFunction = (fitnesses: number[]) => number;
 const rouletteWheelSelection: SelectionFunction = (fitnesses) => {
-  const sumFitness = sumBy(fitnesses, (d) => d);
+  const sumFitness = fitnesses.reduce((a, b) => a + b);
   let index = 0;
-  const seed = random(sumFitness, true);
+  const seed = random(sumFitness);
   let count = 0;
   for (let i = 0; i < fitnesses.length; i += 1) {
     count += fitnesses[i];
@@ -35,7 +34,7 @@ const tournamentSelection: SelectionFunction = (fitnesses) => {
   let index = -1;
   let maxFitness = 0;
   for (let i = 0; i < TOURNAMENT_SIZE; i += 1) {
-    const randomIndex = random(fitnesses.length - 1);
+    const randomIndex = randomInt(fitnesses.length - 1);
     if (fitnesses[randomIndex] > maxFitness) {
       index = i;
       maxFitness = fitnesses[randomIndex];
@@ -64,8 +63,8 @@ const crossover = (father: Colors, mother: Colors) => {
 const mutate = (colors: Colors, unlockedIndexs: number[], simulationType: SimulationType, colorModel: ColorModel) => {
   const newColors = cloneDeep(colors);
   // pick one color and change color adaptively
-  const mutateIndex = unlockedIndexs[random(unlockedIndexs.length - 1)];
-  const dimensionIndex = random(colors[0].length - 1);
+  const mutateIndex = unlockedIndexs[randomInt(unlockedIndexs.length - 1)];
+  const dimensionIndex = randomInt(colors[0].length - 1);
   let newValue = newColors[mutateIndex][dimensionIndex] * random(...ADAPTIVE_RANGE);
   // clip
   let range = [15, 240]; // grayScale
@@ -152,10 +151,10 @@ export const optimizePaletteByGA = (
       const father = population[selection(fitnesses)];
       const mother = population[selection(fitnesses)];
       // Reproduction
-      let children = random(1, true) < CROSSOVER_RATE ? crossover(father, mother) : [father, mother];
+      let children = random() < CROSSOVER_RATE ? crossover(father, mother) : [father, mother];
       // Mutation
       children = children.map((child) =>
-        random(1, true) < MUTATION_RATE ? mutate(child, unlockedIndexs, simulationType, colorModel) : child
+        random() < MUTATION_RATE ? mutate(child, unlockedIndexs, simulationType, colorModel) : child
       );
       newPopulation.push(...children);
     }

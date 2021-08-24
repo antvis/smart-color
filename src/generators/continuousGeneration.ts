@@ -1,12 +1,11 @@
-import { random } from 'lodash';
 import { Color } from '@antv/color-schema';
-import { colorToArray, arrayToColor } from '../utils';
+import { colorToArray, arrayToColor, randomInt } from '../utils';
 
 // Fix a, b, vary L
 export const continuousGenerationInLab = (
   color: Color,
   count: number,
-  lRange: [number, number] = [random(5, 10), random(90, 95)]
+  lRange: [number, number] = [randomInt(5, 10), randomInt(90, 95)]
 ): Color[] => {
   const [L, a, b] = colorToArray(color, 'lab');
   const minL = L <= 15 ? L : lRange[0];

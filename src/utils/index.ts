@@ -10,3 +10,5 @@ export {
   colorToChromaColor,
   nameToColor,
 } from './colorConversion';
+
+export { random, randomInt, clamp, cloneDeep } from './helper';

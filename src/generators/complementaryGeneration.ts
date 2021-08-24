@@ -1,6 +1,5 @@
 import { DiscreteScalePalette } from '@antv/color-schema';
-import { random } from 'lodash';
-import { colorToArray, arrayToColor, hueOffset } from '../utils';
+import { colorToArray, arrayToColor, hueOffset, random, randomInt } from '../utils';
 import { Generation } from './types';
 import { continuousGenerationInLab } from './continuousGeneration';
 import { verifyContinuousPaletteGeneration } from './verification';
@@ -14,8 +13,8 @@ export const complementaryGeneration: Generation = (configuration) => {
   const [hue, saturation, value] = colorToArray(color, 'hsv');
   const complementaryColor = arrayToColor([hueOffset(hue, 180), saturation, value], 'hsv');
 
-  const maxL = random(80, 90);
-  const minL = random(15, 25);
+  const maxL = randomInt(80, 90);
+  const minL = randomInt(15, 25);
   const halfCount = Math.floor(count / 2);
 
   const left = continuousGenerationInLab(color, halfCount, [minL, maxL]);
