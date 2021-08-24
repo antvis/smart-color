@@ -1,6 +1,6 @@
 # Color Conversion
 
-You can convert color into different formats.
+Convert color into different formats.
 
 ## Usage
 

@@ -1,11 +1,10 @@
 # Color Simulation
 
-
 ## Usage
 
 <a name="colorSimulation" href="#colorSimulation">#</a> **colorSimulation**<i>(color: Color, type: SimulationType="normal") => Color</i>
 
-Simulation of color in color blindness and gray scale.
+Simulate color blindness and color in grayscale.
 
 * ***type*** describes the types of simulations that can be performed, the normal case, the eight different modes of color blindness, and the colors in grayscale mode
   * `normal`

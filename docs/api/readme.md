@@ -1,53 +1,53 @@
 # API Reference
 
-There are six parts of API reference for @antv/smart-color. Follow the links below to learn more. 
+There are seven parts of API reference for @antv/smart-color. Follow the links below to learn more. 
 
-In smart-color, we use the data structure [Color](https://github.com/neoddish/color-palette-json-schema#color) and [Palette](https://github.com/neoddish/color-palette-json-schema#palette) defined by the [color schema](https://github.com/neoddish/color-palette-json-schema#readme).
+In @antv/smart-color, we use the data structure [Color](https://github.com/antvis/color-schema#color) and [Palette](https://github.com/antvis/color-schema#palette) defined by the [@antv/color-schema](https://github.com/antvis/color-schema#readme).
 
-* [Palette Generation](#palette-generation)
+* [Palette Generation](#palette-generation): Generate continuous or categorical palette based on [color scheme](https://github.com/neoddish/color-palette-json-schema#colorschemetype).
   
-* [Palette Optimization](#palette-optimization)
+* [Palette Optimization](#palette-optimization): Optimize palette to enhance color discriminability.
+
+* [Palette Extraction](#palette-extraction): Get palettes from strings and images.
   
-* [Color Simulation](#color-simulation)
+* [Color Simulation](#color-simulation): Simulate color blindness and color in grayscale.
 
-* [Professional Test](#professional-test)
-  
-* [Get Palette](#get-palette)
+* [Color Evaluation](#color-evaluation): Evaluate color discriminability and aesthetics.
 
-* [Color Convertion](#color-conversion)
+* [Color Computation](#color-computation): Overlap colors, brighten or darken colors.
 
-* [Color Computation](#color-computation)
+* [Color Convertion](#color-conversion): Convert color into different formats.
 
 ## Palette Generation
 
-* [paletteGeneration](./generators.md#paletteGeneration) Automatic generation of continuous or categorical palette based on [color scheme](https://github.com/neoddish/color-palette-json-schema#colorschemetype).
+* [paletteGeneration](./generators.md#paletteGeneration) - Generate continuous or categorical palette based on [color scheme](https://github.com/neoddish/color-palette-json-schema#colorschemetype).
 
 ## Palette Optimization
 
-* [paletteOptimization](./optimizers.md#paletteOptimization) Automatic palette optimization enables colors in the palette to be distinguished more easily.
+* [paletteOptimization](./optimizers.md#paletteOptimization) - Optimize palette to enhance color discriminability.
   
+## Palette Extraction
+
+* [getPaletteFromImage](./extractors.md#getPaletteFromImage) - Get palettes from images.
+* [getPaletteFromString](./extractors.md#getPaletteFromString) - Get palettes from strings.
+
 ## Color Simulation
 
-* [colorSimulation](./simulators.md#colorSimulation) Simulation of color in color blind and gray scale.
-* [invertGrayScale](./simulators.md#invertGrayScale) Invert the new color from the gray value and the original color.
+* [colorSimulation](./simulators.md#colorSimulation) - Simulate color blindness and color in grayscale.
+* [invertGrayScale](./simulators.md#invertGrayScale) - Invert the new color from the gray value and the original color.
 
-## Professional Test
+## Color Evaluation
 
-Provide professional methods to color testing.
+* [colorDifference](./evaluators.md#colorDifference) - Evaluate the discriminability between two colors.
+* [colorAesthetic](./evaluators.md#colorAesthetic) - Evaluate the aesthetic between two colors.
 
-* [colorDifference](./evaluators.md#colorDifference) Computes the differnce between two colors.
-* [colorAesthetic](./evaluators.md#colorAesthetic) Computes the aesthetic between two colors.
+## Color Computation
 
-## Get Palette
-
-Get palettes from strings and images.
-
-* [getPaletteFromImage](./extractors.md#getPaletteFromImage) Get palettes from images.
-* [getPaletteFromString](./extractors.md#getPaletteFromString) Get palettes from strings.
+* [colorOverlap](./colorComputation.md#colorOverlap) - Compute the color when two colors are overlaid on top and bottom.
+* [colorBrighten](./colorComputation.md#colorBrighten) - Compute the brighter color.
+* [colorDarken](./colorComputation.md#colorDarken) - Compute the darker color.
 
 ## Color Conversion
-
-Convert color into different formats.
 
 * [colorToArray](./colorConversion.md#colorToArray) - Convert [Color](https://github.com/neoddish/color-palette-json-schema#color) into array.
 * [arrayToColor](./colorConversion.md#arrayToColor) - Convert array into [Color](https://github.com/neoddish/color-palette-json-schema#color).
@@ -56,11 +56,3 @@ Convert color into different formats.
 * [colorToGray](./colorConversion.md#colorToGray) - Convert [Color](https://github.com/neoddish/color-palette-json-schema#color) into gray number.
 * [grayToColor](./colorConversion.md#grayToColor) - Convert gray number into [Color](https://github.com/neoddish/color-palette-json-schema#color).
 * [nameToColor](./colorConversion.md#nameToColor) - Convert valid css color name into [Color](https://github.com/neoddish/color-palette-json-schema#color).
-
-## Color Computation
-
-Computation between colors.
-
-* [colorOverlap](./colorComputation.md#colorOverlap) - Computes the color when two colors are overlaid on top and bottom.
-* [colorBrighten](./colorComputation.md#colorBrighten) - Get brighter color.
-* [colorDarken](./colorComputation.md#colorDarken) - Get darker color.

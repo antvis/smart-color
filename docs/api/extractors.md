@@ -1,4 +1,4 @@
-# Get Palette
+# Palette Extraction
 
 Get palettes from strings and images.
 

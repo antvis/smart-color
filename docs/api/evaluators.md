@@ -1,12 +1,12 @@
-# Professional Test
+# Color Evaluation
 
-Provide professional methods to color testing.
+Evaluate color discriminability and aesthetics.
 
 ## Usage
 
 <a name="colorDifference" href="#colorDifference">#</a> **colorDifference**<i>(color1: Color, color2: Color, configuration: ColorDifferenceConfiguration={}) => number</i>
 
-Computes the differnce between `color1` and `color2`. It supports the assessment of colour differences by different measures, such as `Euclidean difference`, `CIEDE2000`, `contrast ratio`.
+Computes the discriminability between `color1` and `color2`. It supports the assessment of color differences by different measures, such as `Euclidean difference`, `CIEDE2000`, `contrast ratio`.
 
 * ***configuration*** configure the calculation of color difference.
   
@@ -73,7 +73,7 @@ colorDifference(color1, color2, {measure: 'contrastRatio'});  //1.43
 
 <a name="colorAesthetic" href="#colorAesthetic">#</a> **colorAesthetic**<i>(color1: Color, color2: Color, configuration: ColorAestheticConfiguration={}) => number</i>
 
-Computes the aesthetic between `color1` and `color2`. It supports the assessment of colour aesthetics by different measures, such as `pairPreference`.
+Computes the aesthetic between `color1` and `color2`. It supports the assessment of color aesthetics by different measures, such as `pairPreference`.
 
 * ***configuration*** configure the calculation of color aesthetic.
   

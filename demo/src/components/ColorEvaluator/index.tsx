@@ -3,7 +3,7 @@ import { Color } from '@antv/color-schema';
 import Block from '../Block';
 import { colorDifference, colorAesthetic } from '../../../../src';
 import { ColorDifferenceMeasure, ColorAestheticMeasure } from '../../../../src/types';
-import './index.less';
+import styles from './index.module.less';
 
 interface ColorEvaluatorProps {
   color1: Color;
@@ -57,7 +57,7 @@ class ColorEvaluator extends PureComponent<ColorEvaluatorProps, ColorEvaluatorSt
       <>
         <h3>Color Difference</h3>
         {COLOR_DIFFERENCE_INFO.map(({ measure, name }) => (
-          <div className="content" key={measure}>
+          <div className={styles.content} key={measure}>
             <span>
               The <b>{name}</b> between
             </span>
@@ -79,7 +79,7 @@ class ColorEvaluator extends PureComponent<ColorEvaluatorProps, ColorEvaluatorSt
         ))}
         <h3>Color Aesthetic</h3>
         {COLOR_AESTHETIC_INFO.map(({ measure, name }) => (
-          <div className="content" key={measure}>
+          <div className={styles.content} key={measure}>
             <span>
               The <b>{name}</b> between
             </span>

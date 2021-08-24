@@ -16,7 +16,6 @@ const devConfig = {
   externals: {
     react: 'React',
     'react-dom': 'ReactDOM',
-    antd: 'antd',
   },
   target: 'web',
   resolve: {
@@ -48,6 +47,10 @@ const devConfig = {
             options: {
               sourceMap: true,
               lessOptions: {
+                modifyVars: {
+                  'primary-color': '#3364c2',
+                  'link-color': '#3364c2',
+                },
                 javascriptEnabled: true,
               },
             },
