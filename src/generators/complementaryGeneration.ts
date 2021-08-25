@@ -1,13 +1,13 @@
 import { DiscreteScalePalette } from '@antv/color-schema';
 import { colorToArray, arrayToColor, hueOffset, random, randomInt } from '../utils';
 import { Generation } from './types';
-import { continuousGenerationInLab } from './continuousGeneration';
-import { verifyContinuousPaletteGeneration } from './verification';
+import { discreteScaleGenerationInLab } from './discreteScaleGeneration';
+import { verifyDiscreteScalePaletteGeneration } from './verification';
 
 // generate diverging palette by complementary scheme
 export const complementaryGeneration: Generation = (configuration) => {
   const { count, color, colors } = configuration;
-  const verifyResult = verifyContinuousPaletteGeneration(colors);
+  const verifyResult = verifyDiscreteScalePaletteGeneration(colors);
   if (verifyResult) return verifyResult;
 
   const [hue, saturation, value] = colorToArray(color, 'hsv');
@@ -17,8 +17,8 @@ export const complementaryGeneration: Generation = (configuration) => {
   const minL = randomInt(15, 25);
   const halfCount = Math.floor(count / 2);
 
-  const left = continuousGenerationInLab(color, halfCount, [minL, maxL]);
-  const right = continuousGenerationInLab(complementaryColor, halfCount, [minL, maxL]).reverse();
+  const left = discreteScaleGenerationInLab(color, halfCount, [minL, maxL]);
+  const right = discreteScaleGenerationInLab(complementaryColor, halfCount, [minL, maxL]).reverse();
   let newColors;
   if (count % 2 === 1) {
     const midColor = arrayToColor([(hueOffset(hue, 180) + hue) / 2, random(0.05, 0.1), random(0.9, 0.95)], 'hsv');

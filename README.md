@@ -8,7 +8,7 @@ A JavaScript library for color computation.
 
 ## ✨ Features
 
-* **Palette Generation**: Generate continuous or categorical palette based on [color scheme](https://github.com/neoddish/color-palette-json-schema#colorschemetype).
+* **Palette Generation**: Generate categorical or discrete scale palette based on [color scheme](https://github.com/neoddish/color-palette-json-schema#colorschemetype).
 * **Palette Optimization**: Optimize palette to enhance color discriminability.
 * **Palette Extraction**: Get palettes from strings and images.
 * **Color Simulation**: Simulate color blindness and color in grayscale.

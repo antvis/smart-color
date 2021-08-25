@@ -1,16 +1,16 @@
 import { DiscreteScalePalette } from '@antv/color-schema';
 import { Generation } from './types';
-import { continuousGenerationInLab } from './continuousGeneration';
-import { verifyContinuousPaletteGeneration } from './verification';
+import { discreteScaleGenerationInLab } from './discreteScaleGeneration';
+import { verifyDiscreteScalePaletteGeneration } from './verification';
 
 // generate sequential palette by monochromatic scheme
 export const monochromaticGeneration: Generation = (configuration) => {
   const { count, color, tendency, colors } = configuration;
-  const verifyResult = verifyContinuousPaletteGeneration(colors);
+  const verifyResult = verifyDiscreteScalePaletteGeneration(colors);
   if (verifyResult) return verifyResult;
 
   const isTint = tendency === 'tint';
-  const newColors = continuousGenerationInLab(color, count);
+  const newColors = discreteScaleGenerationInLab(color, count);
   const palette: DiscreteScalePalette = {
     name: 'monochromatic',
     semantic: null,

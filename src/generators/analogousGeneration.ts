@@ -1,12 +1,12 @@
 import { DiscreteScalePalette } from '@antv/color-schema';
 import { colorToArray, arrayToColor, hueOffset } from '../utils';
 import { Generation } from './types';
-import { verifyContinuousPaletteGeneration } from './verification';
+import { verifyDiscreteScalePaletteGeneration } from './verification';
 
 // generate sequential palette by analogous scheme
 export const analogousGeneration: Generation = (configuration) => {
   const { count, color, tendency, colors } = configuration;
-  const verifyResult = verifyContinuousPaletteGeneration(colors);
+  const verifyResult = verifyDiscreteScalePaletteGeneration(colors);
   if (verifyResult) return verifyResult;
 
   const isTint = tendency === 'tint';

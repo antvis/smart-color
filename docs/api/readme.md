@@ -4,7 +4,7 @@ There are seven parts of API reference for @antv/smart-color. Follow the links b
 
 In @antv/smart-color, we use the data structure [Color](https://github.com/antvis/color-schema#color) and [Palette](https://github.com/antvis/color-schema#palette) defined by the [@antv/color-schema](https://github.com/antvis/color-schema#readme).
 
-* [Palette Generation](#palette-generation): Generate continuous or categorical palette based on [color scheme](https://github.com/neoddish/color-palette-json-schema#colorschemetype).
+* [Palette Generation](#palette-generation): Generate categorical or discrete scale palette based on [color scheme](https://github.com/neoddish/color-palette-json-schema#colorschemetype).
   
 * [Palette Optimization](#palette-optimization): Optimize palette to enhance color discriminability.
 
@@ -20,7 +20,7 @@ In @antv/smart-color, we use the data structure [Color](https://github.com/antvi
 
 ## Palette Generation
 
-* [paletteGeneration](./generators.md#paletteGeneration) - Generate continuous or categorical palette based on [color scheme](https://github.com/neoddish/color-palette-json-schema#colorschemetype).
+* [paletteGeneration](./generators.md#paletteGeneration) - Generate categorical or discrete scale palette based on [color scheme](https://github.com/neoddish/color-palette-json-schema#colorschemetype).
 
 ## Palette Optimization
 
