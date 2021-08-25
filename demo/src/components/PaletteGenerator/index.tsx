@@ -92,13 +92,25 @@ class PaletteGenerator extends PureComponent<PaletteGeneratorProps, PaletteGener
       <div>
         <h3>
           <code>
-            <a href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/generators.md#paletteGeneration">
+            <a
+              href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/generators.md#paletteGeneration"
+              target="_blank"
+              rel="noreferrer"
+            >
               paletteGeneration(colorScheme, configuration)
             </a>
           </code>
         </h3>
         <p>Generate categorical or discrete scale palette based on color scheme.</p>
-        <img src="https://gw.alipayobjects.com/zos/antfincdn/xzoCX2mhQg/colorscheme.svg" width="600"></img>
+        <p>
+          Based on different color schemes, the algorithm can generate different types of palettes. The following figure
+          shows their correspondence.
+        </p>
+        <img
+          src="https://gw.alipayobjects.com/zos/antfincdn/xzoCX2mhQg/colorscheme.svg"
+          width="600"
+          alt="color scheme"
+        ></img>
 
         <div className="smart-color-example">
           <h4>Example:</h4>

@@ -4,7 +4,13 @@
 
 <a name="paletteOptimization" href="#paletteOptimization">#</a> **paletteOptimization**<i>(palette: Palette, configuration: OptimizerConfiguration={}) => Palette</i>
 
-Optimize palette to enhance color discriminability.
+Optimize palette to enhance color discriminability. Our optimization strategy is to increase the minimal difference among different pairs of colors.
+
+As shown in the figure below, we visualize the differences between colors through a matrix. The blocks highlighted in red are below the threshold and the corresponding two colors are not easily distinguishable. We expect to make the difference between all colors greater than a threshold with the help of an optimization algorithm.
+
+<div align="center">
+  <img src="https://gw.alipayobjects.com/zos/antfincdn/6VpNTw4PSE/optimize.svg" width="600" alt="optimize palette"></img>
+</div>
 
 * ***palette*** is the palette that needs to be optimized.
 * ***configuration*** configure the palette optimization.

@@ -30,9 +30,19 @@ export default function App() {
             ))}
           </ul>
           <p>
-            We use the data structure <a href="https://github.com/antvis/color-schema#color">Color</a> and{' '}
-            <a href="https://github.com/antvis/color-schema#palette">Palette</a> defined by the{' '}
-            <a href="https://github.com/antvis/color-schema#readme">@antv/color-schema</a>.
+            We use the data structure{' '}
+            <a href="https://github.com/antvis/color-schema#color" target="_blank" rel="noreferrer">
+              Color
+            </a>{' '}
+            and{' '}
+            <a href="https://github.com/antvis/color-schema#palette" target="_blank" rel="noreferrer">
+              Palette
+            </a>{' '}
+            defined by the{' '}
+            <a href="https://github.com/antvis/color-schema#readme" target="_blank" rel="noreferrer">
+              @antv/color-schema
+            </a>
+            .
           </p>
         </div>
         <Divider />
