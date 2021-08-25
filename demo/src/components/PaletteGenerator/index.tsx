@@ -76,19 +76,13 @@ class PaletteGenerator extends PureComponent<PaletteGeneratorProps, PaletteGener
     color?: Color;
     count?: number;
   }) => {
-    const result = paletteGeneration(type, {
+    const palette = paletteGeneration(type, {
       color,
       count,
     });
-    if (result.status === 'success') {
-      this.setState({
-        palette: result.palette,
-      });
-    } else {
-      this.setState({
-        palette: undefined,
-      });
-    }
+    this.setState({
+      palette,
+    });
   };
 
   render() {
@@ -131,18 +125,11 @@ class PaletteGenerator extends PureComponent<PaletteGeneratorProps, PaletteGener
             <InputNumber value={count} min={2} max={20} step="1" onChange={this.handleCountChange} />
           </div>
 
-          <Highlight>{`const result = paletteGeneration("${type}", ${JSON.stringify(
+          <Highlight>{`paletteGeneration("${type}", ${JSON.stringify(
             JSON.parse(`{"count": ${count}, "color": ${JSON.stringify(color)}}`),
             null,
             2
-          )});
-if (result.status === 'success') {
-  // display palette
-  const { palette } = result;
-} else {
-  // discrete scale palette cannot be generated when colors are locked.
-  console.error(result.msg);
-}`}</Highlight>
+          )});`}</Highlight>
           {palette ? <Swatch palette={palette}></Swatch> : null}
         </div>
       </div>

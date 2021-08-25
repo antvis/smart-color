@@ -1,4 +1,11 @@
-import { Color, Palette, ColorModel, ColorSchemeType } from '@antv/color-schema';
+import {
+  Color,
+  Palette,
+  ColorModel,
+  ColorSchemeType,
+  CategoricalPalette,
+  DiscreteScalePalette,
+} from '@antv/color-schema';
 import {
   COLOR_BLINDNESS_SIMULATION_TYPES,
   TENDENCIES,
@@ -70,20 +77,12 @@ export type GeneratorConfiguration = {
   colors?: (Color | undefined)[];
   tendency?: Tendency;
 };
-interface SuccessResult {
-  status: 'success';
-  palette: Palette;
-}
-interface ErrorResult {
-  status: 'error';
-  msg: string;
-}
-export type GenerationResult = SuccessResult | ErrorResult;
+
 export type PaletteGeneration = (
   // default value: monochromatic
   type?: ColorSchemeType,
   configuration?: GeneratorConfiguration
-) => GenerationResult;
+) => CategoricalPalette | DiscreteScalePalette;
 
 // color compution
 export type ColorOverlap = (colorTop: Color, colorBottom: Color) => Color;

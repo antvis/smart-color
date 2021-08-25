@@ -15,8 +15,5 @@ export const polychromaticGeneration: Generation = (configuration) => {
     colors: newColors,
   };
 
-  return {
-    status: 'success',
-    palette: paletteOptimization(palette, { locked }) as CategoricalPalette,
-  };
+  return paletteOptimization(palette, { locked });
 };

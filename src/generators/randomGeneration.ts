@@ -20,8 +20,5 @@ export const randomGeneration: Generation = (configuration) => {
       return randomColor();
     }),
   };
-  return {
-    status: 'success',
-    palette: paletteOptimization(palette, { locked }) as CategoricalPalette,
-  };
+  return paletteOptimization(palette, { locked });
 };
