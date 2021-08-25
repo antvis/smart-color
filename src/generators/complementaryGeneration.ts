@@ -2,13 +2,10 @@ import { DiscreteScalePalette } from '@antv/color-schema';
 import { colorToArray, arrayToColor, hueOffset, random, randomInt } from '../utils';
 import { Generation } from './types';
 import { discreteScaleGenerationInLab } from './discreteScaleGeneration';
-import { verifyDiscreteScalePaletteGeneration } from './verification';
 
 // generate diverging palette by complementary scheme
 export const complementaryGeneration: Generation = (configuration) => {
-  const { count, color, colors } = configuration;
-  const verifyResult = verifyDiscreteScalePaletteGeneration(colors);
-  if (verifyResult) return verifyResult;
+  const { count, color } = configuration;
 
   const [hue, saturation, value] = colorToArray(color, 'hsv');
   const complementaryColor = arrayToColor([hueOffset(hue, 180), saturation, value], 'hsv');
@@ -32,8 +29,5 @@ export const complementaryGeneration: Generation = (configuration) => {
     type: 'discrete-scale',
     colors: newColors,
   };
-  return {
-    status: 'success',
-    palette,
-  };
+  return palette;
 };

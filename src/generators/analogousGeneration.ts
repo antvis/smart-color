@@ -1,13 +1,10 @@
 import { DiscreteScalePalette } from '@antv/color-schema';
 import { colorToArray, arrayToColor, hueOffset } from '../utils';
 import { Generation } from './types';
-import { verifyDiscreteScalePaletteGeneration } from './verification';
 
 // generate sequential palette by analogous scheme
 export const analogousGeneration: Generation = (configuration) => {
-  const { count, color, tendency, colors } = configuration;
-  const verifyResult = verifyDiscreteScalePaletteGeneration(colors);
-  if (verifyResult) return verifyResult;
+  const { count, color, tendency } = configuration;
 
   const isTint = tendency === 'tint';
   const [hue, saturation, value] = colorToArray(color, 'hsv');
@@ -33,8 +30,5 @@ export const analogousGeneration: Generation = (configuration) => {
     type: 'discrete-scale',
     colors: isTint ? newColors : newColors.reverse(),
   };
-  return {
-    status: 'success',
-    palette,
-  };
+  return palette;
 };

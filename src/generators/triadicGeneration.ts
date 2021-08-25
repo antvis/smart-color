@@ -14,8 +14,5 @@ export const triadicGeneration: Generation = (configuration) => {
     type: 'categorical',
     colors: newColors,
   };
-  return {
-    status: 'success',
-    palette: paletteOptimization(palette, { locked }) as CategoricalPalette,
-  };
+  return paletteOptimization(palette, { locked });
 };

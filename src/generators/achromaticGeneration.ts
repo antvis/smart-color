@@ -18,15 +18,9 @@ export const achromaticGeneration: Generation = (configuration) => {
     ...configuration,
     color: tendency === 'tint' ? BLACK : WHITE,
   };
-  const result = monochromaticGeneration(newConfiguration);
-  if (result.status === 'success') {
-    return {
-      status: 'success',
-      palette: {
-        ...result.palette,
-        name: 'achromatic',
-      },
-    };
-  }
-  return result;
+  const palette = monochromaticGeneration(newConfiguration);
+  return {
+    ...palette,
+    name: 'achromatic',
+  };
 };
