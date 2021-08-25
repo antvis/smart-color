@@ -111,8 +111,7 @@ export default {
       id: '15cd65a4-00de-48a0-9351-791a1abe965b',
     },
     {
-      id: '8333538b-87b2-4de7-bdaf-3a58c4032605',
-      name: 'code',
+      name: 'input palette',
       semantic: null,
       type: 'categorical',
       colors: [
@@ -124,7 +123,6 @@ export default {
             b: 128,
             a: 1,
           },
-          id: '0bee0837-17a1-4303-96da-9d6e8212540e',
         },
         {
           space: 'rgba',
@@ -134,10 +132,8 @@ export default {
             b: 109,
             a: 1,
           },
-          id: '2bafb589-6a8c-4549-a522-b0b3ecce77d8',
         },
         {
-          id: '1e42a135-6ff9-49f7-8973-78c2115428f2',
           space: 'rgba',
           value: {
             r: 35,
@@ -147,7 +143,6 @@ export default {
           },
         },
         {
-          id: '98cc0315-c5e8-4cc9-a46a-85c34df9ce90',
           space: 'rgba',
           value: {
             r: 57,
@@ -157,7 +152,6 @@ export default {
           },
         },
         {
-          id: 'c1c7345b-176c-4978-8fbb-4fc334ee9446',
           space: 'rgba',
           value: {
             r: 51,
@@ -167,7 +161,6 @@ export default {
           },
         },
         {
-          id: '71195334-c9f7-4cf9-97d8-10f6fa4326c8',
           space: 'rgba',
           value: {
             r: 115,
@@ -177,7 +170,6 @@ export default {
           },
         },
         {
-          id: '5d46ca29-48e4-4003-9c2b-eace37e0cfeb',
           space: 'rgba',
           value: {
             r: 176,
@@ -187,7 +179,6 @@ export default {
           },
         },
         {
-          id: '13a5e4b5-55c9-440c-b430-298f01b056c5',
           space: 'rgba',
           value: {
             r: 192,
