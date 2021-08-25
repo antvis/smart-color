@@ -7,11 +7,16 @@ import './index.less';
 interface BlockProps {
   color: Color;
   onChange: (color: Color) => void;
+  size: number;
 }
 interface BlockState {
   displayColorPicker: boolean;
 }
 class Block extends PureComponent<BlockProps, BlockState> {
+  static defaultProps = {
+    size: 70,
+  };
+
   readonly state: BlockState = {
     displayColorPicker: false,
   };
@@ -30,19 +35,23 @@ class Block extends PureComponent<BlockProps, BlockState> {
   };
 
   render() {
-    const { color } = this.props;
+    const { color, size } = this.props;
     const hexColor = colorToHex(color);
     return (
       <>
-        <div className="color-block" style={{ background: hexColor }} onClick={this.handleClick}>
-          <span>{hexColor}</span>
+        <div
+          className="color-block"
+          style={{ background: hexColor, width: `${size}px`, height: `${size}px` }}
+          onClick={this.handleClick}
+        >
+          {size >= 70 && <span>{hexColor}</span>}
+          {this.state.displayColorPicker ? (
+            <div className="popover">
+              <div className="cover" onClick={this.handleClose} />
+              <ChromePicker color={hexColor} onChange={this.handleChange} className="color-picker" />
+            </div>
+          ) : null}
         </div>
-        {this.state.displayColorPicker ? (
-          <div className="popover">
-            <div className="cover" onClick={this.handleClose} />
-            <ChromePicker color={hexColor} onChange={this.handleChange} className="color-picker" />
-          </div>
-        ) : null}
       </>
     );
   }

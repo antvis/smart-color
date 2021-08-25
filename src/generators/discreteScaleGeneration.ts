@@ -2,7 +2,7 @@ import { Color } from '@antv/color-schema';
 import { colorToArray, arrayToColor, randomInt } from '../utils';
 
 // Fix a, b, vary L
-export const continuousGenerationInLab = (
+export const discreteScaleGenerationInLab = (
   color: Color,
   count: number,
   lRange: [number, number] = [randomInt(5, 10), randomInt(90, 95)]

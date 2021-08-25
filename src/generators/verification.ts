@@ -1,7 +1,7 @@
 import { Color } from '@antv/color-schema';
 import { GenerationResult } from '../types';
 
-export const verifyContinuousPaletteGeneration = (colors: (Color | undefined)[] = []) => {
+export const verifyDiscreteScalePaletteGeneration = (colors: (Color | undefined)[] = []) => {
   let error = false;
   Object.values(colors).forEach((lockedColor) => {
     if (lockedColor) {
@@ -12,7 +12,7 @@ export const verifyContinuousPaletteGeneration = (colors: (Color | undefined)[] 
   if (error) {
     return {
       status: 'error',
-      msg: 'Continuous palette cannot be generated when colors are locked.',
+      msg: 'Discrete scale palette cannot be generated when colors are locked.',
     } as GenerationResult;
   }
   return undefined;

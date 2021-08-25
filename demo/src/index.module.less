@@ -7,7 +7,7 @@ body {
   .content {
     max-width: 700px;
     margin: 0px auto;
-    padding: 40px 50px 100px 50px;
+    padding: 40px 50px 300px 50px;
     ul {
       padding-left: 20px;
       li {
@@ -19,6 +19,22 @@ body {
   @media screen and (max-width: 1100px) {
     .content {
       margin: 0 0 0 220px;
+    }
+  }
+
+  :global(.smart-color-example){
+    margin-top: 35px;
+    :global(.attr){
+      display: flex;
+      margin-bottom: 10px;
+      :global(.name){
+        line-height: 30px;
+        margin-right: 10px;
+      }
+      :global(.value){
+        display: flex;
+        align-items: center;
+      }
     }
   }
 }

@@ -11,7 +11,7 @@ const features: Feature[] = [
     url: '#paletteGeneration',
     desc: (
       <>
-        Generate continuous or categorical palette based on{' '}
+        Generate categorical or discrete scale palette based
         <a href="https://github.com/neoddish/color-palette-json-schema#colorschemetype">color scheme</a>.
       </>
     ),

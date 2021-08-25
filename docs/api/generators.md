@@ -2,9 +2,9 @@
 
 ## Usage
 
-<a name="paletteGeneration" href="#paletteGeneration">#</a> **paletteGeneration**<i>(type: ColorSchemeType="monochromatic", configuration: OptimizerConfiguration={}) => GenerationResult</i>
+<a name="paletteGeneration" href="#paletteGeneration">#</a> **paletteGeneration**<i>(type: ColorSchemeType="monochromatic", configuration: GeneratorConfiguration={}) => GenerationResult</i>
 
-Generate continuous or categorical palette based on [color scheme](https://github.com/neoddish/color-palette-json-schema#colorschemetype).
+Generate categorical or discrete scale palette based on [color scheme](https://github.com/neoddish/color-palette-json-schema#colorschemetype).
 
 When a palette is successfully generated, the status is `success` and the generated palette is returned.
 
@@ -24,19 +24,11 @@ When generating a palette fails, the status is `error` and an error message is r
 }
 ```
 
-* ***type*** describes which color schema is used to generate the palettes. Different color schema will generate different types of palettes.
-  
-| Color scheme | Palette type | 
-| ----| ---- | 
-| monochromatic | discrete-scale | 
-| analogous | discrete-scale | 
-| achromatic | discrete-scale | 
-| complementary | discrete-scale | 
-| split-complementary |categorical | 
-| triadic| categorical | 
-| tetradic | categorical | 
-| polychromatic | categorical | 
-| customized| categorical| 
+* ***type*** describes which **color scheme** is used to generate the palettes. Different color scheme will generate different types of palettes.
+
+<div align="center">
+  <img src="https://gw.alipayobjects.com/zos/antfincdn/xzoCX2mhQg/colorscheme.svg" width="600" alt="color scheme"></img>
+</div>
 
 * ***configuration*** configure the palette optimization.
   
@@ -64,7 +56,7 @@ paletteGeneration("monochromatic", {
 });
 // {
 //   status: 'error',
-//   msg: 'Continuous palette cannot be generated when colors are locked.'
+//   msg: 'Discrete scale palette cannot be generated when colors are locked.'
 // }
 
 paletteGeneration("monochromatic", {

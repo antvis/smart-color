@@ -1,8 +1,6 @@
 .color-block{
   position: relative;
-  width: 70px;
-  height: 70px;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   span{
     position: absolute;
@@ -15,6 +13,8 @@
 
 .popover{
   position: absolute;
+  width: 100%;
+  height: 100%;
   z-index: 2;
   .cover{
     position: fixed;
@@ -25,7 +25,8 @@
   }
   .color-picker{
     position: absolute;
-    bottom: 50px;
-    left: 125px;
+    bottom: -5px;
+    left: 50%;
+    transform: translate(-50%, 100%);
   }
 }
