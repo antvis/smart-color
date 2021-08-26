@@ -29,8 +29,8 @@ class GetPalette extends PureComponent<GetPaletteProps> {
     const { colorString } = this.state;
     return (
       <div>
-        <div id="getPaletteFromImage">
-          <h3>
+        <div>
+          <h3 id="getPaletteFromImage">
             <code>
               <a
                 href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/extractors.md#getPaletteFromImage"
@@ -47,8 +47,8 @@ class GetPalette extends PureComponent<GetPaletteProps> {
           </p>
           <PaletteByImage />
         </div>
-        <div id="getPaletteFromString">
-          <h3>
+        <div>
+          <h3 id="getPaletteFromString">
             <code>
               <a
                 href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/extractors.md#getPaletteFromString"
