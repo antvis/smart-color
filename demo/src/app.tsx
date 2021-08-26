@@ -6,6 +6,7 @@ import PaletteGenerator from './components/PaletteGenerator';
 import PaletteOptimizer from './components/PaletteOptimizer';
 import PaletteExtractor from './components/PaletteExtractor';
 import ColorComputation from './components/ColorComputation';
+import ColorConversion from './components/ColorConversion';
 import Nav from './components/Nav';
 import FEATURES from './constant/features';
 import styles from './index.module.less';
@@ -59,6 +60,8 @@ export default function App() {
         <Divider />
         <h2 id="colorComputation">Color Computation</h2>
         <ColorComputation />
+        <h2 id="colorConversion">Color Conversion</h2>
+        <ColorConversion />
         <Divider />
       </div>
     </>

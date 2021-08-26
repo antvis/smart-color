@@ -3,7 +3,7 @@ import ColorBrighten from './ColorBrighten';
 import ColorDarken from './ColorDarken';
 import ColorOverlap from './ColorOverlap';
 
-const ColorEvaluator = () => {
+const ColorComputation = () => {
   return (
     <>
       <ColorOverlap />
@@ -13,4 +13,4 @@ const ColorEvaluator = () => {
   );
 };
 
-export default ColorEvaluator;
+export default ColorComputation;

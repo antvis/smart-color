@@ -35,10 +35,18 @@ class Block extends PureComponent<BlockProps, BlockState> {
     const { onChange } = this.props;
     if (onChange) {
       const rgba = color.rgb;
-      onChange({
-        model: 'rgba',
-        value: rgba,
-      });
+      if (rgba.a === 1) {
+        const { r, g, b } = rgba;
+        onChange({
+          model: 'rgb',
+          value: { r, g, b },
+        });
+      } else {
+        onChange({
+          model: 'rgba',
+          value: rgba,
+        });
+      }
     }
   };
 
