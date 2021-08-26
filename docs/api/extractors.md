@@ -9,7 +9,7 @@ Get palettes from strings and images.
 Get palettes from images. Because the image is loaded asynchronously, a promise is returned. When the image is successfully loaded, the obtained palette is returned. When the image fails to load, return undefined.
 
 * ***count*** is the number of colors expected to be included in the palette, the default is 6. It needs to be an integer and cannot be larger than 50.
-* ***quality*** must be an integer with a value of 1 or greater, the default is 10. This number determines how many pixels will be skipped before the next pixel is sampled. The larger the number, the faster the return value will be.
+* ***quality*** must be an integer with a value of 1 or greater, the default is 10. This number determines how many pixels will be skipped before the next pixel is sampled. The larger the number, the faster the extraction.
 
 ```ts
 import { getPaletteFromImage } from '@antv/smart-color';
@@ -40,7 +40,7 @@ getPaletteFromImage(url);
 
 <a name="getPaletteFromString" href="#getPaletteFromString">#</a> **getPaletteFromString**<i>(string: string) => Palette</i>
 
-Get palettes from string. This string needs to be composed of hexadecimal string, split by commas.
+Get palettes from string. The string needs to be composed of hexadecimal string, split by commas.
 
 ```ts
 import { getPaletteFromString } from '@antv/smart-color';

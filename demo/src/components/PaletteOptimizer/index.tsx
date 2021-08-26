@@ -88,7 +88,7 @@ class PaletteOptimizer extends PureComponent<PaletteOptimizerProps, PaletteOptim
           <h4>Example:</h4>
 
           <div className="attr">
-            <div className="name">Color Difference Measure:</div>
+            <div className="name">color difference measure:</div>
             <Select
               value={colorDifferenceMeasure}
               style={{ width: 160 }}
@@ -103,7 +103,7 @@ class PaletteOptimizer extends PureComponent<PaletteOptimizerProps, PaletteOptim
           </div>
 
           <div className="attr">
-            <div className="name">Simulation Type:</div>
+            <div className="name">simulation type:</div>
             <Select value={simulationType} style={{ width: 160 }} onChange={this.handleSimulationTypeChange}>
               {SIMULATION_TYPES.map((type) => (
                 <Option value={type} key={type}>

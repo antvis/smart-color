@@ -16,6 +16,10 @@ body {
     }
   }
 
+  code {
+    color: @primary-color;
+  }
+
   @media screen and (max-width: 1100px) {
     .content {
       margin: 0 0 0 220px;
@@ -24,9 +28,10 @@ body {
 
   :global(.smart-color-example){
     margin-top: 35px;
+    margin-bottom: 35px;
     :global(.attr){
       display: flex;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
       :global(.name){
         line-height: 30px;
         margin-right: 10px;
