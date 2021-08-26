@@ -11,7 +11,7 @@ export const categoricalGenerationInHsv = (
 ) => {
   const [h] = colorToArray(color, 'hsv');
   const locked = new Array(count).fill(false);
-  let placeBasicColor = colors.findIndex((c) => c.model === color.model && c.value === color.value) === -1;
+  let placeBasicColor = colors.findIndex((c) => c && c.model === color.model && c.value === color.value) === -1;
   const newColors = new Array(count).fill(0).map((d, i): Color => {
     const lockedColor = colors[i];
     if (lockedColor) {

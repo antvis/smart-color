@@ -1,4 +1,4 @@
-import { isContinuousPalette, isMatrixPalette } from '@antv/color-schema';
+import { Color, isContinuousPalette, isMatrixPalette } from '@antv/color-schema';
 import { WHITE } from '../constant';
 import { invertGrayscale } from '../simulators';
 import { PaletteOptimization, ColorDifferenceMeasure } from '../types';
@@ -44,7 +44,7 @@ export const paletteOptimization: PaletteOptimization = (palette, configuration 
   const newPalette = cloneDeep(palette);
   if (!isMatrixPalette(newPalette) && !isContinuousPalette(newPalette)) {
     if (simulationType === 'grayscale') {
-      const colors = newPalette.colors.map((color): [number] => [colorToGray(color)]);
+      const colors = newPalette.colors.map((color: Color): [number] => [colorToGray(color)]);
       const newColors = optimizePaletteByGA(
         colors,
         locked,
@@ -54,11 +54,11 @@ export const paletteOptimization: PaletteOptimization = (palette, configuration 
         colorDifferenceMeasure,
         backgroundColor
       );
-      newPalette.colors.forEach((color, index) =>
+      newPalette.colors.forEach((color: Color, index: number) =>
         Object.assign(color, invertGrayscale(newColors[index][0] / 255, color))
       );
     } else {
-      const colors = newPalette.colors.map((color) => colorToArray(color, colorModel));
+      const colors = newPalette.colors.map((color: Color) => colorToArray(color, colorModel));
       const newColors = optimizePaletteByGA(
         colors,
         locked,
@@ -68,7 +68,7 @@ export const paletteOptimization: PaletteOptimization = (palette, configuration 
         colorDifferenceMeasure,
         backgroundColor
       );
-      newPalette.colors.forEach((color, index) => {
+      newPalette.colors.forEach((color: Color, index: number) => {
         Object.assign(color, arrayToColor(newColors[index], colorModel));
       });
     }

@@ -1,4 +1,5 @@
 import { Palette } from '@antv/color-schema';
+// @ts-ignore
 import quantize from 'quantize';
 import { loadImage, arrayToColor } from '../utils';
 
@@ -7,12 +8,13 @@ const imageToPixels = (image: HTMLImageElement, quality: number): [number, numbe
   const { width, height } = image;
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
+  if (!context) return [];
   canvas.width = width;
   canvas.height = height;
   context.drawImage(image, 0, 0, width, height);
   const imageData = context.getImageData(0, 0, width, height).data;
 
-  const pixels = [];
+  const pixels: [number, number, number][] = [];
   const count = width * height;
   for (let i = 0; i < count; i += quality) {
     const offset = i * 4;
