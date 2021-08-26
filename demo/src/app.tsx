@@ -5,7 +5,7 @@ import ColorSimulator from './components/ColorSimulator';
 import ColorEvaluator from './components/ColorEvaluator';
 import PaletteGenerator from './components/PaletteGenerator';
 import PaletteOptimizer from './components/PaletteOptimizer';
-import GetPalette from './components/GetPalette';
+import PaletteExtraction from './components/PaletteExtraction';
 import Nav from './components/Nav';
 import COLOR_ASSET from './constant/colorAsset';
 import FEATURES from './constant/features';
@@ -53,7 +53,7 @@ export default function App() {
         <PaletteOptimizer palette={badPalette} />
         <Divider />
         <h2 id="paletteExtraction">Palette Extraction</h2>
-        <GetPalette />
+        <PaletteExtraction />
         <Divider />
         <h2 id="colorSimulation">Color Simulation</h2>
         <ColorSimulator palette={palette}></ColorSimulator>
