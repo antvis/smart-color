@@ -1,10 +1,10 @@
 import { Color } from '@antv/color-schema';
 import { colorToArray } from '../../utils';
 
-function rad2deg(n) {
+function rad2deg(n: number) {
   return n * (180 / Math.PI);
 }
-function deg2rad(n) {
+function deg2rad(n: number) {
   return n * (Math.PI / 180);
 }
 
@@ -45,12 +45,13 @@ export const CIEDE2000 = (color1: Color, color2: Color): number => {
   let dhp: number;
   if (Math.abs(h2p - h1p) <= 180) dhp = h2p - h1p;
   else if (h2p - h1p < -180) dhp = h2p - h1p + 360;
-  else if (h2p - h1p > 180) dhp = h2p - h1p - 360;
+  else dhp = h2p - h1p - 360; // h2p - h1p > 180
+
   const dHp = 2 * Math.sqrt(C1p * C2p) * Math.sin(deg2rad(dhp) / 2.0);
   let avgHp: number;
   if (Math.abs(h1p - h2p) <= 180) avgHp = (h1p + h2p) / 2.0;
   else if (Math.abs(h1p - h2p) > 180 && h1p + h2p < 360) avgHp = (h1p + h2p + 360) / 2.0;
-  else if (Math.abs(h1p - h2p) > 180 && h1p + h2p >= 360) avgHp = (h1p + h2p - 360) / 2.0;
+  else avgHp = (h1p + h2p - 360) / 2.0; // Math.abs(h1p - h2p) > 180 && h1p + h2p >= 360
 
   const avgL = (L1 + L2) / 2.0;
   const avgCp = (C1p + C2p) / 2.0;

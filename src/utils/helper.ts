@@ -24,7 +24,7 @@ export const clamp = (num: number, boundOne: number, boundTwo: number) => {
 };
 
 // poor version, but enough
-export const cloneDeep = (target: any) => {
+export const cloneDeep = (target: any): any => {
   if (target && typeof target === 'object') {
     const isArray = Array.isArray(target);
     if (isArray) {
@@ -35,6 +35,7 @@ export const cloneDeep = (target: any) => {
     const cloneTarget = {};
     const keys = Object.keys(target);
     keys.forEach((key) => {
+      // @ts-ignore
       cloneTarget[key] = cloneDeep(target[key]);
     });
     return cloneTarget;
