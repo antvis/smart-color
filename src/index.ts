@@ -2,7 +2,6 @@ export {
   colorToArray,
   arrayToColor,
   colorToGray,
-  grayToColor,
   colorToHex,
   hexToColor,
   nameToColor,

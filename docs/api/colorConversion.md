@@ -86,25 +86,6 @@ const color = {
 colorToGray(color); // 140
 ```
 
-<a name="grayToColor" href="#grayToColor">#</a> **grayToColor**<i>(grayValue: number, alpha: number=1) => Color</i>
-
-Convert gray number into [Color](https://github.com/neoddish/color-palette-json-schema#color).
-
-```ts
-import { grayToColor } from '@antv/smart-color';
-
-grayToColor(140);
-// {
-//   model: "rgb",
-//   value: { r: 140, g: 140, b: 140 },
-// };
-grayToColor(140, 0.1);
-// {
-//   model: "rgba",
-//   value: { r: 140, g: 140, b: 140, a: 0.1 },
-// };
-```
-
 <a name="nameToColor" href="#nameToColor">#</a> **nameToColor**<i>(name: string) => Color</i>
 
 Convert valid css color name into [Color](https://github.com/neoddish/color-palette-json-schema#color).
