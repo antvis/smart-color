@@ -7,7 +7,7 @@ import { contrastRatio } from './contrastRatio';
 
 export const colorDifference: ColorDifference = (color1, color2, configuration = { measure: 'euclidean' }) => {
   const { measure = 'euclidean', backgroundColor = WHITE } = configuration;
-  // If the color is semi-transparent, the color will be overlaid on a white background by default for comparison
+  // If the color is semi-transparent, the color will be overlapped on a white background by default for comparison
   const overlappedColor1 = colorOverlap(color1, backgroundColor);
   const overlappedColor2 = colorOverlap(color2, backgroundColor);
   switch (measure) {

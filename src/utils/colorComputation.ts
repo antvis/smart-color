@@ -13,7 +13,7 @@ export const hueOffset = (hue: number, dHue: number): number => {
 };
 
 // Alpha blending
-// When a semi-transparent color that described by rgba(R₁, G₁, B₁, A₁) is overlaid on a solid color rgb(R₂, G₂, B₂), the resulting solid color of the alpha blending operation will be rgb(R₁A₁ + R₂(1-A₁), G₁A₁ + G₂(1-A₁), B₁A₁ + B₂(1-A₁))
+// When a semi-transparent color that described by rgba(R₁, G₁, B₁, A₁) is overlapped on a solid color rgb(R₂, G₂, B₂), the resulting solid color of the alpha blending operation will be rgb(R₁A₁ + R₂(1-A₁), G₁A₁ + G₂(1-A₁), B₁A₁ + B₂(1-A₁))
 // ref: stacked semi-transparent color https://stackoverflow.com/questions/50574524/color-of-stacked-semi-transparent-boxes-depends-on-order
 export const colorOverlap: ColorOverlap = (colorTop, colorBottom) => {
   const [r1, g1, b1, a1] = colorToArray(colorTop, 'rgba');

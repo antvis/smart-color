@@ -26,7 +26,7 @@ export type ColorSimulation = (
 // professional test
 export type ColorDifferenceMeasure = typeof COLOR_DIFFERENCE_MEASURES[number];
 type ColorDifferenceGeneralConfiguration = {
-  // If the color is semi-transparent, the color will be overlaid on the backgroundColor
+  // If the color is semi-transparent, the color will be overlapped on the backgroundColor
   // default value: white
   backgroundColor?: Color;
 };
@@ -45,7 +45,7 @@ export type ColorDifference = (color1: Color, color2: Color, configuration?: Col
 export type ColorAestheticMeasure = typeof COLOR_AESTHETIC_MEASURES[number];
 export type ColorAestheticConfiguration = {
   measure: ColorAestheticMeasure;
-  // If the color is semi-transparent, the color will be overlaid on the backgroundColor
+  // If the color is semi-transparent, the color will be overlapped on the backgroundColor
   // default value: white
   backgroundColor?: Color;
 };
