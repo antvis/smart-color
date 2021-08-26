@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { Palette } from '@antv/color-schema';
 import { InputNumber, Input } from 'antd';
 import Highlight from 'react-highlight';
@@ -15,7 +15,7 @@ interface PaletteByImageState {
   quality: number;
   palette: Palette | undefined;
 }
-class PaletteByImage extends PureComponent<PaletteByImageProps, PaletteByImageState> {
+class PaletteByImage extends Component<PaletteByImageProps, PaletteByImageState> {
   readonly state: PaletteByImageState = {
     url: IMG_URL,
     count: 8,

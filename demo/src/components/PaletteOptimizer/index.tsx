@@ -1,17 +1,16 @@
 import React, { PureComponent } from 'react';
 import { Select } from 'antd';
-import { Palette } from '@antv/color-schema';
+import { Palette, CategoricalPalette } from '@antv/color-schema';
 import Highlight from 'react-highlight';
 import { paletteOptimization } from '../../../../src';
 import { COLOR_DIFFERENCE_MEASURES } from '../../../../src/constant';
 import { ColorDifferenceMeasure, SimulationType } from '../../../../src/types';
 import SIMULATION_TYPES from '../../constant/simulationTypes';
+import COLOR_ASSET from '../../constant/colorAsset';
 import Swatch from '../Swatch';
 
 const { Option } = Select;
-interface PaletteOptimizerProps {
-  palette: Palette;
-}
+const badPalette = COLOR_ASSET.palettes[1] as CategoricalPalette;
 
 interface PaletteOptimizerState {
   colorDifferenceMeasure: ColorDifferenceMeasure;
@@ -19,7 +18,7 @@ interface PaletteOptimizerState {
   palette: Palette | undefined;
 }
 
-class PaletteOptimizer extends PureComponent<PaletteOptimizerProps, PaletteOptimizerState> {
+class PaletteOptimizer extends PureComponent {
   readonly state: PaletteOptimizerState = {
     colorDifferenceMeasure: COLOR_DIFFERENCE_MEASURES[0],
     simulationType: SIMULATION_TYPES[0],
@@ -48,9 +47,8 @@ class PaletteOptimizer extends PureComponent<PaletteOptimizerProps, PaletteOptim
     colorDifferenceMeasure = this.state.colorDifferenceMeasure,
     simulationType = this.state.simulationType,
   }) => {
-    const { palette } = this.props;
     this.setState({
-      palette: paletteOptimization(palette, { simulationType, colorDifferenceMeasure }),
+      palette: paletteOptimization(badPalette, { simulationType, colorDifferenceMeasure }),
     });
   };
 
@@ -81,7 +79,7 @@ class PaletteOptimizer extends PureComponent<PaletteOptimizerProps, PaletteOptim
         </p>
         <img
           src="https://gw.alipayobjects.com/zos/antfincdn/6VpNTw4PSE/optimize.svg"
-          width="600"
+          width="700"
           alt="optimize palette"
         ></img>
         <div className="smart-color-example">
@@ -114,8 +112,8 @@ class PaletteOptimizer extends PureComponent<PaletteOptimizerProps, PaletteOptim
           </div>
 
           <div>Input Palette:</div>
-          <Highlight>{`const palette = ${JSON.stringify(this.props.palette)};`}</Highlight>
-          <Swatch palette={this.props.palette}></Swatch>
+          <Highlight>{`const palette = ${JSON.stringify(badPalette)};`}</Highlight>
+          <Swatch palette={badPalette}></Swatch>
           <div>Output Palette (after optimization):</div>
           <Highlight>{`paletteOptimization(palette, ${JSON.stringify(
             JSON.parse(

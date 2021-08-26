@@ -6,7 +6,7 @@ import './index.less';
 
 interface BlockProps {
   color: Color;
-  onChange: (color: Color) => void;
+  onChange?: (color: Color) => void;
   size: number;
 }
 interface BlockState {
@@ -22,7 +22,10 @@ class Block extends PureComponent<BlockProps, BlockState> {
   };
 
   handleClick = () => {
-    this.setState({ displayColorPicker: !this.state.displayColorPicker });
+    const { onChange } = this.props;
+    if (onChange) {
+      this.setState({ displayColorPicker: !this.state.displayColorPicker });
+    }
   };
 
   handleClose = () => {
@@ -31,7 +34,9 @@ class Block extends PureComponent<BlockProps, BlockState> {
 
   handleChange = (color: any) => {
     const { onChange } = this.props;
-    onChange(hexToColor(color.hex));
+    if (onChange) {
+      onChange(hexToColor(color.hex));
+    }
   };
 
   render() {

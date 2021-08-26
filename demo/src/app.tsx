@@ -14,7 +14,6 @@ import styles from './index.module.less';
 export default function App() {
   const palette = COLOR_ASSET.palettes[0] as CategoricalPalette;
   const [color1, color2] = palette.colors;
-  const badPalette = COLOR_ASSET.palettes[1] as CategoricalPalette;
   return (
     <>
       <Nav />
@@ -50,13 +49,13 @@ export default function App() {
         <PaletteGenerator />
         <Divider />
         <h2 id="paletteOptimization">Palette Optimization</h2>
-        <PaletteOptimizer palette={badPalette} />
+        <PaletteOptimizer />
         <Divider />
         <h2 id="paletteExtraction">Palette Extraction</h2>
         <PaletteExtraction />
         <Divider />
         <h2 id="colorSimulation">Color Simulation</h2>
-        <ColorSimulator palette={palette}></ColorSimulator>
+        <ColorSimulator />
         <Divider />
         <h2 id="colorEvaluation">Color Evaluation</h2>
         <ColorEvaluator color1={color1} color2={color2} />
