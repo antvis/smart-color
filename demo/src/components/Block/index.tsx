@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Color, colorToHex } from '@antv/color-schema';
 import { ChromePicker } from 'react-color';
-import { hexToColor } from '../../../../src';
 import './index.less';
 
 interface BlockProps {
@@ -14,7 +13,7 @@ interface BlockState {
 }
 class Block extends PureComponent<BlockProps, BlockState> {
   static defaultProps = {
-    size: 70,
+    size: 80,
   };
 
   readonly state: BlockState = {
@@ -35,7 +34,11 @@ class Block extends PureComponent<BlockProps, BlockState> {
   handleChange = (color: any) => {
     const { onChange } = this.props;
     if (onChange) {
-      onChange(hexToColor(color.hex));
+      const rgba = color.rgb;
+      onChange({
+        model: 'rgba',
+        value: rgba,
+      });
     }
   };
 

@@ -106,7 +106,8 @@ class ColorSimulator extends PureComponent {
             <Highlight>{`const color = ${JSON.stringify(simulatedColor)};
 colorSimulation(color, "${colorSimulationType}");`}</Highlight>
             <Block color={colorSimulation(simulatedColor, colorSimulationType)}></Block>
-
+          </div>
+          <div className="smart-color-example">
             <h4>Example (palette simulation):</h4>
 
             <div className="attr">

@@ -31,7 +31,7 @@ const features: Feature[] = [
   },
   {
     name: 'Palette Extraction',
-    url: '#paletteExtraction',
+    url: '#PaletteExtractor',
     desc: <>Get palettes from strings and images.</>,
     childeren: [
       {
@@ -78,6 +78,20 @@ const features: Feature[] = [
     name: 'Color Computation',
     url: '#colorComputation',
     desc: <>Overlap colors, brighten or darken colors.</>,
+    childeren: [
+      {
+        name: 'color overlap',
+        url: '#colorOverlap',
+      },
+      {
+        name: 'color brighten',
+        url: '#colorBrighten',
+      },
+      {
+        name: 'color darken',
+        url: '#colorDarken',
+      },
+    ],
   },
   {
     name: 'Color Conversion',

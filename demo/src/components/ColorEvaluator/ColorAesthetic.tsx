@@ -12,7 +12,7 @@ interface ColorAestheticState {
   color1: Color;
   color2: Color;
 }
-class PaletteByImage extends PureComponent {
+class ColorAesthetic extends PureComponent {
   readonly state: ColorAestheticState = {
     color1,
     color2,
@@ -84,4 +84,4 @@ const color2 = ${JSON.stringify(color2)};`}</Highlight>
     );
   }
 }
-export default PaletteByImage;
+export default ColorAesthetic;

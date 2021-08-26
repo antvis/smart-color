@@ -7,12 +7,12 @@ import PaletteByImage from './PaletteByImage';
 import './index.less';
 
 const { TextArea } = Input;
-interface PaletteExtractionState {
+interface PaletteExtractorState {
   colorString: string;
 }
 
-class PaletteExtraction extends PureComponent {
-  readonly state: PaletteExtractionState = {
+class PaletteExtractor extends PureComponent {
+  readonly state: PaletteExtractorState = {
     colorString: '#FB9747,#DE5844,#52BFC1,#22A34C,#F1BF2A,#94674E,#FF9CB8,#A562C0',
   };
 
@@ -64,4 +64,4 @@ getPaletteFromString(str);`}</Highlight>
   }
 }
 
-export default PaletteExtraction;
+export default PaletteExtractor;

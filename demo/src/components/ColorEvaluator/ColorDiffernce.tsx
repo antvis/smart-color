@@ -16,7 +16,7 @@ interface ColorDiffernceState {
   color2: Color;
   colorModel: ColorModel;
 }
-class PaletteByImage extends PureComponent {
+class ColorDiffernce extends PureComponent {
   readonly state: ColorDiffernceState = {
     color1,
     color2,
@@ -122,4 +122,4 @@ const color2 = ${JSON.stringify(color2)};`}</Highlight>
     );
   }
 }
-export default PaletteByImage;
+export default ColorDiffernce;

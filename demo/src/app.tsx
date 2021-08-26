@@ -4,7 +4,8 @@ import ColorSimulator from './components/ColorSimulator';
 import ColorEvaluator from './components/ColorEvaluator';
 import PaletteGenerator from './components/PaletteGenerator';
 import PaletteOptimizer from './components/PaletteOptimizer';
-import PaletteExtraction from './components/PaletteExtraction';
+import PaletteExtractor from './components/PaletteExtractor';
+import ColorComputation from './components/ColorComputation';
 import Nav from './components/Nav';
 import FEATURES from './constant/features';
 import styles from './index.module.less';
@@ -47,14 +48,17 @@ export default function App() {
         <h2 id="paletteOptimization">Palette Optimization</h2>
         <PaletteOptimizer />
         <Divider />
-        <h2 id="paletteExtraction">Palette Extraction</h2>
-        <PaletteExtraction />
+        <h2 id="PaletteExtractor">Palette Extraction</h2>
+        <PaletteExtractor />
         <Divider />
         <h2 id="colorSimulation">Color Simulation</h2>
         <ColorSimulator />
         <Divider />
         <h2 id="colorEvaluation">Color Evaluation</h2>
         <ColorEvaluator />
+        <Divider />
+        <h2 id="colorComputation">Color Computation</h2>
+        <ColorComputation />
         <Divider />
       </div>
     </>

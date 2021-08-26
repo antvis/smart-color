@@ -43,7 +43,7 @@ In @antv/smart-color, we use the data structure [Color](https://github.com/antvi
 
 ## Color Computation
 
-* [colorOverlap](./colorComputation.md#colorOverlap) - Compute the color when two colors are overlaid on top and bottom.
+* [colorOverlap](./colorComputation.md#colorOverlap) - Compute the color when two colors are overlapped.
 * [colorBrighten](./colorComputation.md#colorBrighten) - Compute the brighter color.
 * [colorDarken](./colorComputation.md#colorDarken) - Compute the darker color.
 

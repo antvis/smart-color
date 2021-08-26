@@ -6,7 +6,7 @@ Overlap colors, brighten or darken colors.
 
 <a name="colorOverlap" href="#colorOverlap">#</a> **colorOverlap**<i>(colorTop: Color, colorBottom: Color) => Color</i>
 
-Computes the color when two colors are overlaid on top and bottom.
+Computes the color when two colors are overlapped. Different overlapping order will result in different colors.
 
 ```ts
 import { colorOverlap } from '@antv/smart-color';
@@ -28,7 +28,7 @@ const color2 = colorOverlap(red, blue);
 ```
 
 <div align="center">
-  <img src="https://gw.alipayobjects.com/zos/antfincdn/rY4eK76oFs/coloroverlap.png" alt="color overlap">
+  <img src="https://gw.alipayobjects.com/zos/antfincdn/kcm55MaLMt/coloroverlap.png" alt="color overlap">
 </div>
 
 <a name="colorBrighten" href="#colorBrighten">#</a> **colorBrighten**<i>(color: Color, value: number=1) => Color</i>
