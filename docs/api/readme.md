@@ -54,5 +54,4 @@ In @antv/smart-color, we use the data structure [Color](https://github.com/antvi
 * [colorToHex](./colorConversion.md#colorToHex) - Convert [Color](https://github.com/neoddish/color-palette-json-schema#color) into hexadecimal string.
 * [hexToColor](./colorConversion.md#hexToColor) - Convert hexadecimal string into [Color](https://github.com/neoddish/color-palette-json-schema#color).
 * [colorToGray](./colorConversion.md#colorToGray) - Convert [Color](https://github.com/neoddish/color-palette-json-schema#color) into gray number.
-* [grayToColor](./colorConversion.md#grayToColor) - Convert gray number into [Color](https://github.com/neoddish/color-palette-json-schema#color).
 * [nameToColor](./colorConversion.md#nameToColor) - Convert valid css color name into [Color](https://github.com/neoddish/color-palette-json-schema#color).

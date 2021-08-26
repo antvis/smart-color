@@ -1,5 +1,5 @@
 import { Color } from '@antv/color-schema';
-import { arrayToColor, colorToArray, colorToGray, grayToColor, hexToColor, colorToHex, nameToColor } from '@src/index';
+import { arrayToColor, colorToArray, colorToGray, hexToColor, colorToHex, nameToColor } from '@src/index';
 
 const black: Color = {
   model: 'rgb',
@@ -74,20 +74,6 @@ describe('Color conversion', () => {
     // error hex
     const color3 = hexToColor('#0');
     expect(color3).toStrictEqual(black);
-  });
-
-  test('convert gray to color', () => {
-    const color1 = grayToColor(0);
-    expect(color1).toStrictEqual(black);
-
-    const color2 = grayToColor(255);
-    expect(color2).toStrictEqual(white);
-
-    const color3 = grayToColor(123, 0.1);
-    expect(color3).toStrictEqual({
-      model: 'rgba',
-      value: { r: 123, g: 123, b: 123, a: 0.1 },
-    });
   });
 
   test('nameToColor(name) convert valid css color name to color', () => {
