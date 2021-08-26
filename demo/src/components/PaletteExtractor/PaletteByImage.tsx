@@ -95,7 +95,7 @@ class PaletteByImage extends Component<PaletteByImageProps, PaletteByImageState>
           <h4>Example:</h4>
           <div className="attr">
             <div className="name">url:</div>
-            <Input size="small" value={url} onChange={this.onUrlChange} />
+            <Input value={url} onChange={this.onUrlChange} />
           </div>
           <img src={url} alt="origin image" className="img-preview"></img>
 
