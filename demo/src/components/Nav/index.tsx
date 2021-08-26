@@ -10,8 +10,12 @@ const Nav = () => (
     <h2 className={styles.subtitle}>@antv/smart-color</h2>
     <Anchor>
       <Link href={'#intro'} title={'Features'}></Link>
-      {FEATURES.map(({ name, url }) => (
-        <Link key={name} href={url} title={name}></Link>
+      {FEATURES.map(({ name, url, childeren }) => (
+        <Link key={name} href={url} title={name}>
+          {childeren?.map(({ name, url }) => (
+            <Link key={name} href={url} title={name} />
+          ))}
+        </Link>
       ))}
     </Anchor>
   </div>

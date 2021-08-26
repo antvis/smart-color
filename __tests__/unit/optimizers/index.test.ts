@@ -117,12 +117,12 @@ describe('Palette optimization', () => {
     const newPalette = paletteOptimization(palette, { colorDifferenceMeasure: 'CIEDE2000' }) as CategoricalPalette;
     expect(getMinDifference(newPalette)).toBeGreaterThanOrEqual(minDifference);
   });
-  test('palette optimization in grayScale', () => {
-    const minDifference = getMinDifference(palette, 'grayScale');
+  test('palette optimization in grayscale', () => {
+    const minDifference = getMinDifference(palette, 'grayscale');
     const newPalette = paletteOptimization(palette, {
-      simulationType: 'grayScale',
+      simulationType: 'grayscale',
     }) as CategoricalPalette;
-    expect(getMinDifference(newPalette, 'grayScale')).toBeGreaterThanOrEqual(minDifference);
+    expect(getMinDifference(newPalette, 'grayscale')).toBeGreaterThanOrEqual(minDifference);
   });
   test('palette optimization in color blind simulation', () => {
     const minDifference = getMinDifference(palette, 'protanomaly');

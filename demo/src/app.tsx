@@ -1,19 +1,15 @@
 import React from 'react';
 import { Divider } from 'antd';
-import { CategoricalPalette } from '@antv/color-schema';
 import ColorSimulator from './components/ColorSimulator';
 import ColorEvaluator from './components/ColorEvaluator';
 import PaletteGenerator from './components/PaletteGenerator';
 import PaletteOptimizer from './components/PaletteOptimizer';
 import PaletteExtraction from './components/PaletteExtraction';
 import Nav from './components/Nav';
-import COLOR_ASSET from './constant/colorAsset';
 import FEATURES from './constant/features';
 import styles from './index.module.less';
 
 export default function App() {
-  const palette = COLOR_ASSET.palettes[0] as CategoricalPalette;
-  const [color1, color2] = palette.colors;
   return (
     <>
       <Nav />
@@ -58,7 +54,7 @@ export default function App() {
         <ColorSimulator />
         <Divider />
         <h2 id="colorEvaluation">Color Evaluation</h2>
-        <ColorEvaluator color1={color1} color2={color2} />
+        <ColorEvaluator />
         <Divider />
       </div>
     </>

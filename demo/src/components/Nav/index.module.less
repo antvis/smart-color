@@ -9,12 +9,13 @@
   text-align: right;
   .title {
     color: @primary-color;
+    font-size: 36px;
     margin-bottom: 0px;
     margin-right: 20px;
   }
   .subtitle {
     color: @color-4;
-    font-size: 18px;
+    font-size: 20px;
     margin-right: 20px;
   }
   :global(.ant-anchor-wrapper) {
@@ -33,8 +34,16 @@
       }
       :global(.ant-anchor-link) {
         margin-bottom: 6px;
+        font-size: 16px;
         &:global(.ant-anchor-link-active) {
           font-weight: 700;
+          :global(.ant-anchor-link){
+            font-weight: 500;
+          }
+        }
+        :global(.ant-anchor-link){
+          margin-bottom: 0px;
+          font-size: 14px;
         }
         &:nth-child(2) * {
           color: @color-9;

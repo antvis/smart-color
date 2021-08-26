@@ -34,7 +34,7 @@ In @antv/smart-color, we use the data structure [Color](https://github.com/antvi
 ## Color Simulation
 
 * [colorSimulation](./simulators.md#colorSimulation) - Simulate color blindness and color in grayscale.
-* [invertGrayScale](./simulators.md#invertGrayScale) - Invert the new color from the gray value and the original color.
+* [invertGrayscale](./simulators.md#invertGrayscale) - Invert the new color from the gray value and the original color.
 
 ## Color Evaluation
 

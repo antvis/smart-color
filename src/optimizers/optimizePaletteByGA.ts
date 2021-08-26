@@ -67,8 +67,8 @@ const mutate = (colors: Colors, unlockedIndexs: number[], simulationType: Simula
   const dimensionIndex = randomInt(colors[0].length - 1);
   let newValue = newColors[mutateIndex][dimensionIndex] * random(...ADAPTIVE_RANGE);
   // clip
-  let range = [15, 240]; // grayScale
-  if (simulationType !== 'grayScale') {
+  let range = [15, 240]; // grayscale
+  if (simulationType !== 'grayscale') {
     range = COLOR_MODEL_RANGE[colorModel][colorModel.split('')[dimensionIndex]];
   }
 
@@ -93,7 +93,7 @@ export const calFitness = (
   backgroundColor: Color
 ): number => {
   let newColors: Color[];
-  if (simulationType === 'grayScale') {
+  if (simulationType === 'grayscale') {
     newColors = colors.map(([gray]) => grayToColor(gray));
   } else {
     newColors = colors.map((color) => colorSimulation(arrayToColor(color, colorModel), simulationType));

@@ -3,7 +3,7 @@ import { Color, Palette, isContinuousPalette, isMatrixPalette, CategoricalPalett
 import { Select, InputNumber } from 'antd';
 import { cloneDeep } from 'lodash';
 import Highlight from 'react-highlight';
-import { SimulationType, colorSimulation, invertGrayScale } from '../../../../src';
+import { SimulationType, colorSimulation, invertGrayscale } from '../../../../src';
 import SIMULATION_TYPES from '../../constant/simulationTypes';
 import COLOR_ASSET from '../../constant/colorAsset';
 import Swatch from '../Swatch';
@@ -18,7 +18,7 @@ interface ColorSimulatorState {
   paletteSimulationType: SimulationType;
   simulatedColor: Color;
   invertColor: Color;
-  grayScale: number;
+  grayscale: number;
 }
 
 function paletteSimulation(palette: Palette, type: SimulationType): Palette {
@@ -35,7 +35,7 @@ class ColorSimulator extends PureComponent {
     paletteSimulationType: SIMULATION_TYPES[0],
     simulatedColor: color,
     invertColor: color,
-    grayScale: 0.5,
+    grayscale: 0.5,
   };
 
   handleColorSimulationTypeChange = (value: SimulationType) => {
@@ -58,12 +58,12 @@ class ColorSimulator extends PureComponent {
     this.setState({ invertColor: color });
   };
 
-  handleGrayScaleChange = (grayScale: number) => {
-    this.setState({ grayScale });
+  handleGrayscaleChange = (grayscale: number) => {
+    this.setState({ grayscale });
   };
 
   render() {
-    const { colorSimulationType, paletteSimulationType, simulatedColor, invertColor, grayScale } = this.state;
+    const { colorSimulationType, paletteSimulationType, simulatedColor, invertColor, grayscale } = this.state;
     return (
       <>
         <div>
@@ -144,14 +144,14 @@ paletteSimulation(palette, "${paletteSimulationType}");`}</Highlight>
           </div>
         </div>
         <div>
-          <h3 id="invertGrayScale">
+          <h3 id="invertGrayscale">
             <code>
               <a
-                href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/simulators.md#invertGrayScale"
+                href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/simulators.md#invertGrayscale"
                 target="_blank"
                 rel="noreferrer"
               >
-                invertGrayScale(grayScale, color)
+                invertGrayscale(grayscale, color)
               </a>
             </code>
           </h3>
@@ -161,7 +161,7 @@ paletteSimulation(palette, "${paletteSimulationType}");`}</Highlight>
 
             <div className="attr">
               <div className="name">gray scale:</div>
-              <InputNumber value={grayScale} min={0} max={1} step="0.01" onChange={this.handleGrayScaleChange} />
+              <InputNumber value={grayscale} min={0} max={1} step="0.01" onChange={this.handleGrayscaleChange} />
             </div>
 
             <div className="attr">
@@ -172,8 +172,8 @@ paletteSimulation(palette, "${paletteSimulationType}");`}</Highlight>
             </div>
 
             <Highlight>{`const color = ${JSON.stringify(invertColor)};
-invertGrayScale(${grayScale}, color);`}</Highlight>
-            <Block color={invertGrayScale(grayScale, invertColor)}></Block>
+invertGrayscale(${grayscale}, color);`}</Highlight>
+            <Block color={invertGrayscale(grayscale, invertColor)}></Block>
           </div>
         </div>
       </>

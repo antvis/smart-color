@@ -75,30 +75,47 @@ class PaletteByImage extends Component<PaletteByImageProps, PaletteByImageState>
   render() {
     const { palette, url, count, quality } = this.state;
     return (
-      <div className="smart-color-example">
-        <h4>Example:</h4>
-        <div className="attr">
-          <div className="name">url:</div>
-          <Input size="small" value={url} onChange={this.onUrlChange} />
-        </div>
-        <img src={url} alt="origin image" className="img-preview"></img>
+      <div>
+        <h3 id="getPaletteFromImage">
+          <code>
+            <a
+              href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/extractors.md#getPaletteFromImage"
+              target="_blank"
+              rel="noreferrer"
+            >
+              getPaletteFromImage(url, count, quality)
+            </a>
+          </code>
+        </h3>
+        <p>
+          Get palettes from images. <code>quality</code> determines how many pixels will be skipped before the next
+          pixel is sampled. The larger the number, the faster the extraction.
+        </p>
+        <div className="smart-color-example">
+          <h4>Example:</h4>
+          <div className="attr">
+            <div className="name">url:</div>
+            <Input size="small" value={url} onChange={this.onUrlChange} />
+          </div>
+          <img src={url} alt="origin image" className="img-preview"></img>
 
-        <div className="attr">
-          <div className="name">count:</div>
-          <InputNumber min={1} max={20} value={count} onChange={this.onCountChange} />
-        </div>
+          <div className="attr">
+            <div className="name">count:</div>
+            <InputNumber min={1} max={20} value={count} onChange={this.onCountChange} />
+          </div>
 
-        <div className="attr">
-          <div className="name">quality:</div>
-          <InputNumber min={1} max={50} value={quality} onChange={this.onQualityChange} />
-        </div>
-        <Highlight>{`const url = "${url}";
+          <div className="attr">
+            <div className="name">quality:</div>
+            <InputNumber min={1} max={50} value={quality} onChange={this.onQualityChange} />
+          </div>
+          <Highlight>{`const url = "${url}";
 getPaletteFromImage(url, ${count}, ${quality})
   .then((palette) => {
     // Display palette
     // When the image fails to load, palette is undefined.
   });`}</Highlight>
-        {palette && <Swatch palette={palette}></Swatch>}
+          {palette && <Swatch palette={palette}></Swatch>}
+        </div>
       </div>
     );
   }
