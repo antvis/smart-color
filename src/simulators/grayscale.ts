@@ -2,19 +2,19 @@ import { Color } from '@antv/color-schema';
 import { arrayToColor, colorToArray, colorToGray, grayToColor } from '../utils';
 import { ColorSimulation } from '../types';
 
-// get color in grayScale
-export const grayScale: ColorSimulation = (color) => {
+// get color in grayscale
+export const grayscale: ColorSimulation = (color) => {
   const gray = colorToGray(color);
   const [, , , alpha = 1] = colorToArray(color, 'rgba');
   return grayToColor(gray, alpha);
 };
 
 // invert color from the gray scale value
-// grayScaleValue: [0, 1]
-export function invertGrayScale(grayScaleValue: number, color: Color): Color {
+// grayscaleValue: [0, 1]
+export function invertGrayscale(grayscaleValue: number, color: Color): Color {
   const [, a, b] = colorToArray(color, 'lab');
   const [, , , alpha = 1] = colorToArray(color, 'rgba');
-  const target = grayScaleValue * 100;
+  const target = grayscaleValue * 100;
 
   let L = Math.round(target);
   let newGray = colorToGray(arrayToColor([L, a, b], 'lab'));

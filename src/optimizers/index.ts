@@ -1,6 +1,6 @@
 import { isContinuousPalette, isMatrixPalette } from '@antv/color-schema';
 import { WHITE } from '../constant';
-import { invertGrayScale } from '../simulators';
+import { invertGrayscale } from '../simulators';
 import { PaletteOptimization, ColorDifferenceMeasure } from '../types';
 import { colorToGray, colorToArray, arrayToColor, cloneDeep } from '../utils';
 import { optimizePaletteByGA } from './optimizePaletteByGA';
@@ -36,14 +36,14 @@ export const paletteOptimization: PaletteOptimization = (palette, configuration 
   }
   // In case of grayscale mode, the maximum difference between two can be estimated directly
   // If the set threshold is outside of this range, trim directly to save optimization time
-  if (simulationType === 'grayScale') {
+  if (simulationType === 'grayscale') {
     const maxValue = COLOR_DIFFERENCE_MAX_VALUE[colorDifferenceMeasure];
     newThreshold = Math.min(newThreshold, maxValue / palette.colors.length);
   }
 
   const newPalette = cloneDeep(palette);
   if (!isMatrixPalette(newPalette) && !isContinuousPalette(newPalette)) {
-    if (simulationType === 'grayScale') {
+    if (simulationType === 'grayscale') {
       const colors = newPalette.colors.map((color): [number] => [colorToGray(color)]);
       const newColors = optimizePaletteByGA(
         colors,
@@ -55,7 +55,7 @@ export const paletteOptimization: PaletteOptimization = (palette, configuration 
         backgroundColor
       );
       newPalette.colors.forEach((color, index) =>
-        Object.assign(color, invertGrayScale(newColors[index][0] / 255, color))
+        Object.assign(color, invertGrayscale(newColors[index][0] / 255, color))
       );
     } else {
       const colors = newPalette.colors.map((color) => colorToArray(color, colorModel));

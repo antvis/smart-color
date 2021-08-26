@@ -11,7 +11,7 @@ export {
   colorDarken,
 } from './utils';
 // color simulation
-export { colorSimulation, invertGrayScale } from './simulators';
+export { colorSimulation, invertGrayscale } from './simulators';
 // palette generation
 export { paletteGeneration } from './generators';
 // palette optimization

@@ -1,13 +1,13 @@
 import { ColorSimulation } from '../types';
 import { colorBlindnessSimulation } from './colorBlindness';
-import { grayScale } from './grayScale';
+import { grayscale } from './grayscale';
 
 export const colorSimulation: ColorSimulation = (color, type = 'normal') => {
-  if (type === 'grayScale') {
-    return grayScale(color);
+  if (type === 'grayscale') {
+    return grayscale(color);
   }
   return colorBlindnessSimulation(color, type);
 };
 
 export { isColorBlindnessSimulation } from './colorBlindness';
-export { invertGrayScale } from './grayScale';
+export { invertGrayscale } from './grayscale';

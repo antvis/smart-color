@@ -40,7 +40,7 @@ const palette = {
 }
 paletteOptimization(palette, {
   locked: [true],
-  simulationType: "grayScale"
+  simulationType: "grayscale"
 });
 // {
 //   name: 'color4',

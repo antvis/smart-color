@@ -3,7 +3,8 @@ import React from 'react';
 interface Feature {
   name: string;
   url: string;
-  desc: React.ReactElement;
+  desc?: React.ReactElement;
+  childeren?: Feature[];
 }
 const features: Feature[] = [
   {
@@ -32,16 +33,46 @@ const features: Feature[] = [
     name: 'Palette Extraction',
     url: '#paletteExtraction',
     desc: <>Get palettes from strings and images.</>,
+    childeren: [
+      {
+        name: 'from image',
+        url: '#getPaletteFromImage',
+      },
+      {
+        name: 'from string',
+        url: '#getPaletteFromString',
+      },
+    ],
   },
   {
     name: 'Color Simulation',
     url: '#colorSimulation',
     desc: <>Simulate color blindness and color in grayscale.</>,
+    childeren: [
+      {
+        name: 'color simulation',
+        url: '#colorSimulationFunc',
+      },
+      {
+        name: 'invert grayscale',
+        url: '#invertGrayscale',
+      },
+    ],
   },
   {
     name: 'Color Evaluation',
     url: '#colorEvaluation',
     desc: <>Evaluate color discriminability and aesthetics.</>,
+    childeren: [
+      {
+        name: 'color difference',
+        url: '#colorDifference',
+      },
+      {
+        name: 'color aesthetic',
+        url: '#colorAesthetic',
+      },
+    ],
   },
   {
     name: 'Color Computation',

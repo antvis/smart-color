@@ -15,8 +15,8 @@ import {
 
 // color simulation
 export type ColorBlindnessSimulationType = typeof COLOR_BLINDNESS_SIMULATION_TYPES[number];
-export type GrayScaleType = 'grayScale';
-export type SimulationType = ColorBlindnessSimulationType | GrayScaleType;
+export type GrayscaleType = 'grayscale';
+export type SimulationType = ColorBlindnessSimulationType | GrayscaleType;
 export type ColorSimulation = (
   color: Color,
   // default value: 'normal'
