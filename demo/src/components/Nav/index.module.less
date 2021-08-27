@@ -5,26 +5,34 @@
   position: fixed;
   left: 0;
   right: calc(50% + 400px);
-  padding-top: 30px;
   text-align: right;
-  .title {
-    color: @primary-color;
-    font-size: 28px;
-    margin-bottom: 0px;
-    margin-right: 20px;
+  .header{
+    margin-right: 4px;
+    padding-top: 30px;
+    padding-right: 26px;
+    border-right: 2px solid @color-1;
+    .title {
+      color: @primary-color;
+      font-size: 28px;
+      margin-bottom: 0px;
+    }
+    .subtitle {
+      color: @color-4;
+      font-size: 16px;
+      margin-bottom: 2px;
+    } 
+    .git {
+      margin-right: 3px;
+      font-size: 20px;
+      color: @color-3;
+    }
   }
-  .subtitle {
-    color: @color-4;
-    font-size: 18px;
-    margin-right: 20px;
-  }
+  
   :global(.ant-anchor-wrapper) {
-    position: relative;
-    top: -110px;
     height: 100vh;
     :global(.ant-anchor) {
       height: 100%;
-      padding-top: 150px;
+      padding-top: 40px;
       padding-right: 30px;
       :global(.ant-anchor-ink) {
         right: calc(-100% + 10px);
