@@ -79,7 +79,7 @@ class PaletteByImage extends Component<PaletteByImageProps, PaletteByImageState>
         <h3 id="getPaletteFromImage">
           <code>
             <a
-              href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/extractors.md#getPaletteFromImage"
+              href="https://github.com/antvis/smart-color/blob/master/docs/api/extractors.md#getPaletteFromImage"
               target="_blank"
               rel="noreferrer"
             >

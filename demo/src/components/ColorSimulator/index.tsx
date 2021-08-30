@@ -70,7 +70,7 @@ class ColorSimulator extends PureComponent {
           <h3 id="colorSimulationFunc">
             <code>
               <a
-                href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/simulators.md#colorSimulation"
+                href="https://github.com/antvis/smart-color/blob/master/docs/api/simulators.md#colorSimulation"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -148,7 +148,7 @@ paletteSimulation(palette, "${paletteSimulationType}");`}</Highlight>
           <h3 id="invertGrayscale">
             <code>
               <a
-                href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/simulators.md#invertGrayscale"
+                href="https://github.com/antvis/smart-color/blob/master/docs/api/simulators.md#invertGrayscale"
                 target="_blank"
                 rel="noreferrer"
               >

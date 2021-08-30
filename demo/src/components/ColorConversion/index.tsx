@@ -33,7 +33,7 @@ class ColorConversion extends PureComponent {
           <h3 id="colorToArray">
             <code>
               <a
-                href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/colorConversion.md#colorToArray"
+                href="https://github.com/antvis/smart-color/blob/master/docs/api/colorConversion.md#colorToArray"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -47,7 +47,7 @@ class ColorConversion extends PureComponent {
           <h3 id="arrayToColor">
             <code>
               <a
-                href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/colorConversion.md#arrayToColor"
+                href="https://github.com/antvis/smart-color/blob/master/docs/api/colorConversion.md#arrayToColor"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -62,7 +62,7 @@ class ColorConversion extends PureComponent {
           <h3 id="colorToHex">
             <code>
               <a
-                href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/colorConversion.md#colorToHex"
+                href="https://github.com/antvis/smart-color/blob/master/docs/api/colorConversion.md#colorToHex"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -76,7 +76,7 @@ class ColorConversion extends PureComponent {
           <h3 id="hexToColor">
             <code>
               <a
-                href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/colorConversion.md#hexToColor"
+                href="https://github.com/antvis/smart-color/blob/master/docs/api/colorConversion.md#hexToColor"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -90,7 +90,7 @@ class ColorConversion extends PureComponent {
           <h3 id="colorToGray">
             <code>
               <a
-                href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/colorConversion.md#colorToGray"
+                href="https://github.com/antvis/smart-color/blob/master/docs/api/colorConversion.md#colorToGray"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -135,7 +135,7 @@ colorToGray(color); // ${colorToGray(color)}`}</Highlight>
           <h3 id="nameToColor">
             <code>
               <a
-                href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/colorConversion.md#nameToColor"
+                href="https://github.com/antvis/smart-color/blob/master/docs/api/colorConversion.md#nameToColor"
                 target="_blank"
                 rel="noreferrer"
               >

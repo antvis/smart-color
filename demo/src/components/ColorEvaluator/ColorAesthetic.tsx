@@ -26,7 +26,7 @@ class ColorAesthetic extends PureComponent {
         <h3 id="colorAesthetic">
           <code>
             <a
-              href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/evaluators.md#colorAesthetic"
+              href="https://github.com/antvis/smart-color/blob/master/docs/api/evaluators.md#colorAesthetic"
               target="_blank"
               rel="noreferrer"
             >
