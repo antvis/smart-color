@@ -31,7 +31,7 @@ class PaletteExtractor extends PureComponent {
           <h3 id="getPaletteFromString">
             <code>
               <a
-                href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/extractors.md#getPaletteFromString"
+                href="https://github.com/antvis/smart-color/blob/master/docs/api/extractors.md#getPaletteFromString"
                 target="_blank"
                 rel="noreferrer"
               >

@@ -32,7 +32,7 @@ class ColorOverlap extends PureComponent {
         <h3 id="colorOverlap">
           <code>
             <a
-              href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/colorComputation.md#colorOverlap"
+              href="https://github.com/antvis/smart-color/blob/master/docs/api/colorComputation.md#colorOverlap"
               target="_blank"
               rel="noreferrer"
             >

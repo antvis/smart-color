@@ -93,7 +93,7 @@ class PaletteGenerator extends PureComponent<PaletteGeneratorProps, PaletteGener
         <h3>
           <code>
             <a
-              href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/generators.md#paletteGeneration"
+              href="https://github.com/antvis/smart-color/blob/master/docs/api/generators.md#paletteGeneration"
               target="_blank"
               rel="noreferrer"
             >

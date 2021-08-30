@@ -36,7 +36,7 @@ class ColorDiffernce extends PureComponent {
         <h3 id="colorDifference">
           <code>
             <a
-              href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/evaluators.md#colorDifference"
+              href="https://github.com/antvis/smart-color/blob/master/docs/api/evaluators.md#colorDifference"
               target="_blank"
               rel="noreferrer"
             >

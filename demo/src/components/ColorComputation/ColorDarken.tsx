@@ -28,7 +28,7 @@ class ColorDarken extends PureComponent {
         <h3 id="colorDarken">
           <code>
             <a
-              href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/colorComputation.md#colorDarken"
+              href="https://github.com/antvis/smart-color/blob/master/docs/api/colorComputation.md#colorDarken"
               target="_blank"
               rel="noreferrer"
             >

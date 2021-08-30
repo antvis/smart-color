@@ -59,7 +59,7 @@ class PaletteOptimizer extends PureComponent {
         <h3>
           <code>
             <a
-              href="https://github.com/antvis/smart-color/blob/smartColorDemo/docs/api/optimizers.md#paletteOptimization"
+              href="https://github.com/antvis/smart-color/blob/master/docs/api/optimizers.md#paletteOptimization"
               target="_blank"
               rel="noreferrer"
             >
