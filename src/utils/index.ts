@@ -12,3 +12,4 @@ export {
 } from './colorConversion';
 
 export { random, randomInt, clamp, cloneDeep } from './helper';
+export { rad2deg, deg2rad } from './degree';

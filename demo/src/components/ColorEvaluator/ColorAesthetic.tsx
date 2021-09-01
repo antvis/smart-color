@@ -78,6 +78,16 @@ const color2 = ${JSON.stringify(color2)};`}</Highlight>
               )}).toFixed(2); 
 // ${colorAesthetic(color1, color2, { measure: 'pairPreference' }).toFixed(2)}`}</Highlight>
             </li>
+
+            <li>
+              Color Harmony
+              <Highlight>{`colorAesthetic(color1, color2, ${JSON.stringify(
+                JSON.parse('{"measure": "harmony"}'),
+                null,
+                2
+              )}).toFixed(2); 
+// ${colorAesthetic(color1, color2, { measure: 'harmony' }).toFixed(2)}`}</Highlight>
+            </li>
           </ul>
         </div>
       </>

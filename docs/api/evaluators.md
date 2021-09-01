@@ -73,7 +73,7 @@ colorDifference(color1, color2, {measure: 'contrastRatio'});  //1.43
 
 <a name="colorAesthetic" href="#colorAesthetic">#</a> **colorAesthetic**<i>(color1: Color, color2: Color, configuration: ColorAestheticConfiguration={}) => number</i>
 
-Computes the aesthetic between `color1` and `color2`. It supports the assessment of color aesthetics by different measures, such as `pairPreference`.
+Computes the aesthetic between `color1` and `color2`. It supports the assessment of color aesthetics by different measures, such as `pairPreference`, `harmony`.
 
 * ***configuration*** configure the calculation of color aesthetic.
   
@@ -104,3 +104,19 @@ const color2 = {
 
 colorAesthetic(color1, color2);  //52.40
 
+* Computes the aesthetic between two colors by **[color harmony](https://ieeexplore.ieee.org/abstract/document/5457512)**.
+Harmony scores are consisting of three independent color harmony factors: chromatic effect, lightness effect, and hue effect. 
+
+```ts
+import { colorAesthetic } from '@antv/smart-color';
+
+const color1 = {
+  model: "rgb",
+  value: { r: 91, g: 143, b: 249 },
+}; 
+const color2 = {
+  model: "rgb",
+  value: { r: 101, g: 120, b: 155 },
+};
+
+colorAesthetic(color1, color2, { "measure": "harmony" });  //-0.13

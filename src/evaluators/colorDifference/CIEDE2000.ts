@@ -1,12 +1,5 @@
 import { Color } from '@antv/color-schema';
-import { colorToArray } from '../../utils';
-
-function rad2deg(n: number) {
-  return n * (180 / Math.PI);
-}
-function deg2rad(n: number) {
-  return n * (Math.PI / 180);
-}
+import { colorToArray, rad2deg, deg2rad } from '../../utils';
 
 const hp = (x: number, y: number) => {
   const tmphp = rad2deg(Math.atan2(x, y));
