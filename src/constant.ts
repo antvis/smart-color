@@ -15,7 +15,7 @@ export const COLOR_BLINDNESS_SIMULATION_TYPES = [
 export const TENDENCIES = ['tint', 'shade'] as const;
 export const COLOR_DIFFERENCE_MEASURES = ['euclidean', 'CIEDE2000', 'contrastRatio'] as const;
 
-export const COLOR_AESTHETIC_MEASURES = ['pairPreference'] as const;
+export const COLOR_AESTHETIC_MEASURES = ['pairPreference', 'harmony'] as const;
 
 export const WHITE: Color = {
   model: 'rgb',
