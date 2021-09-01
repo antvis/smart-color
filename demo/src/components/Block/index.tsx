@@ -64,7 +64,9 @@ class Block extends PureComponent<BlockProps, BlockState> {
           {this.state.displayColorPicker ? (
             <div className="popover">
               <div className="cover" onClick={this.handleClose} />
-              <ChromePicker color={hexColor} onChange={this.handleChange} className="color-picker" />
+              <div onClick={(event: any) => event.stopPropagation()}>
+                <ChromePicker color={hexColor} onChange={this.handleChange} className="color-picker" />
+              </div>
             </div>
           ) : null}
         </div>
