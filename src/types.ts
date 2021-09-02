@@ -33,12 +33,13 @@ type ColorDifferenceGeneralConfiguration = {
 export type ColorDifferenceConfiguration = ColorDifferenceGeneralConfiguration &
   (
     | {
+        // default value: 'euclidean'
+        measure?: ColorDifferenceMeasure;
+      }
+    | {
         measure: 'euclidean';
         // default value: 'lab'
         colorModel?: ColorModel;
-      }
-    | {
-        measure: 'CIEDE2000' | 'contrastRatio';
       }
   );
 export type ColorDifference = (color1: Color, color2: Color, configuration?: ColorDifferenceConfiguration) => number;
@@ -58,6 +59,7 @@ export type OptimizerConfiguration = {
   // default value: 'normal'
   simulationType?: SimulationType;
   threshold?: number;
+  // the colours change randomly based on this model
   // default value: 'hsv'
   colorModel?: ColorModel;
   // default value: 'euclidean'
