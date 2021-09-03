@@ -84,6 +84,10 @@ const features: Feature[] = [
         url: '#colorOverlap',
       },
       {
+        name: 'color blend',
+        url: '#colorBlend',
+      },
+      {
         name: 'color brighten',
         url: '#colorBrighten',
       },

@@ -6,6 +6,7 @@ export {
   hexToColor,
   nameToColor,
   colorOverlap,
+  colorBlend,
   colorBrighten,
   colorDarken,
 } from './utils';

@@ -25,3 +25,29 @@ export const WHITE: Color = {
     b: 255,
   },
 };
+
+// Separable blend modes https://www.w3.org/TR/compositing/#blendingseparable
+export const SEPARABLE_BLEND_MODES = [
+  'normal',
+  'darken',
+  'multiply',
+  'colorBurn',
+  'linearBurn',
+  'lighten',
+  'screen',
+  'colorDodge',
+  'linearDodge',
+  'overlay',
+  'softLight',
+  'hardLight',
+  'vividLight',
+  'linearLight',
+  'pinLight',
+  'difference',
+  'exclusion',
+];
+
+// Non-separable blend modes https://www.w3.org/TR/compositing/#blendingnonseparable
+export const NON_SEPARABLE_BLEND_MODES = ['hue', 'saturation', 'color', 'luminosity'] as const;
+
+export const BLEND_MODES = [...SEPARABLE_BLEND_MODES, ...NON_SEPARABLE_BLEND_MODES] as const;
