@@ -1,16 +1,22 @@
 import React, { PureComponent } from 'react';
 import { Select } from 'antd';
-import { Color, CategoricalPalette } from '@antv/color-schema';
+import { Color } from '@antv/color-schema';
 import Highlight from 'react-highlight';
 import { colorBlend } from '../../../../src';
 import { BlendMode } from '../../../../src/types';
 import { BLEND_MODES } from '../../../../src/constant';
-import COLOR_ASSET from '../../constant/colorAsset';
 import Block from '../Block';
 
 const { Option } = Select;
-const palette = COLOR_ASSET.palettes[0] as CategoricalPalette;
-const [colorTop, colorBottom] = palette.colors;
+
+const colorTop: Color = {
+  model: 'rgba',
+  value: { r: 255, g: 0, b: 0, a: 0.4 },
+};
+const colorBottom: Color = {
+  model: 'rgba',
+  value: { r: 0, g: 0, b: 255, a: 0.8 },
+};
 
 interface ColorBlendState {
   colorTop: Color;
@@ -48,11 +54,11 @@ class ColorBlend extends PureComponent {
           Computes the color when the <code>colorTop</code> and the <code>colorBottom</code> are overlapped. Different
           overlapping order will result in different colors.
         </p>
-        {/* <img
+        <img
           src="https://gw.alipayobjects.com/zos/antfincdn/kcm55MaLMt/coloroverlap.png"
           alt="color overlap"
           width="500"
-        ></img> */}
+        ></img>
         <div className="smart-color-example">
           <h4>Example:</h4>
           <div className="attr">
@@ -84,7 +90,7 @@ class ColorBlend extends PureComponent {
           <div className="attr">
             <div className="name">mode:</div>
             <Select value={mode} style={{ width: 160 }} onChange={this.handleModeChange}>
-              {BLEND_MODES.map((blendMode) => (
+              {BLEND_MODES.map((blendMode: BlendMode) => (
                 <Option value={blendMode} key={blendMode}>
                   {blendMode}
                 </Option>
