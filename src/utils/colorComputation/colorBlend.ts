@@ -1,6 +1,6 @@
 import { SEPARABLE_BLEND_MODES } from '../../constant';
 import { SeparableBlendMode, NonSeparableBlendMode, ColorBlend } from '../../types';
-import { arrayToColor, colorToArray } from '../colorConversion';
+import { colorToArray } from '../colorConversion';
 
 // ref: [wiki] https://en.wikipedia.org/wiki/Blend_modes
 // ref: [photoshop] https://www.deepskycolors.com/archivo/2010/04/21/formulas-for-Photoshop-blending-modes.html
@@ -105,16 +105,30 @@ const nonSeparableBlendFunc: Record<NonSeparableBlendMode, NonSeparableBlendFunc
 };
 
 export const colorBlend: ColorBlend = (colorTop, colorBottom, mode = 'normal') => {
-  const rgb1 = colorToArray(colorTop);
-  const rgb2 = colorToArray(colorBottom);
-
-  let rgb;
+  const [r1, g1, b1, a1] = colorToArray(colorTop, 'rgba');
+  const [r2, g2, b2, a2] = colorToArray(colorBottom, 'rgba');
+  const rgb1: RGBArr = [r1, g1, b1];
+  const rgb2: RGBArr = [r2, g2, b2];
+  let blendRgb;
   if (SEPARABLE_BLEND_MODES.includes(mode)) {
     const func = separableBlendFunc[mode];
-    rgb = rgb1.map((num1, index) => Math.floor(func(num1, rgb2[index]))) as RGBArr;
+    blendRgb = rgb1.map((num1, index) => Math.floor(func(num1, rgb2[index])));
   } else {
-    rgb = nonSeparableBlendFunc[mode](rgb1, rgb2);
+    blendRgb = nonSeparableBlendFunc[mode](rgb1, rgb2);
   }
 
-  return arrayToColor(rgb, 'rgb');
+  const a = a1 + a2 * (1 - a1);
+  const r = Math.round((a1 * (1 - a2) * r1 + a1 * a2 * blendRgb[0] + (1 - a1) * a2 * r2) / a);
+  const g = Math.round((a1 * (1 - a2) * g1 + a1 * a2 * blendRgb[1] + (1 - a1) * a2 * g2) / a);
+  const b = Math.round((a1 * (1 - a2) * b1 + a1 * a2 * blendRgb[2] + (1 - a1) * a2 * b2) / a);
+
+  if (a === 1)
+    return {
+      model: 'rgb',
+      value: { r, g, b },
+    };
+  return {
+    model: 'rgba',
+    value: { r, g, b, a },
+  };
 };

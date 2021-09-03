@@ -31,6 +31,25 @@ const color2 = colorOverlap(red, blue);
   <img src="https://gw.alipayobjects.com/zos/antfincdn/kcm55MaLMt/coloroverlap.png" alt="color overlap">
 </div>
 
+<a name="colorBlend" href="#colorBlend">#</a> **colorBlend**<i>(colorTop: Color, colorBottom: Color, mode: BlendMode='normal') => Color</i>
+
+Computes the blend color ( or mixed color ). 
+
+Valid [blend modes](https://en.wikipedia.org/wiki/Blend_modes) are `normal`, `darken`, `multiply`, `colorBurn`, `linearBurn`, `lighten`, `screen`, `colorDodge`, `linearDodge`, `overlay`, `softLight`, `hardLight`, `vividLight`, `linearLight`, `pinLight`, `difference`, `exclusion` , `hue`, `saturation`, `color`, `luminosity`. 
+
+```ts
+const colorTop = {
+  model: 'rgb',
+  value: { r: 91, g: 143, b: 249 }
+};
+const colorBottom = {
+  model:"rgb",
+  value:{r:97,g:221,b:170}
+};
+colorBlend(colorTop, colorBottom, "multiply");
+// { "model": "rgb", "value": { "r": 34, "g": 123, "b": 166 }}
+```
+
 <a name="colorBrighten" href="#colorBrighten">#</a> **colorBrighten**<i>(color: Color, value: number=1) => Color</i>
 
 Get brighter color. 
