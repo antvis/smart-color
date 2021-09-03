@@ -11,6 +11,9 @@ import {
   TENDENCIES,
   COLOR_DIFFERENCE_MEASURES,
   COLOR_AESTHETIC_MEASURES,
+  BLEND_MODES,
+  SEPARABLE_BLEND_MODES,
+  NON_SEPARABLE_BLEND_MODES,
 } from './constant';
 
 // color simulation
@@ -86,5 +89,9 @@ export type PaletteGeneration = (
 
 // color compution
 export type ColorOverlap = (colorTop: Color, colorBottom: Color) => Color;
+export type SeparableBlendMode = typeof SEPARABLE_BLEND_MODES[number];
+export type NonSeparableBlendMode = typeof NON_SEPARABLE_BLEND_MODES[number];
+export type BlendMode = typeof BLEND_MODES[number];
+export type ColorBlend = (colorTop: Color, colorBottom: Color, mode?: BlendMode) => Color;
 export type ColorDarken = (color: Color, value?: number) => Color;
 export type ColorBrighten = (color: Color, value?: number) => Color;
