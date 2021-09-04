@@ -5,7 +5,6 @@ export {
   colorToHex,
   hexToColor,
   nameToColor,
-  colorOverlap,
   colorBlend,
   colorBrighten,
   colorDarken,

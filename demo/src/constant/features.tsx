@@ -77,12 +77,8 @@ const features: Feature[] = [
   {
     name: 'Color Computation',
     url: '#colorComputation',
-    desc: <>Overlap colors, brighten or darken colors.</>,
+    desc: <>Blend colors, brighten or darken colors.</>,
     childeren: [
-      {
-        name: 'color overlap',
-        url: '#colorOverlap',
-      },
       {
         name: 'color blend',
         url: '#colorBlend',

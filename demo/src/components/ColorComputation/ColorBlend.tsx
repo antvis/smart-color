@@ -55,10 +55,26 @@ class ColorBlend extends PureComponent {
           overlapping order will result in different colors.
         </p>
         <img
-          src="https://gw.alipayobjects.com/zos/antfincdn/kcm55MaLMt/coloroverlap.png"
-          alt="color overlap"
+          src="https://gw.alipayobjects.com/zos/antfincdn/qKvUFLCEiD/overlap.png"
+          alt="color blend order"
           width="500"
-        ></img>
+        />
+        <p>
+          Valid{' '}
+          <a href="https://en.wikipedia.org/wiki/Blend_modes" target="_blank" rel="noreferrer">
+            blend modes
+          </a>{' '}
+          are <code>normal</code>, <code>darken</code>, <code>multiply</code>, <code>colorBurn</code>,{' '}
+          <code>linearBurn</code>, <code>lighten</code>, <code>screen</code>, <code>colorDodge</code>,{' '}
+          <code>linearDodge</code>, <code>overlay</code>, <code>softLight</code>, <code>hardLight</code>,{' '}
+          <code>vividLight</code>, <code>linearLight</code>, <code>pinLight</code>, <code>difference</code>,{' '}
+          <code>exclusion</code> , <code>saturation</code>, <code>color</code>, <code>luminosity</code>.
+        </p>
+        <img
+          src="https://gw.alipayobjects.com/zos/antfincdn/Jz%26koWbRhO/colorblend1.svg"
+          alt="color blend mode"
+          width="700"
+        />
         <div className="smart-color-example">
           <h4>Example:</h4>
           <div className="attr">
