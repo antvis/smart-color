@@ -14,7 +14,7 @@ In @antv/smart-color, we use the data structure [Color](https://github.com/antvi
 
 * [Color Evaluation](#color-evaluation): Evaluate color discriminability and aesthetics.
 
-* [Color Computation](#color-computation): Overlap colors, brighten or darken colors.
+* [Color Computation](#color-computation): Blend colors, brighten or darken colors.
 
 * [Color Convertion](#color-conversion): Convert color into different formats.
 
@@ -43,8 +43,7 @@ In @antv/smart-color, we use the data structure [Color](https://github.com/antvi
 
 ## Color Computation
 
-* [colorOverlap](./colorComputation.md#colorOverlap) - Compute the color when two colors are overlapped.
-* [colorBlend](./colorComputation.md#colorBlend) - Computes the blend color ( or mixed color ).
+* [colorBlend](./colorComputation.md#colorBlend) - Compute the color when two colors are overlapped.
 * [colorBrighten](./colorComputation.md#colorBrighten) - Compute the brighter color.
 * [colorDarken](./colorComputation.md#colorDarken) - Compute the darker color.
 

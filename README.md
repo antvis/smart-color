@@ -13,7 +13,7 @@ A JavaScript library for color computation.
 * **Palette Extraction**: Get palettes from strings and images.
 * **Color Simulation**: Simulate color blindness and color in grayscale.
 * **Color Evaluation**: Evaluate color discriminability and aesthetics.
-* **Color Computation**: Overlap colors, brighten or darken colors.
+* **Color Computation**: Blend colors, brighten or darken colors.
 * **Color Conversion**: Convert color into different formats.
 
 ## 📦 Installation

@@ -1,6 +1,5 @@
-export { colorOverlap } from './colorOverlap';
-export { colorBrighten, colorDarken } from './colorBrightenDarken';
 export { colorBlend } from './colorBlend';
+export { colorBrighten, colorDarken } from './colorBrightenDarken';
 
 export const hueOffset = (hue: number, dHue: number): number => {
   let newHue = (hue + dHue) % 360;

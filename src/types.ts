@@ -88,7 +88,6 @@ export type PaletteGeneration = (
 ) => CategoricalPalette | DiscreteScalePalette;
 
 // color compution
-export type ColorOverlap = (colorTop: Color, colorBottom: Color) => Color;
 export type SeparableBlendMode = typeof SEPARABLE_BLEND_MODES[number];
 export type NonSeparableBlendMode = typeof NON_SEPARABLE_BLEND_MODES[number];
 export type BlendMode = typeof BLEND_MODES[number];

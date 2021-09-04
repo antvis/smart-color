@@ -1,43 +1,40 @@
 # Color Conversion
 
-Overlap colors, brighten or darken colors.
+Blend colors, brighten or darken colors.
 
 ## Usage
 
-<a name="colorOverlap" href="#colorOverlap">#</a> **colorOverlap**<i>(colorTop: Color, colorBottom: Color) => Color</i>
+<a name="colorBlend" href="#colorBlend">#</a> **colorBlend**<i>(colorTop: Color, colorBottom: Color, mode: BlendMode='normal') => Color</i>
 
 Computes the color when two colors are overlapped. Different overlapping order will result in different colors.
 
+<div align="center">
+  <img src="https://gw.alipayobjects.com/zos/antfincdn/qKvUFLCEiD/overlap.png" alt="color blend order">
+</div>
+
+Valid [blend modes](https://en.wikipedia.org/wiki/Blend_modes) are `normal`, `darken`, `multiply`, `colorBurn`, `linearBurn`, `lighten`, `screen`, `colorDodge`, `linearDodge`, `overlay`, `softLight`, `hardLight`, `vividLight`, `linearLight`, `pinLight`, `difference`, `exclusion` , `hue`, `saturation`, `color`, `luminosity`. 
+
+<div align="center">
+  <img src="https://gw.alipayobjects.com/zos/antfincdn/0CC2apOOZz/colorblend.svg" alt="color blend mode">
+</div>
+
 ```ts
-import { colorOverlap } from '@antv/smart-color';
+import { colorBlend } from '@antv/smart-color';
 
 const red = {
   model: 'rgba',
   value: { r: 255, g: 0, b: 0, a: 0.4 },
 };
-
 const blue = {
   model: 'rgba',
   value: { r: 0, g: 0, b: 255, a: 0.8 },
 };
-
-const color1 = colorOverlap(blue, red);
+const color1 = colorBlend(blue, red);
 // { model: 'rgba', value: { r: 23, g: 0, b: 232, a: 0.88 } } 
-const color2 = colorOverlap(red, blue);
+const color2 = colorBlend(red, blue);
 // { model: 'rgba', value: { r: 116, g: 0, b: 139, a: 0.88 } }
-```
 
-<div align="center">
-  <img src="https://gw.alipayobjects.com/zos/antfincdn/kcm55MaLMt/coloroverlap.png" alt="color overlap">
-</div>
 
-<a name="colorBlend" href="#colorBlend">#</a> **colorBlend**<i>(colorTop: Color, colorBottom: Color, mode: BlendMode='normal') => Color</i>
-
-Computes the blend color ( or mixed color ). 
-
-Valid [blend modes](https://en.wikipedia.org/wiki/Blend_modes) are `normal`, `darken`, `multiply`, `colorBurn`, `linearBurn`, `lighten`, `screen`, `colorDodge`, `linearDodge`, `overlay`, `softLight`, `hardLight`, `vividLight`, `linearLight`, `pinLight`, `difference`, `exclusion` , `hue`, `saturation`, `color`, `luminosity`. 
-
-```ts
 const colorTop = {
   model: 'rgb',
   value: { r: 91, g: 143, b: 249 }
@@ -78,5 +75,5 @@ colorDarken(color, 3);
 ```
 
 <div align="center">
-  <img src="https://gw.alipayobjects.com/zos/antfincdn/jpiAxmGXJZ/brighten-darken.png" alt="color overlap">
+  <img src="https://gw.alipayobjects.com/zos/antfincdn/jpiAxmGXJZ/brighten-darken.png" alt="color brighten and darken">
 </div>
