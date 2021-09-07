@@ -1,5 +1,6 @@
-import { SEPARABLE_BLEND_MODES } from '../../constant';
+import { NON_SEPARABLE_BLEND_MODES, SEPARABLE_BLEND_MODES } from '../../constant';
 import { SeparableBlendMode, NonSeparableBlendMode, ColorBlend } from '../../types';
+import { includes } from '..';
 import { colorToArray } from '../colorConversion';
 
 // ref: [wiki] https://en.wikipedia.org/wiki/Blend_modes
@@ -105,16 +106,18 @@ const nonSeparableBlendFunc: Record<NonSeparableBlendMode, NonSeparableBlendFunc
 };
 
 export const colorBlend: ColorBlend = (colorTop, colorBottom, mode = 'normal') => {
-  const [r1, g1, b1, a1] = colorToArray(colorTop, 'rgba');
-  const [r2, g2, b2, a2] = colorToArray(colorBottom, 'rgba');
+  const [r1, g1, b1, a1] = colorToArray(colorTop, 'rgba') as [number, number, number, number];
+  const [r2, g2, b2, a2] = colorToArray(colorBottom, 'rgba') as [number, number, number, number];
   const rgb1: RGBArr = [r1, g1, b1];
   const rgb2: RGBArr = [r2, g2, b2];
   let blendRgb;
-  if (SEPARABLE_BLEND_MODES.includes(mode)) {
+  if (includes(SEPARABLE_BLEND_MODES, mode)) {
     const func = separableBlendFunc[mode];
     blendRgb = rgb1.map((num1, index) => Math.floor(func(num1, rgb2[index])));
-  } else {
+  } else if (includes(NON_SEPARABLE_BLEND_MODES, mode)) {
     blendRgb = nonSeparableBlendFunc[mode](rgb1, rgb2);
+  } else {
+    throw new Error(`mode ${mode} doesn't exist.`);
   }
 
   const a = a1 + a2 * (1 - a1);

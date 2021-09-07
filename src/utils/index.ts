@@ -11,5 +11,5 @@ export {
   nameToColor,
 } from './colorConversion';
 
-export { random, randomInt, clamp, cloneDeep } from './helper';
+export { random, randomInt, clamp, cloneDeep, includes } from './helper';
 export { rad2deg, deg2rad } from './degree';
