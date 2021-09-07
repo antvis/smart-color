@@ -11,6 +11,7 @@
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "strict": true,
     "pretty": true,
     "lib": ["dom", "ES2019"],
     "skipLibCheck": true,

@@ -45,7 +45,7 @@ export const SEPARABLE_BLEND_MODES = [
   'pinLight',
   'difference',
   'exclusion',
-];
+] as const;
 
 // Non-separable blend modes https://www.w3.org/TR/compositing/#blendingnonseparable
 export const NON_SEPARABLE_BLEND_MODES = ['hue', 'saturation', 'color', 'luminosity'] as const;
