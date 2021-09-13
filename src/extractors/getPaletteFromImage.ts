@@ -1,7 +1,10 @@
 import { Palette } from '@antv/color-schema';
 // @ts-ignore
-import quantize from 'quantize';
+// package quantize has error, when color number >= 7, https://github.com/olivierlesnicki/quantize/issues/9
+// However, the owner of the package did not merge the pr to fix the issue.
+// TODO: modified median cut quantization ts version
 import { loadImage, arrayToColor } from '../utils';
+import quantize from './quantize';
 
 // sample pixels in image
 const imageToPixels = (image: HTMLImageElement, quality: number): [number, number, number][] => {

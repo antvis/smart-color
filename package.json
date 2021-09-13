@@ -103,7 +103,6 @@
   "dependencies": {
     "@antv/color-schema": "^0.2.2",
     "chroma-js": "^2.1.2",
-    "color-blind": "^0.1.1",
-    "quantize": "^1.0.2"
+    "color-blind": "^0.1.1"
   }
 }
