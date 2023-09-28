@@ -1,5 +1,5 @@
 import { CategoricalPalette } from '@antv/color-schema';
-import { paletteOptimization, colorDifference, SimulationType, colorSimulation } from '@src/index';
+import { paletteOptimization, colorDifference, SimulationType, colorSimulation } from '../../../src/index';
 
 const getMinDifference = (palette: CategoricalPalette, simulationType: SimulationType = 'normal') => {
   let minDifference = Infinity;

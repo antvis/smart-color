@@ -1,5 +1,5 @@
 import { Color } from '@antv/color-schema';
-import { colorDifference } from '@src/index';
+import { colorDifference } from '../../../src/index';
 
 describe('contrast ratio', () => {
   const color1: Color = {

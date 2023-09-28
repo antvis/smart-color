@@ -17,7 +17,7 @@ import {
 } from './constant';
 
 // color simulation
-export type ColorBlindnessSimulationType = typeof COLOR_BLINDNESS_SIMULATION_TYPES[number];
+export type ColorBlindnessSimulationType = (typeof COLOR_BLINDNESS_SIMULATION_TYPES)[number];
 export type GrayscaleType = 'grayscale';
 export type SimulationType = ColorBlindnessSimulationType | GrayscaleType;
 export type ColorSimulation = (
@@ -27,7 +27,7 @@ export type ColorSimulation = (
 ) => Color;
 
 // professional test
-export type ColorDifferenceMeasure = typeof COLOR_DIFFERENCE_MEASURES[number];
+export type ColorDifferenceMeasure = (typeof COLOR_DIFFERENCE_MEASURES)[number];
 type ColorDifferenceGeneralConfiguration = {
   // If the color is semi-transparent, the color will be overlapped on the backgroundColor
   // default value: white
@@ -45,7 +45,7 @@ export type ColorDifferenceConfiguration = ColorDifferenceGeneralConfiguration &
       }
   );
 export type ColorDifference = (color1: Color, color2: Color, configuration?: ColorDifferenceConfiguration) => number;
-export type ColorAestheticMeasure = typeof COLOR_AESTHETIC_MEASURES[number];
+export type ColorAestheticMeasure = (typeof COLOR_AESTHETIC_MEASURES)[number];
 export type ColorAestheticConfiguration = {
   measure: ColorAestheticMeasure;
   // If the color is semi-transparent, the color will be overlapped on the backgroundColor
@@ -71,7 +71,7 @@ export type OptimizerConfiguration = {
 export type PaletteOptimization = (palette: Palette, configuration?: OptimizerConfiguration) => Palette;
 
 // palette generation
-type Tendency = typeof TENDENCIES[number];
+type Tendency = (typeof TENDENCIES)[number];
 export type GeneratorConfiguration = {
   count?: number;
   // basic color
@@ -88,9 +88,9 @@ export type PaletteGeneration = (
 ) => CategoricalPalette | DiscreteScalePalette;
 
 // color compution
-export type SeparableBlendMode = typeof SEPARABLE_BLEND_MODES[number];
-export type NonSeparableBlendMode = typeof NON_SEPARABLE_BLEND_MODES[number];
-export type BlendMode = typeof BLEND_MODES[number];
+export type SeparableBlendMode = (typeof SEPARABLE_BLEND_MODES)[number];
+export type NonSeparableBlendMode = (typeof NON_SEPARABLE_BLEND_MODES)[number];
+export type BlendMode = (typeof BLEND_MODES)[number];
 export type ColorBlend = (colorTop: Color, colorBottom: Color, mode?: BlendMode) => Color;
 export type ColorDarken = (color: Color, value?: number) => Color;
 export type ColorBrighten = (color: Color, value?: number) => Color;

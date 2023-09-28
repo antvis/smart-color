@@ -1,6 +1,6 @@
 import { Color } from '@antv/color-schema';
-import { colorBlend, colorToHex, hexToColor } from '@src/index';
-import { WHITE } from '@src/constant';
+import { colorBlend, colorToHex, hexToColor } from '../../../src/index';
+import { WHITE } from '../../../src/constant';
 
 const colorTop: Color = { model: 'rgb', value: { r: 91, g: 143, b: 249 } };
 const colorBottom: Color = { model: 'rgb', value: { r: 97, g: 221, b: 170 } };

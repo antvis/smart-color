@@ -1,5 +1,5 @@
 import EventEmitter from 'wolfy87-eventemitter';
-import { getPaletteFromImage } from '@src/index';
+import { getPaletteFromImage } from '../../../src/index';
 
 describe('import palette by image', () => {
   beforeAll(() => {
@@ -21,7 +21,7 @@ describe('import palette by image', () => {
         }
       }
 
-      addEventListener(event, callback) {
+      addEventListener(event: string, callback: Function) {
         this.ee.addListener(event, callback);
       }
 

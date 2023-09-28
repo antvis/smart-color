@@ -35,22 +35,12 @@
     "ava",
     "color"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/antvis/smart-color.git"
+  "dependencies": {
+    "@antv/color-schema": "^0.2.2",
+    "chroma-js": "^2.1.2",
+    "color-blind": "^0.1.1",
+    "quantize": "^1.0.2"
   },
-  "author": {
-    "name": "AntV",
-    "url": "https://antv.vision/"
-  },
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
-  "bugs": {
-    "url": "https://github.com/antvis/smart-color/issues"
-  },
-  "homepage": "https://antvis.github.io/smart-color",
   "devDependencies": {
     "@babel/runtime": "^7.14.6",
     "@commitlint/cli": "^12.1.4",
@@ -100,9 +90,21 @@
       "limit": "24 Kb"
     }
   ],
-  "dependencies": {
-    "@antv/color-schema": "^0.2.2",
-    "chroma-js": "^2.1.2",
-    "color-blind": "^0.1.1"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antvis/smart-color.git"
+  },
+  "author": {
+    "name": "AntV",
+    "url": "https://antv.vision/"
+  },
+  
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/antvis/smart-color/issues"
+  },
+  "homepage": "https://antvis.github.io/smart-color",
+  "license": "MIT"
 }

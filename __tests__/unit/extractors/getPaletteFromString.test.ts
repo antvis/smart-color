@@ -1,4 +1,4 @@
-import { getPaletteFromString } from '@src/index';
+import { getPaletteFromString } from '../../../src/index';
 
 describe('import palette', () => {
   test('import palette by string', () => {
