@@ -1,5 +1,5 @@
-import { hueOffset } from '@src/utils/colorComputation';
-import { hexToColor, colorToHex, colorDarken, colorBrighten } from '@src/index';
+import { hueOffset } from '../../../src/utils/colorComputation';
+import { hexToColor, colorToHex, colorDarken, colorBrighten } from '../../../src/index';
 
 describe('Color computation', () => {
   test('hue offset', () => {

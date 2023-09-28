@@ -1,5 +1,5 @@
 import { Color } from '@antv/color-schema';
-import { arrayToColor, colorToArray, colorToGray, hexToColor, colorToHex, nameToColor } from '@src/index';
+import { arrayToColor, colorToArray, colorToGray, hexToColor, colorToHex, nameToColor } from '../../../src/index';
 
 const black: Color = {
   model: 'rgb',

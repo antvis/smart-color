@@ -1,5 +1,5 @@
 import { Color, RGBAColor } from '@antv/color-schema';
-import { colorToGray, invertGrayscale, colorSimulation } from '@src/index';
+import { colorToGray, invertGrayscale, colorSimulation } from '../../../src/index';
 
 describe('grayscale', () => {
   const rgb: Color = {

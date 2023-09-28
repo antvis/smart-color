@@ -6,6 +6,12 @@
 A JavaScript library for color computation.
 </div>
 
+[![Build Status](https://github.com/antvis/smart-color/workflows/build/badge.svg?branch=master)](https://github.com/antvis/smart-color/actions)
+[![Coverage Status](https://img.shields.io/coveralls/github/antvis/smart-color/master.svg)](https://coveralls.io/github/antvis/smart-color?branch=master)
+[![npm Version](https://img.shields.io/npm/v/@antv/smart-color.svg)](https://www.npmjs.com/package/@antv/smart-color)
+[![npm Download](https://img.shields.io/npm/dm/@antv/smart-color.svg)](https://www.npmjs.com/package/@antv/smart-color)
+[![npm License](https://img.shields.io/npm/l/@antv/smart-color.svg)](https://www.npmjs.com/package/@antv/smart-color)
+
 ## ✨ Features
 
 * **Palette Generation**: Generate categorical or discrete scale palette based on [color scheme](https://github.com/neoddish/color-palette-json-schema#colorschemetype).

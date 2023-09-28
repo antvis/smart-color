@@ -1,6 +1,6 @@
 import { NON_SEPARABLE_BLEND_MODES, SEPARABLE_BLEND_MODES } from '../../constant';
 import { SeparableBlendMode, NonSeparableBlendMode, ColorBlend } from '../../types';
-import { includes } from '..';
+import { includes } from '../helper';
 import { colorToArray } from '../colorConversion';
 
 // ref: [wiki] https://en.wikipedia.org/wiki/Blend_modes

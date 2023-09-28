@@ -1,5 +1,5 @@
 import { Color } from '@antv/color-schema';
-import { paletteGeneration, colorToArray, colorToHex } from '@src/index';
+import { paletteGeneration, colorToArray, colorToHex } from '../../../src/index';
 
 describe('Palette Generator', () => {
   const color: Color = { model: 'rgb', value: { r: 123, g: 123, b: 0 } };
